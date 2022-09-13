@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THL&reg; US Official Site</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- SCRIPTS -->
+    <script src="/index.js"></script>
+    <script src="/item-carousel.js"></script>
+</head>
+<body>    
+    <div id="offline-site">
+        <div id="temp"></div>
+        <!-- <img id="offline-logo" src="/imgs/THL_OfflineLogo(new).png"> -->
+        <div id="offline-msg" >
+            <img id="offline-logo" src="/imgs/THL_OfflineLogo(new).png">
+            <p id="countdown">&nbsp;</p>
+            <p>While you're here... join our email list to be notified for future events and when we go live!</p>
+            <form class="email-inputform">
+                <input id="email-input" type="text" id="fname" name="fname" placeholder="Email address"><br>
+                <button id="submit-btn">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="online-site">
+        <div id="top-banner" class="animate__animated animate__slideInRight">
+            <div id="scroll-text"><span style="margin-right: 25vw;">THL FW 2023 DROP IS NOW LIVE</span><span style="margin-right: 25vw;">THL FW 2023 DROP EST MAINTENANT DISPONIBLE</span><span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;">مفتوح الآن </span>THL 2023<span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;"> سوق خريف/شتاء</span></div>
+        </div>
+    
+        <div id="site-wrapper">
+            <div id="bag-flyout">
+                <img id="empty-bag-msg" src="/imgs/empty-bag-msg-1.png">
+        
+                <div id="my-bag">
+                    <p id="my-bag-header">MY BAG</p>
+                    <div class="divider"></div>
+        
+                    <ul id="bag-items"></ul>
+                    <ul id="bag-item-qtys"></ul>
+        
+                    <div class="clear"></div>
+                </div>
+        
+                <div id="bag-overview">
+                    <p class="overview-title">TOTAL</p>
+                    <div class="divider" style="background-color: white;"></div>
+                    <table>
+                        <tr>
+                            <td>
+                                <p class="overview-header">Sub-total</p>
+                            </td>
+                            <td>
+                                <p class="overview-value" id="subtotal-value">0 USD</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="overview-header">Shipping</p>
+                            </td>
+                            <td>
+                                <p class="overview-value" title="Shipping and sales tax will be calculated at checkout" id="shipping-value">i</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="overview-header">Sales tax</p>
+                            </td>
+                            <td>
+                                <p class="overview-value" title="Shipping and sales tax will be calculated at checkout" id="salestax-value">i</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div id="checkout-btn-container" title="Checkout unavailable while cart is empty">
+                    <button id="checkout-btn">CHECKOUT</button>
+                </div>
+        
+            </div>
+        </div>
+    
+        <div id="user-bag" onclick="triggerBag()">
+            <img src="/imgs/bag-icon.png">
+        </div>
+        <p id="user-bag-qty" onclick="triggerBag()">0</p>
+    
+        <div id="home">
+            <div id="home-hider"></div>
+            <img id="thl-logo" src="/imgs/THL_OriginalLogo.png" onclick="triggerShop()">
+            <!-- <img src="/imgs/THL_TextLogo-white(updated).png"> -->
+            <!-- <div class="break"></div> -->
+            <button id="shop-btn" onclick="triggerShop();">SHOP NOW</button>
+        </div>
+        
+        <div id="shop-container">
+            <div id="shop">
+                <div class="item" id="item-1">
+                    <table class="item-desc">
+                        <tr>
+                            <td class="item-name">ITEM 1 NAME</td>
+                            <td class="item-price">??? USD</td>
+                        </tr>
+                        <tr>
+                            <td class="item-sizing">ONE SIZE FITS ALL</td>
+                        </tr>
+                    </table>
+                    <div class="arrows">
+                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                    </div>
+                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                </div>
+                <div class="item-preview" id="item-1-preview">
+                    <div class="item-preview-header">
+                        <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                    </div>
+                    <div class="size-select">
+                        <label for="sizes">
+                            <select name="sizes" id="item-1-sizes">
+                                <option value="none" selected disabled hidden>Select a size</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item-preview-desc">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
+                    </div>
+                    <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                    <p class="back2store-btn" onclick="returnFromPreview()">
+                        <span style="font-weight: bold">&lt;</span>
+                        &nbsp;&nbsp;Back to store
+                    </p>
+                </div>
+                <div class="item" id="item-2">
+                    <table class="item-desc">
+                        <tr>
+                            <td class="item-name">ITEM 2 NAME</td>
+                            <td class="item-price">??? USD</td>
+                        </tr>
+                        <tr>
+                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                        </tr>
+                    </table>
+                    <div class="arrows">
+                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                    </div>
+                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                </div>
+                <div class="item-preview" id="item-2-preview">
+                    <div class="item-preview-header">
+                        <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                    </div>
+                    <div class="size-select">
+                        <label for="sizes">
+                            <select name="sizes" id="item-2-sizes">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item-preview-desc">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
+                    </div>
+                    <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                    <p class="back2store-btn" onclick="returnFromPreview()">
+                        <span style="font-weight: bold">&lt;</span>
+                        &nbsp;&nbsp;Back to store
+                    </p>
+                </div>
+                <div class="item" id="item-3">
+                    <table class="item-desc">
+                        <tr>
+                            <td class="item-name">ITEM 3 NAME</td>
+                            <td class="item-price">??? USD</td>
+                        </tr>
+                        <tr>
+                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                        </tr>
+                    </table>
+                    <div class="arrows">
+                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                    </div>
+                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                </div>
+                <div class="item-preview" id="item-3-preview">
+                    <div class="item-preview-header">
+                        <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                    </div>
+                    <div class="size-select">
+                        <label for="sizes">
+                            <select name="sizes" id="item-3-sizes">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item-preview-desc">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
+                    </div>
+                    <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                    <p class="back2store-btn" onclick="returnFromPreview()">
+                        <span style="font-weight: bold">&lt;</span>
+                        &nbsp;&nbsp;Back to store
+                    </p>
+                </div>
+                <div class="item" id="item-4">
+                    <table class="item-desc">
+                        <tr>
+                            <td class="item-name">ITEM 4 NAME</td>
+                            <td class="item-price">??? USD</td>
+                        </tr>
+                        <tr>
+                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                        </tr>
+                    </table>
+                    <div class="arrows">
+                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                    </div>
+                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                </div>
+                <div class="item-preview" id="item-4-preview">
+                    <div class="item-preview-header">
+                        <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                    </div>
+                    <div class="size-select">
+                        <label for="sizes">
+                            <select name="sizes" id="item-4-sizes">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item-preview-desc">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
+                    </div>
+                    <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                    <p class="back2store-btn" onclick="returnFromPreview()">
+                        <span style="font-weight: bold">&lt;</span>
+                        &nbsp;&nbsp;Back to store
+                    </p>
+                </div>
+                <div class="item" id="item-5">
+                    <table class="item-desc">
+                        <tr>
+                            <td class="item-name">ITEM 5 NAME</td>
+                            <td class="item-price">??? USD</td>
+                        </tr>
+                        <tr>
+                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                        </tr>
+                    </table>
+                    <div class="arrows">
+                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                    </div>
+                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                </div>
+                <div class="item-preview" id="item-5-preview">
+                    <div class="item-preview-header">
+                        <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                    </div>
+                    <div class="size-select">
+                        <label for="sizes">
+                            <select name="sizes" id="item-5-sizes">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item-preview-desc">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
+                    </div>
+                    <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                    <p class="back2store-btn" onclick="returnFromPreview()">
+                        <span style="font-weight: bold">&lt;</span>
+                        &nbsp;&nbsp;Back to store
+                    </p>
+                </div>
+                <div class="item" id="item-6">
+                    <table class="item-desc">
+                        <tr>
+                            <td class="item-name">ITEM 6 NAME</td>
+                            <td class="item-price">??? USD</td>
+                        </tr>
+                        <tr>
+                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                        </tr>
+                    </table>
+                    <div class="arrows">
+                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                    </div>
+                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                </div>
+                <div class="item-preview" id="item-6-preview">
+                    <div class="item-preview-header">
+                        <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                    </div>
+                    <div class="size-select">
+                        <label for="sizes">
+                            <select name="sizes" id="item-6-sizes">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item-preview-desc">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
+                    </div>
+                    <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                    <p class="back2store-btn" onclick="returnFromPreview()">
+                        <span style="font-weight: bold">&lt;</span>
+                        &nbsp;&nbsp;Back to store
+                    </p>
+                </div>
+                <div class="flex-break"></div>
+            </div>
+        </div>
+        <div id="about-container">
+            <div id="about">
+                <p>"Arabic culture" x "Western street wear"</p>
+                <p>We are a street wear clothing line that aims to embody the artistic styles present within the arabic world and bring them to the forefront of western fashion.</p>
+                <span id="dissapointment">
+                    <p><br>Dissapointing our 1st-gen parents one garment at a time <3</p>
+                </span>
+            </div>
+        </div>
+        <div id="contact-container">
+            <div id="contact">
+                <table id="contact-table">
+                    <tr>
+                        <td>General Inquiries &nbsp;&nbsp;&nbsp; //</td>
+                        <td style="padding-left: 24px; user-select: text; -moz-user-select: text; -khtml-user-select: text; -webkit-user-select: text; -ms-user-select: text;">thehabibiline.mgmt@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram &nbsp;&nbsp;&nbsp; //</td>
+                        <td style="padding-left: 24px;">
+                            <a href="https://instagram.com/thehabibiline" target="_blank">
+                                <div id="contact-ig"></div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Twitter &nbsp;&nbsp;&nbsp; //</td>
+                        <td style="padding-left: 24px;">
+                            <a href="https://twitter.com/thehabibiline" target="_blank">
+                                <div id="contact-tw"></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="footer" class="footer">
+            <p onclick="triggerHome();">HOME</p>
+            <p onclick="triggerAbout();">ABOUT</p>
+            <p onclick="triggerShop();">SHOP</p>
+            <p onclick="triggerContact();">CONTACT</p>
+            <p onclick="">LOOKBOOK</p>
+        </div>
+    </div>
+</body>
+<script src="/livesite.js"></script>
+<script src="/livebg.js"></script>
+</html>
