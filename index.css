@@ -148,9 +148,6 @@ body #offline-site .email-inputform #submit-btn {
 body #offline-site .email-inputform #submit-btn:hover {
   background-color: rgb(255, 150, 112);
 }
-body #online-site #site-wrapper {
-  display: none;
-}
 body #top-banner {
   width: 100vw;
   background-color: #ff7f50;
