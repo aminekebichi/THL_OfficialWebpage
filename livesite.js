@@ -1,6 +1,7 @@
 var dropDate = new Date("Nov 18, 2022 18:00:00").getTime();
-dropDate = new Date("Sep 13, 2022 14:51:00").getTime();
+dropDate = new Date("Sep 23, 2022 20:12:00").getTime();
 var sitelive = true;
+var displaysite = false;
 
 document.getElementById('home').style.display = "none";
 document.getElementById('home').style.opacity = "0";
@@ -47,6 +48,7 @@ if(sitelive){
                 document.getElementById("countdown").innerHTML = "LIVE";
                 // document.getElementById("countdown").style.color = "coral";
                 document.getElementById("top-banner").style.display = "block";
+                document.getElementById("online-site").style.display = "block";
                 setTimeout(() => {
                     document.getElementById('offline-site').style.opacity = '0';
                     document.getElementById('home').style.display = "flex";
