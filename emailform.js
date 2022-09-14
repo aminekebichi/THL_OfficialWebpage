@@ -30,10 +30,12 @@ function emailErrorForm(){
     const elem = document.getElementById('email-input');
     elem.style.background = "rgb(255, 169, 169)";
     document.getElementById('emailform-error-msg').style.opacity = 1;
+    document.getElementById('email-form').className = "email-inputform animate__animated animate__shakeX";
     setTimeout(() => {
         elem.style.background = "white";
     }, 1000);
     setTimeout(() => {
         document.getElementById('emailform-error-msg').style.opacity = 0;
+        document.getElementById('email-form').className = "email-inputform";
     }, 3000);
 }
