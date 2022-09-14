@@ -14,7 +14,7 @@ html {
 body{
     margin: 0;
     padding: 0;
-    background-image: url("/imgs/THL_HomePage_BG2.jpg");
+    background-image: url("/imgs/THL_HomePage_BG3.jpg");
     background-attachment: fixed;
     font-family: $primary-font;
 
@@ -35,7 +35,7 @@ body{
         display: flex;
         justify-content: center;
         text-align: center;
-        background-image: url("/imgs/homepageBG4.jpg");
+        background-image: url("/imgs/homepageBG5.jpg");
         width: 100%;
         height: 100%;
         position: fixed;
@@ -656,6 +656,8 @@ body{
                         opacity: 0;
                         transition: 0.6s;
 
+                        transform: translateY(-40px);
+
                         .left-arrow, .right-arrow{
                             font-family: $secondary-font;
                             font-size: 18px;
@@ -722,7 +724,7 @@ body{
 
                 #item-1:hover, #item-2:hover, #item-3:hover:hover, #item-4:hover, #item-5:hover, #item-6:hover{
                     .item-desc, .arrows, .preview-btn{
-                        opacity: 0.8;
+                        opacity: 1;
                     }
                     .preview-btn:hover{
                         opacity: 1;

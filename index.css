@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("/imgs/THL_HomePage_BG2.jpg");
+  background-image: url("/imgs/THL_HomePage_BG3.jpg");
   background-attachment: fixed;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   -moz-user-select: none;
@@ -24,7 +24,7 @@ body #offline-site {
   display: flex;
   justify-content: center;
   text-align: center;
-  background-image: url("/imgs/homepageBG4.jpg");
+  background-image: url("/imgs/homepageBG5.jpg");
   width: 100%;
   height: 100%;
   position: fixed;
@@ -493,6 +493,7 @@ body #online-site #shop-container #shop .item .arrows {
   width: 100%;
   opacity: 0;
   transition: 0.6s;
+  transform: translateY(-40px);
 }
 body #online-site #shop-container #shop .item .arrows .left-arrow, body #online-site #shop-container #shop .item .arrows .right-arrow {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -540,7 +541,7 @@ body #online-site #shop-container #shop #item-1, body #online-site #shop-contain
   display: block;
 }
 body #online-site #shop-container #shop #item-1:hover .item-desc, body #online-site #shop-container #shop #item-1:hover .arrows, body #online-site #shop-container #shop #item-1:hover .preview-btn, body #online-site #shop-container #shop #item-2:hover .item-desc, body #online-site #shop-container #shop #item-2:hover .arrows, body #online-site #shop-container #shop #item-2:hover .preview-btn, body #online-site #shop-container #shop #item-3:hover:hover .item-desc, body #online-site #shop-container #shop #item-3:hover:hover .arrows, body #online-site #shop-container #shop #item-3:hover:hover .preview-btn, body #online-site #shop-container #shop #item-4:hover .item-desc, body #online-site #shop-container #shop #item-4:hover .arrows, body #online-site #shop-container #shop #item-4:hover .preview-btn, body #online-site #shop-container #shop #item-5:hover .item-desc, body #online-site #shop-container #shop #item-5:hover .arrows, body #online-site #shop-container #shop #item-5:hover .preview-btn, body #online-site #shop-container #shop #item-6:hover .item-desc, body #online-site #shop-container #shop #item-6:hover .arrows, body #online-site #shop-container #shop #item-6:hover .preview-btn {
-  opacity: 0.8;
+  opacity: 1;
 }
 body #online-site #shop-container #shop #item-1:hover .preview-btn:hover, body #online-site #shop-container #shop #item-2:hover .preview-btn:hover, body #online-site #shop-container #shop #item-3:hover:hover .preview-btn:hover, body #online-site #shop-container #shop #item-4:hover .preview-btn:hover, body #online-site #shop-container #shop #item-5:hover .preview-btn:hover, body #online-site #shop-container #shop #item-6:hover .preview-btn:hover {
   opacity: 1;

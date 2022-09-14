@@ -44,23 +44,23 @@ function updateBag(){
 
     // document.getElementById('subtotal-value').innerHTML = getBagTotal() +  ` USD`;
     let price_str = String(document.getElementById('subtotal-value').innerHTML);
-    let price = Number(price_str.split(" ")[0]);
+    let prevTotal = Number(price_str.split(" ")[0]);
 
-    console.log('PRICE: ' + price);
+    // console.log('PRICE: ' + prevTotal);
 
-    if(price > getBagTotal()){
-        decNbrRec(price, getBagTotal(), document.getElementById('subtotal-value'));
+    if(prevTotal > getBagTotal()){
+        decNbrRec(prevTotal, getBagTotal(), document.getElementById('subtotal-value'));
     } else {
-        incNbrRec(price, getBagTotal(), document.getElementById('subtotal-value'));
+        incNbrRec(prevTotal, getBagTotal(), document.getElementById('subtotal-value'));
     }
 
-    console.log('subtotal: ' + getBagTotal());
+    // console.log('subtotal: ' + getBagTotal());
 }
 
 function incrementItem(elem){
-    console.log(elem.parentNode);
+    // console.log(elem.parentNode);
     var bagged_item_i = elem.parentNode.id.split('-')[2];
-    console.log('bagged_item_i: ', bagged_item_i);
+    // console.log('bagged_item_i: ', bagged_item_i);
     currentBag[bagged_item_i][2]++;
 
     document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
@@ -74,7 +74,7 @@ function incrementItem(elem){
 
 function decrementItem(elem){
     var bagged_item_i = elem.parentNode.id.split('-')[2];
-    console.log('bagged_item_i: ' + bagged_item_i);
+    // console.log('bagged_item_i: ' + bagged_item_i);
     if(currentBag[bagged_item_i][2] != 0){
         currentBag[bagged_item_i][2]--;
         document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
@@ -111,6 +111,8 @@ function add2bag(elem){
     var item_size = document.getElementById('item-'+item_num+'-sizes').value;
     var item_arr = [item_num,item_size,1];
 
+    // console.log(item_num);
+
     if(item_size === "none"){
         errorForm(item_num);
     } else {
@@ -127,8 +129,10 @@ function add2bag(elem){
             li.classList.add("animate__animated", "animate__fadeIn");
             li.innerHTML = `
             <span style="margin-right: 10px;">ITEM #` + item_num + `</span>[` + item_size +`]<br>
-            <span style="color: grey;">`+ currentPricing[item_num] + ` USD</span>
+            <span style="color: grey;">`+ currentPricing[item_num-1] + ` USD</span>
             `;
+
+            // console.log(currentPricing[item_num-1]);
 
             var li_qty = document.createElement("li");
             li_qty.id = 'bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty';
@@ -143,8 +147,8 @@ function add2bag(elem){
             document.getElementById('bag-item-qtys').appendChild(li_qty);
 
         } else {
-            console.log('INC ITEM!');
-            console.log('item-i: ' + getItemIndex(currentBag, item_arr));
+            // console.log('INC ITEM!');
+            // console.log('item-i: ' + getItemIndex(currentBag, item_arr));
             currentBag[getItemIndex(currentBag, item_arr)][2] += 1;
 
             document.getElementById('bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty').innerHTML = `
@@ -156,8 +160,8 @@ function add2bag(elem){
 
         updateBag();
     
-        console.log('adding item-' + item_num + ', ' + item_size + ' to bag.\nitem-freq = ' + currentBag[getItemIndex(currentBag, item_arr)][2]);
-        console.log("current bag: ", currentBag);
+        // console.log('adding item-' + item_num + ', ' + item_size + ' to bag.\nitem-freq = ' + currentBag[getItemIndex(currentBag, item_arr)][2]);
+        // console.log("current bag: ", currentBag);
 
     }
 
@@ -217,11 +221,12 @@ function previewItem1(){
         document.getElementById("item-1-preview").style.display = "block";
 
         goTop();
-        document.body.style.overflowY = "hidden";
+        // document.body.style.overflowY = "hidden";
     }, 600);
 
     setTimeout(() => {
         document.getElementById("shop").style.columnGap = "50px";
+        document.getElementById("shop").style.rowGap = "50px";
         document.getElementById("shop").style.opacity = "1";
     }, 800);
 
@@ -247,6 +252,7 @@ function previewItem2(){
         document.getElementById("item-2-preview").style.display = "block";
 
         document.getElementById("shop").style.columnGap = "50px";
+        document.getElementById("shop").style.rowGap = "50px";
         document.getElementById("shop").style.opacity = "1";
     }, 600);
 
@@ -272,6 +278,7 @@ function previewItem3(){
         document.getElementById("item-3-preview").style.display = "block";
 
         document.getElementById("shop").style.columnGap = "50px";
+        document.getElementById("shop").style.rowGap = "50px";
         document.getElementById("shop").style.opacity = "1";
     }, 600);
 
@@ -297,6 +304,7 @@ function previewItem4(){
         document.getElementById("item-4-preview").style.display = "block";
 
         document.getElementById("shop").style.columnGap = "50px";
+        document.getElementById("shop").style.rowGap = "50px";
         document.getElementById("shop").style.opacity = "1";
     }, 600);
 
@@ -322,6 +330,7 @@ function previewItem5(){
         document.getElementById("item-5-preview").style.display = "block";
 
         document.getElementById("shop").style.columnGap = "50px";
+        document.getElementById("shop").style.rowGap = "50px";
         document.getElementById("shop").style.opacity = "1";
     }, 600);
 
@@ -347,6 +356,7 @@ function previewItem6(){
         document.getElementById("item-6-preview").style.display = "block";
 
         document.getElementById("shop").style.columnGap = "50px";
+        document.getElementById("shop").style.rowGap = "50px";
         document.getElementById("shop").style.opacity = "1";
     }, 600);
 
@@ -357,23 +367,17 @@ function previewItem(parent){
     var item_num = Number(id.slice(-1));
 
     switch(item_num){
-        case 1: console.log("item 1");
-                previewItem1();
+        case 1: previewItem1();
                 break;
-        case 2: console.log("item 2");
-                previewItem2();
+        case 2: previewItem2();
                 break;
-        case 3: console.log("item 3");
-                previewItem3();
+        case 3: previewItem3();
                 break;
-        case 4: console.log("item 4");
-                previewItem4();
+        case 4: previewItem4();
                 break;
-        case 5: console.log("item 5");
-                previewItem5();
+        case 5: previewItem5();
                 break;
-        case 6: console.log("item 6");
-                previewItem6();
+        case 6: previewItem6();
                 break;
     }
 
@@ -407,6 +411,8 @@ function resetSizeSelections() {
 
 function returnFromPreview(){    
     document.getElementById("shop").style.opacity = "0";
+    document.getElementById("shop").style.rowGap = "100px";
+
     setTimeout(() => {
         document.getElementById("shop").style.columnGap = "200px";
 
@@ -487,7 +493,7 @@ function hideHome(){
 }
 
 function showShop(){
-    console.log("show shop!");
+    // console.log("show shop!");
     if(inPreview){
         returnFromPreview();
         inPreview = false;
