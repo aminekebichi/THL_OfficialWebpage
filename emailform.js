@@ -9,12 +9,14 @@ function submitEmail(){
 
 function isValidEmail(param){
     var str = String(param);
-    if (str.includes('@') && str.includes('.') && charFreq(str, '@') === 1){
+    if (charFreq(str, '@') === 1 && str.includes('.')){
         var temp = str.split('@');
-        for (var i = 0; i < temp.length; i++){
-            if(temp[i].length < 1) {
-                return false;
-            }
+        if(temp[0].length < 1 || temp[1].length < 1) {
+            return false;
+        }
+        var temp2 = temp[1].split('.');
+        if(temp2.length != 2 || temp2[0].length < 1 || temp2[1].length < 1){
+            return false;
         }
         return true;
     } else {
