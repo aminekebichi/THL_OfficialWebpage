@@ -1,7 +1,3 @@
-$("#email-form").submit(function(e) {
-    e.preventDefault();
-});
-
 function submitEmail(){
     const val = document.getElementById("email-input").value;
     if(isValidEmail(val)){
@@ -13,7 +9,7 @@ function submitEmail(){
 
 function isValidEmail(param){
     var str = String(param);
-    if (str.includes('@') && str.includes('.')){
+    if (str.includes('@') && str.includes('.') && charFreq(str, '@') === 1){
         var temp = str.split('@');
         for (var i = 0; i < temp.length; i++){
             if(temp[i].length < 1) {
@@ -24,6 +20,17 @@ function isValidEmail(param){
     } else {
         return false;
     }
+}
+
+function charFreq(str, ch){
+    var counter = 0;
+    for(var i = 0; i < str.length; i++){
+        if(str.charAt(i) === ch){
+            counter++;
+        }
+    }
+
+    return counter;
 }
 
 function emailErrorForm(){
