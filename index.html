@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THL&reg; US Official Site</title>
+    <!-- <title>THL&reg; US Official Site</title> -->
+    <title>THL&#8482; US Official Site</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="mobile_styles.css">
+    <link rel="stylesheet" href="checkout_form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- SCRIPTS -->
     <script src="/index.js"></script>
     <script src="/item-carousel.js"></script>
     <script src="/emailform.js"></script>
+    <script src="/checkout.js"></script>
 </head>
 <body>    
     <div id="offline-site">
@@ -23,12 +26,14 @@
         <div id="offline-msg">
             <img id="offline-logo" src="/imgs/THL_OfflineLogo(new).png">
             <p id="countdown">&nbsp;</p>
-            <p>While you're here... join our email list to be notified for future events and when we go live!</p>
+            <!-- <p>While you're here... join our email list to be notified for future events and when we go live!</p>
             <form id="email-form" class="email-inputform" onsubmit="submitEmail(); return false;">
                 <input id="email-input" type="text" id="fname" name="fname" placeholder="Email address"><br>
                 <button type="button" id="submit-btn" onclick="submitEmail()">SUBMIT</button>
             </form>
-            <p id="emailform-error-msg" style="min-width: 400px;">Please enter a valid email address</p>
+            <p id="emailform-error-msg" style="min-width: 400px;">Please enter a valid email address</p> -->
+
+            <p style="font-style: italic; margin: 0; transform: translateY(-5px);">Thank you for your patience.<br>We are working on putting together the next drop.</p>
         </div>
     </div>
     
@@ -38,8 +43,80 @@
         </div>
     
         <div id="site-wrapper">
+            <!-- lets make it so that the input forms slide in from the left
+            and the checkout summary (images, pricing, etc) slides in from the right -->
+            <div id="checkout-form-divider"></div>
+            <div id="checkout-form-wrapper" style="display: none !important;">
+                <div id="checkout-form">
+                    <p>Shipping Information</p>
+                    <form id="checkout-form-email" onsubmit="return false;">
+                        <input id="checkout-input-email" type="text" id="femail" name="femail" placeholder="Email address"><br>
+                    </form>
+                    <form id="checkout-form-delivery-address">
+                        <input id="delivery-address-first-name" type="text" id="fdeladdfname" name="ffname" placeholder="First Name"></input><br>
+                        <input id="delivery-address-last-name" type="text" id="fdeladdlname" name="flname" placeholder="Last Name"></input><br>
+                        <input id="delivery-address-mobile" type="text" id="fdeladdmobile" name="fmobile" placeholder="Phone (required for shipping)"></input><br>
+                        <input id="delivery-address-street" type="text" id="fdeladdstreet" name="fstreet" placeholder="Address"></input><br>
+                        <input id="delivery-address-aptnum" type="text" id="fdeladdaptnum" name="faptnum" placeholder="Apartment, suite, etc. (optional)"></input><br>
+                        <input id="delivery-address-city" type="text" id="fdeladdcity" name="fcity" placeholder="City" style="width: 100px;"></input>
+                        <input id="delivery-address-state" type="text" id="fdeladdstate" name="fstreet" placeholder="State" style="width: 100px;"></input>
+                        <input id="delivery-address-zip" type="text" id="fdeladdzip" name="fzip" placeholder="Zip Code" style="width: 100px;"></input>
+                    </form>
+                    <form id="checkout-form-delivery-option">
+                        <p>Delivery Options</p>
+                        <div id="delivery-options-wrapper">
+                            <div id="delivery-option-prices">
+                                <p>7.00 USD</p>
+                                <p>10.00 USD</p>
+                                <p>19.99 USD</p>
+                            </div>
+                            <div id="delivery-options">
+                                <div class="delivery-option">
+                                    <label for="standard">Standard</label>
+                                    <input type="radio" id="standard" name="delopt" value="standard">
+                                    <p class="delivery-txt" id="standard-delivery-txt"></p>
+                                </div>
+                                <div class="delivery-option">
+                                    <label for="express">Express</label>
+                                    <input type="radio" id="express" name="delopt" value="express">
+                                    <p class="delivery-txt" id="express-delivery-txt"></p>
+                                </div>
+                                <div class="delivery-option">
+                                    <label for="nextday">Next Day</label>
+                                    <input type="radio" id="nextday" name="delopt" value="nextday">
+                                    <p class="delivery-txt" id="nextday-delivery-txt"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Consider adding checkbox for 'billing address is same as shipping address' -->
+                    <p>Billing Address</p>
+                    <form id="checkout-form-billing-address">
+                        <input id="billing-address-first-name" type="text" id="fbilladdfname" name="fbillfname" placeholder="First Name"></input><br>
+                        <input id="billing-address-last-name" type="text" id="fbilladdlname" name="fbilllname" placeholder="Last Name"></input><br>
+                        <input id="billing-address-mobile" type="text" id="fbilladdmobile" name="fbillmobile" placeholder="Phone (required for shipping)"></input><br>
+                        <input id="billing-address-street" type="text" id="fbilladdstreet" name="fbillstreet" placeholder="Address"></input><br>
+                        <input id="delivery-address-aptnum" type="text" id="fdeladdaptnum" name="faptnum" placeholder="Apartment, suite, etc. (optional)"></input><br>
+                        <input id="billing-address-city" type="text" id="fbilladdcity" name="fbillcity" placeholder="City" style="width: 100px;"></input>
+                        <input id="billing-address-state" type="text" id="fbilladdstate" name="fbillstreet" placeholder="State" style="width: 100px;"></input>
+                        <input id="billing-address-zip" type="text" id="fbilladdzip" name="fbillzip" placeholder="Zip Code" style="width: 100px;"></input>
+                    </form>
+                </div>
+                <div id="checkout-summary">
+                    <div class="checkout-summary-item">
+                        <div class="checkout-summary-item-img"></div>
+                        <div class="checkout-summary-item-desc">
+                            <div class="checkout-summary-item-title"></div>
+                            <div class="checkout-summary-item-text"></div>
+                            <div class="checkout-summary-item-qty"></div>
+                            <div class="checkout-summary-item-price"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="checkout-bg"></div>
             <div id="bag-flyout">
-                <img id="empty-bag-msg" src="/imgs/empty-bag-msg-1.png">
+                <img id="empty-bag-msg" src="/imgs/empty-bag-msg-1.png" style="display: none;">
         
                 <div id="my-bag">
                     <p id="my-bag-header">MY BAG</p>
@@ -49,6 +126,10 @@
                     <ul id="bag-item-qtys"></ul>
         
                     <div class="clear"></div>
+                </div>
+
+                <div id="add-more-items">
+                    <span id="add-more-btn" onclick="triggerBag(); triggerShop();">+ Add more items</span>
                 </div>
         
                 <div id="bag-overview">
@@ -60,7 +141,7 @@
                                 <p class="overview-header">Sub-total</p>
                             </td>
                             <td>
-                                <p class="overview-value" id="subtotal-value">0 USD</p>
+                                <p class="overview-value" id="subtotal-value">0.00 USD</p>
                             </td>
                         </tr>
                         <tr>
@@ -83,7 +164,9 @@
                 </div>
         
                 <div id="checkout-btn-container" title="Checkout unavailable while cart is empty">
-                    <button id="checkout-btn">CHECKOUT</button>
+                    <!-- <button id="checkout-btn" onclick="openCheckout();">CHECKOUT</button> -->
+                    <button id="checkout-btn" onclick="printCartToConsole();">CHECKOUT</button>
+                    <p id="checkout-helper-msg">Checkout unavailable while cart is empty</p>
                 </div>
         
             </div>
@@ -107,8 +190,8 @@
                 <div class="item" id="item-1">
                     <table class="item-desc">
                         <tr>
-                            <td class="item-name">ITEM 1 NAME</td>
-                            <td class="item-price">??? USD</td>
+                            <td class="item-name" id="item-1-name">ITEM 1 NAME</td>
+                            <td class="item-price" id="item-1-price">??? USD</td>
                         </tr>
                         <tr>
                             <td class="item-sizing">ONE SIZE FITS ALL</td>
@@ -123,18 +206,13 @@
                 <div class="item-preview" id="item-1-preview">
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
-                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-1-preview-name">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-1-price">??? USD</p>
                     </div>
                     <div class="size-select">
                         <label for="sizes">
                             <select name="sizes" id="item-1-sizes">
-                                <option value="none" selected disabled hidden>Select a size</option>
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
+                                <option value="" selected>One Size Fits All</option>
                             </select>
                         </label>
                     </div>
@@ -150,8 +228,8 @@
                 <div class="item" id="item-2">
                     <table class="item-desc">
                         <tr>
-                            <td class="item-name">ITEM 2 NAME</td>
-                            <td class="item-price">??? USD</td>
+                            <td class="item-name" id="item-2-name">ITEM 2 NAME</td>
+                            <td class="item-price" id="item-2-price">??? USD</td>
                         </tr>
                         <tr>
                             <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
@@ -166,8 +244,8 @@
                 <div class="item-preview" id="item-2-preview">
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
-                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-2-preview-name">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-2-price">??? USD</p>
                     </div>
                     <div class="size-select">
                         <label for="sizes">
@@ -193,8 +271,8 @@
                 <div class="item" id="item-3">
                     <table class="item-desc">
                         <tr>
-                            <td class="item-name">ITEM 3 NAME</td>
-                            <td class="item-price">??? USD</td>
+                            <td class="item-name" id="item-3-name">ITEM 3 NAME</td>
+                            <td class="item-price" id="item-3-price">??? USD</td>
                         </tr>
                         <tr>
                             <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
@@ -209,8 +287,8 @@
                 <div class="item-preview" id="item-3-preview">
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
-                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-3-preview-name">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-3-price">??? USD</p>
                     </div>
                     <div class="size-select">
                         <label for="sizes">
@@ -236,8 +314,8 @@
                 <div class="item" id="item-4">
                     <table class="item-desc">
                         <tr>
-                            <td class="item-name">ITEM 4 NAME</td>
-                            <td class="item-price">??? USD</td>
+                            <td class="item-name" id="item-4-name">ITEM 4 NAME</td>
+                            <td class="item-price" id="item-4-price">??? USD</td>
                         </tr>
                         <tr>
                             <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
@@ -252,8 +330,8 @@
                 <div class="item-preview" id="item-4-preview">
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
-                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-4-preview-name">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-4-price">??? USD</p>
                     </div>
                     <div class="size-select">
                         <label for="sizes">
@@ -279,8 +357,8 @@
                 <div class="item" id="item-5">
                     <table class="item-desc">
                         <tr>
-                            <td class="item-name">ITEM 5 NAME</td>
-                            <td class="item-price">??? USD</td>
+                            <td class="item-name" id="item-5-name">ITEM 5 NAME</td>
+                            <td class="item-price" id="item-5-price">??? USD</td>
                         </tr>
                         <tr>
                             <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
@@ -295,8 +373,8 @@
                 <div class="item-preview" id="item-5-preview">
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
-                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-5-preview-name">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-5-price">??? USD</p>
                     </div>
                     <div class="size-select">
                         <label for="sizes">
@@ -322,8 +400,8 @@
                 <div class="item" id="item-6">
                     <table class="item-desc">
                         <tr>
-                            <td class="item-name">ITEM 6 NAME</td>
-                            <td class="item-price">??? USD</td>
+                            <td class="item-name" id="item-6-name">ITEM 6 NAME</td>
+                            <td class="item-price" id="item-6-price">??? USD</td>
                         </tr>
                         <tr>
                             <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
@@ -338,8 +416,8 @@
                 <div class="item-preview" id="item-6-preview">
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
-                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;">??? USD</p>
+                        <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-6-preview-name">ITEM NAME PLACEHOLDER</P>
+                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-6-price">??? USD</p>
                     </div>
                     <div class="size-select">
                         <label for="sizes">
@@ -400,7 +478,7 @@
                 </table>
             </div>
         </div>
-        <div id="footer" class="footer">
+        <div id="footer" class="footer" style="z-index: 100;">
             <p onclick="triggerHome();">HOME</p>
             <p onclick="triggerAbout();">ABOUT</p>
             <p onclick="triggerShop();">SHOP</p>
@@ -409,6 +487,8 @@
         </div>
     </div>
 </body>
+<script src="/updateDetails.js"></script>
 <script src="/livesite.js"></script>
 <script src="/livebg.js"></script>
+<script src="/generateCheckout.js"></script>
 </html>

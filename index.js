@@ -7,24 +7,70 @@ var currentBag = [];
 
 var availableSizes = [["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"]];
 
-var currentPricing = ["60.00", "60", "15", "15", "5", "2"];
+var itemPrices = ["59.95", "59.95", "14.95", "14.95", "4.95", "4.95"];
+var itemNames = ["ITEM-1 NAME", "ITEM-2 NAME", "ITEM-3 NAME", "ITEM-4 NAME", "ITEM-5 NAME", "ITEM-6 NAME"];
+
+var checkout_helper_msg_counter = 0;
+
+var checkoutOpen = false;
+
+function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elt){
+    elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
+    if(startNbrDol < endNbrDol && startNbrCent < endNbrCent){
+        setTimeout(() => {
+            updPriceRec(startNbrDol+1, startNbrCent+1, endNbrDol, endNbrCent, elt);  
+        }, speed);
+    } else if (startNbrDol < endNbrDol && startNbrCent === endNbrCent){
+        setTimeout(() => {
+            updPriceRec(startNbrDol+1, startNbrCent, endNbrDol, endNbrCent, elt);
+        }, speed);
+    } else if (startNbrDol < endNbrDol && startNbrCent > endNbrCent){
+        setTimeout(() => {
+            updPriceRec(startNbrDol+1, startNbrCent-1, endNbrDol, endNbrCent, elt);
+        }, speed);
+    } else if (startNbrDol === endNbrDol && startNbrCent < endNbrCent){
+        setTimeout(() => {
+            updPriceRec(startNbrDol, startNbrCent+1, endNbrDol, endNbrCent, elt);
+        }, speed);
+    } else if (startNbrDol === endNbrDol && startNbrCent > endNbrCent) {
+        setTimeout(() => {
+            updPriceRec(startNbrDol, startNbrCent-1, endNbrDol, endNbrCent, elt);
+        }, speed);
+    }  else if (startNbrDol > endNbrDol && startNbrCent < endNbrCent){
+        setTimeout(() => {
+            updPriceRec(startNbrDol-1, startNbrCent+1, endNbrDol, endNbrCent, elt);
+        }, speed);
+    } else if (startNbrDol > endNbrDol && startNbrCent === endNbrCent){
+        setTimeout(() => {
+            updPriceRec(startNbrDol-1, startNbrCent, endNbrDol, endNbrCent, elt);
+        }, speed);    
+    } else if (startNbrDol > endNbrDol && startNbrCent > endNbrCent){
+        setTimeout(() => {
+            updPriceRec(startNbrDol-1, startNbrCent-1, endNbrDol, endNbrCent, elt);
+        }, speed);
+    }
+}
 
 function incNbrRec(i, endNbr, elt) {
     if (i <= endNbr) {
-      elt.innerHTML = i + ` USD`;
+      elt.innerHTML = i + `.00 USD`;
       setTimeout(function() {//Delay a bit before calling the function again.
         incNbrRec(i+1, endNbr, elt);
       }, speed);
+    } else {
+        document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
     }
-  }
-  
+    
+} 
 
 function decNbrRec(i, endNbr, elt) {
     if (i >= endNbr) {
-      elt.innerHTML = i + ` USD`;
+      elt.innerHTML = i + `.00 USD`;
       setTimeout(function() {//Delay a bit before calling the function again.
         decNbrRec(i-1, endNbr, elt);
       }, speed);
+    } else {
+        document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
     }
 }
 
@@ -33,12 +79,10 @@ function updateBag(){
     if(getBagSize() == 0){
         document.getElementById('empty-bag-msg').style.opacity = "1";
         document.getElementById('checkout-btn').style.opacity = "0.5";
-        document.getElementById('checkout-btn').style.pointerEvents = "none";
         document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
     } else {
         document.getElementById('empty-bag-msg').style.opacity = "0";
         document.getElementById('checkout-btn').style.opacity = "1";
-        document.getElementById('checkout-btn').style.pointerEvents = "all";
         document.getElementById('checkout-btn-container').title = "";
     }
 
@@ -46,15 +90,23 @@ function updateBag(){
     let price_str = String(document.getElementById('subtotal-value').innerHTML);
     let prevTotal = Number(price_str.split(" ")[0]);
 
-    // console.log('PRICE: ' + prevTotal);
+    // console.log('prevTotal: ' + prevTotal);
 
-    if(prevTotal > getBagTotal()){
-        decNbrRec(prevTotal, getBagTotal(), document.getElementById('subtotal-value'));
-    } else {
-        incNbrRec(prevTotal, getBagTotal(), document.getElementById('subtotal-value'));
+    var startNbrDol = Number(String(prevTotal).split(".")[0]);
+    var startNbrCent = Number(String(prevTotal).split(".")[1]);
+    var endNbrDol = Number(getBagTotal().split(".")[0]);
+    var endNbrCent = Number(getBagTotal().split(".")[1]);
+
+    if(prevTotal === 0){
+        startNbrCent = 0;
     }
+    // , startNbrCent, endNbrDol, endNbrCent
 
-    // console.log('subtotal: ' + getBagTotal());
+    // console.log("TESTING");
+    // console.log("[" + startNbrDol, startNbrCent, endNbrDol, endNbrCent + "]");
+    // console.log("TESTING");
+
+    updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, document.getElementById('subtotal-value'));
 }
 
 function incrementItem(elem){
@@ -114,23 +166,34 @@ function add2bag(elem){
     // console.log(item_num);
 
     if(item_size === "none"){
-        errorForm(item_num);
+        sizesErrorForm(item_num);
     } else {
         if(!bag_open){
             document.getElementById("bag-flyout").style.transform = "translateX(0px)";
             bag_open = true;
         }
         if(getItemIndex(currentBag, item_arr) == -1 || currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
-            if(getItemIndex(currentBag, item_arr) == -1){currentBag.push(item_arr);}
-            if(currentBag[getItemIndex(currentBag, item_arr)][2] == 0){currentBag[getItemIndex(currentBag, item_arr)][2]++;}
+            if(getItemIndex(currentBag, item_arr) == -1){
+                currentBag.push(item_arr);
+            }
+            if(currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
+                currentBag[getItemIndex(currentBag, item_arr)][2]++;
+            }
 
             var li = document.createElement("li");
             li.id = 'bagged-item-'+getItemIndex(currentBag, item_arr);
             li.classList.add("animate__animated", "animate__fadeIn");
-            li.innerHTML = `
-            <span style="margin-right: 10px;">ITEM #` + item_num + `</span>[` + item_size +`]<br>
-            <span style="color: grey;">`+ currentPricing[item_num-1] + ` USD</span>
-            `;
+            if(item_size === ""){
+                li.innerHTML = `
+                <span style="margin-right: 10px;">` + itemNames[item_num-1] + `</span>` + item_size +`<br>
+                <span style="color: grey;">`+ itemPrices[item_num-1] + ` USD</span>
+                `;
+            } else {
+                li.innerHTML = `
+                <span style="margin-right: 10px;">` + itemNames[item_num-1] + `</span><span style="font-size: 10px">` + item_size +`</span><br>
+                <span style="color: grey;">`+ itemPrices[item_num-1] + ` USD</span>
+                `;
+            }
 
             // console.log(currentPricing[item_num-1]);
 
@@ -161,13 +224,11 @@ function add2bag(elem){
         updateBag();
     
         // console.log('adding item-' + item_num + ', ' + item_size + ' to bag.\nitem-freq = ' + currentBag[getItemIndex(currentBag, item_arr)][2]);
-        // console.log("current bag: ", currentBag);
-
     }
 
 }
 
-function errorForm(item_num) {
+function sizesErrorForm(item_num) {
     const element = document.getElementById('item-'+item_num+'-sizes');
     element.style.background = "rgb(255, 169, 169)";
     setTimeout(() => {
@@ -196,12 +257,14 @@ function getBagSize(){
 function getBagTotal(){
     var total = 0;
     for(var i = 0; i < currentBag.length; i++){
-        total += (currentPricing[currentBag[i][0]]*currentBag[i][2]);
+        total += (itemPrices[currentBag[i][0]-1]*currentBag[i][2]);
     }
+    // console.log('total: ' + total.toFixed(2));
     return total.toFixed(2);
 }
 
 function previewItem1(){
+    goTop();
     document.getElementById("shop").style.opacity = "0";
 
     setTimeout(() => {
@@ -233,6 +296,7 @@ function previewItem1(){
 }
 
 function previewItem2(){
+    goTop();
     document.getElementById("shop").style.opacity = "0";
 
     setTimeout(() => {
@@ -259,6 +323,7 @@ function previewItem2(){
 }
 
 function previewItem3(){
+    goTop();
     document.getElementById("shop").style.opacity = "0";
 
     setTimeout(() => {
@@ -285,6 +350,7 @@ function previewItem3(){
 }
 
 function previewItem4(){
+    goTop();
     document.getElementById("shop").style.opacity = "0";
 
     setTimeout(() => {
@@ -311,6 +377,7 @@ function previewItem4(){
 }
 
 function previewItem5(){
+    goTop();
     document.getElementById("shop").style.opacity = "0";
 
     setTimeout(() => {
@@ -337,6 +404,7 @@ function previewItem5(){
 }
 
 function previewItem6(){
+    goTop();
     document.getElementById("shop").style.opacity = "0";
 
     setTimeout(() => {
@@ -385,14 +453,68 @@ function previewItem(parent){
 }
 
 function triggerBag(){
-    if(bag_open){
-        document.getElementById("bag-flyout").style.transform = "translateX(400px)";
-        bag_open = false;
-    } else {
-        document.getElementById("bag-flyout").style.transform = "translateX(0px)";
+    if(checkoutOpen){
+        closeCheckout();
+        checkoutOpen = false;
+        setTimeout(() => {
+            document.getElementById("bag-flyout").style.transform = "translateX(0px)";
+        }, 1200);
         bag_open = true;
+    } else {
+        if(bag_open){
+            document.getElementById("bag-flyout").style.transform = "translateX(400px)";
+            bag_open = false;
+        } else {
+            document.getElementById("bag-flyout").style.transform = "translateX(0px)";
+            bag_open = true;
+        }
     }
 }
+
+function openCheckout(){
+    hideHome();
+    document.body.style.overflowY = "scroll";
+    if(getBagSize() == 0){
+        checkout_helper_msg_counter++;
+        document.getElementById("checkout-btn").className="animate__animated animate__shakeX";
+        setTimeout(() => {
+            document.getElementById("checkout-btn").className="";
+        }, (1200));
+        if(checkout_helper_msg_counter>0 && checkout_helper_msg_counter%3==0){
+            document.getElementById("checkout-helper-msg").style.opacity=1;
+            setTimeout(() => {
+            document.getElementById("checkout-helper-msg").style.opacity=0;
+            }, 3000);
+        }
+    } else {
+        // Bag must be open to open checkout => triggerBag() will close bag view
+        triggerBag();
+        bag_open=false;
+        document.getElementById("checkout-bg").style.transform = "translateX(0)";
+        document.getElementById("checkout-form-divider").style.transform = "translateX(0)";
+        setTimeout(() => {
+            document.getElementById("checkout-form").style.transform = "translateX(0)";
+        }, 600);
+        checkoutOpen = true;
+    }
+}
+
+function closeCheckout(){
+    document.getElementById("checkout-form").style.transform = "translateX(-700px)";
+    setTimeout(() => {
+        document.getElementById("checkout-bg").style.transform = "translateX(100vw)";
+        document.getElementById("checkout-form-divider").style.transform = "translateX(100vw)";
+    }, 600);
+    checkoutOpen = false;
+}
+
+// function triggerCheckoutScroll(){
+//     if(!checkoutOpen){
+//         document.getElementById("checkout-form-wrapper").overflowY="auto";
+//         // document.getElementById("checkout-form").overflowY="scroll";
+//         checkoutOpen = true;
+//     }
+// }
 
 function resetSizeSelections() {
     var el = document.getElementById("item-1-sizes");
@@ -452,19 +574,19 @@ function goTop(){
 }
 
 function triggerHome(){
-    hideAbout(); hideShop(); hideContact(); showHome();
+    closeCheckout(); hideAbout(); hideShop(); hideContact(); showHome();
 }
 
 function triggerAbout(){
-    hideHome(); hideShop(); hideContact(); showAbout();
+    closeCheckout(); hideHome(); hideShop(); hideContact(); showAbout();
 }
 
 function triggerShop(){
-    resetCarousel(); goTop(); hideHome(); hideAbout(); hideContact(); showShop();
+    closeCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); showShop();
 }
 
 function triggerContact(){
-    hideHome(); hideAbout(); hideShop(); showContact();
+    closeCheckout(); hideHome(); hideAbout(); hideShop(); showContact();
 }
 
 function showHome(){

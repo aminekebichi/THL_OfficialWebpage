@@ -1,7 +1,7 @@
 $primary-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 $secondary-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-$primary-font-color: #1e1e1e;
+$primary-font-color: #191816;
 $secondary-font-color: #ff7f50;
 $tertiary-font-color: #808080;
 
@@ -9,12 +9,14 @@ $highlight-color: #ff7f50;
 
 html {
     scroll-behavior: smooth;
+    // background-color: #191816;
 }
 
 body{
     margin: 0;
     padding: 0;
-    background-image: url("/imgs/THL_HomePage_BG3.jpg");
+    background-image: url("/imgs/THL_BG_Default.jpg");
+    // background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: $primary-font;
 
@@ -35,7 +37,8 @@ body{
         display: flex;
         justify-content: center;
         text-align: center;
-        background-image: url("/imgs/homepageBG5.jpg");
+        // background-image: url("/imgs/homepageBG5.jpg");
+        background: #f1f1f1;
         width: 100%;
         height: 100%;
         position: fixed;
@@ -224,7 +227,7 @@ body{
         // padding: 0;
 
         position: fixed;
-        z-index: 100;
+        z-index: 103;
 
         overflow: hidden;
 
@@ -283,6 +286,19 @@ body{
             position: relative;
         }
 
+        #checkout-bg{
+            position: fixed;
+
+            width: 100vw;
+            height: 100vh;
+            background-color: $primary-font-color;
+
+            transform: translateX(100vw);
+            transition: 0.6s;
+
+            z-index: 100;
+        }
+
         #bag-flyout{
             position: fixed;
             right: 0;
@@ -298,8 +314,10 @@ body{
             width: 400px;
             height: 100vh;
 
-            background-color: rgba($color: #000000, $alpha: 0.65);
-            z-index: 3;
+            // background-color: rgba($color: #000000, $alpha: 0.65);
+            background-color: rgba(25, 24, 22, 1);
+            // border-left: 5px solid white;
+            z-index: 101;
 
             transition: 0.6s;
 
@@ -307,7 +325,7 @@ body{
                 position: fixed;
                 margin-left: 26%;
                 margin-top: 35vh;
-                transform: translateY(100px);
+                transform: translateY(225px);
 
                 transition: 0.6s;
             }
@@ -376,11 +394,43 @@ body{
                 clear: both;
             }
 
+            #add-more-items{
+                padding: 20px 40px;
+                padding-top: 0;
+                
+                position: relative;
+
+                #add-more-btn{
+                    position: relative;
+
+                    font-family: $secondary-font;
+                    color: white;
+                    font-size: 12px;
+                    letter-spacing: 0.05rem;
+                    border-radius: 15px;
+
+                    right: 0;
+
+                    background-color: rgba($color: white, $alpha: 0.2);
+                    height: 100%;
+                    width: 100%;
+
+                    padding: 10px 20px;
+                    transition: 0.6s;
+
+                    cursor: pointer;
+                }
+                #add-more-btn:hover{
+                    background-color: rgba($color: white, $alpha: 0.4);
+                }
+            }
+
             #bag-overview{
                 color: white;
                 font-family: $secondary-font;
                 font-weight: 700;
                 letter-spacing: 0.1rem;
+                // transform: translateY(20px);
 
                 p{
                     padding: 0 40px;
@@ -413,7 +463,7 @@ body{
                     }
 
                     #shipping-value, #salestax-value{
-                        cursor: pointer;
+                        // cursor: pointer;
                         min-width: 20px;
                         float: right;
                         background-color: white;
@@ -433,6 +483,15 @@ body{
 
             #checkout-btn-container{
                 margin-top: 40px;
+                text-align: center;
+                color: white;
+                font-family: $secondary-font;
+
+                #checkout-helper-msg{
+                    opacity: 0;
+                    transition: 0.6s;
+                }
+
                 #checkout-btn{
                     color: black;
                     font-family: $secondary-font;
@@ -451,10 +510,11 @@ body{
                     // border-radius: 5px;
                     opacity: 0.5;
         
-                    pointer-events: none;
+                    // pointer-events: none;
                     cursor: pointer;
         
                     transition: 0.6s;
+                    animation-duration: 1.2s; /* don't forget to set a duration! */
                 }
                 #checkout-btn:hover{
                     background-color: coral;
@@ -474,7 +534,7 @@ body{
             padding-top: 35px;
 
             cursor: pointer;
-            z-index: 3;
+            z-index: 103;
 
             transition: 0.6s;
         }
@@ -497,7 +557,7 @@ body{
             border-radius: 50%;
 
             cursor: pointer;
-            z-index: 3;
+            z-index: 103;
 
             width: 16px;
             padding: 3px;
@@ -521,7 +581,7 @@ body{
                 height: 63px;
 
                 background: none;
-                z-index: 101;
+                z-index: 103;
 
                 transform: translateY(-40px);
             }
@@ -531,7 +591,7 @@ body{
                 position: fixed;
                 top: 45%;
 
-                z-index: 100;
+                z-index: 103;
                 cursor: pointer;
 
                 transition: 0.6s;
@@ -544,12 +604,14 @@ body{
 
                 font-family: $primary-font;
                 font-size: 16px;
-                letter-spacing: 0.05rem;
+                letter-spacing: 0.1rem;
 
-                font-weight: 700;
+                font-weight: 200 !important;
 
                 background-color: rgba($color: #ffffff, $alpha: 0.6);
                 border: none;
+
+                color: #191816;
 
                 position: fixed;
                 top: 50%;
@@ -562,6 +624,7 @@ body{
             }
             #shop-btn:hover{
                 background-color: coral;
+                // color: white;
             }
         }
 
@@ -577,6 +640,8 @@ body{
             left: 0;
 
             margin-bottom: 140px;
+
+            transition: 0.6s;
 
             #shop{
                 transform: translateX(-9px);
@@ -749,7 +814,8 @@ body{
                     .size-select{
                         position: relative;
                         font-family: $secondary-font;
-                        font-weight: 700;
+                        font-weight: 500;
+                        letter-spacing: 0.01rem;
 
                         #item-1-sizes, #item-2-sizes, #item-3-sizes, #item-4-sizes, #item-5-sizes, #item-6-sizes{
                             border: none;
@@ -759,6 +825,7 @@ body{
                             padding-left: 10px;
                             padding-right: 10px;
                             font-family: $secondary-font;
+                            letter-spacing: 0.01rem;
                             font-weight: 500;
 
                             transition: 0.6s;
@@ -779,10 +846,10 @@ body{
 
                     .size-select::after{
                         content: "\25b6";
-                        transform: scale(80%) rotate(90deg);
+                        transform: rotate(90deg);
                         position: absolute; 
                         top: 5px; 
-                        right: 35px;
+                        right: 2.25rem;
 
                         color: $primary-font-color;
                         pointer-events: none
@@ -842,15 +909,20 @@ body{
 
         #about-container, #contact-container{
             width: 100vw;
-            // height: 100vh;
+            height: 100vh;
 
-            display: flex;
+            top: 0;
+            
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
 
-            position: absolute;
-            top: 45%;
-            left: 0;
+            // display: flex;
+            // justify-content: center;
+            // flex-wrap: wrap;
+
+            position: fixed;
+            // top: 45%;
+            // left: 0;
 
             display: none;
 
@@ -922,6 +994,8 @@ body{
             flex-wrap: wrap;
             column-gap: 40px;
             row-gap: 1px;
+
+            z-index: 103 !important;
 
             p{
                 font-family: $secondary-font;
