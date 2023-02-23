@@ -7,12 +7,12 @@ var currentBag = [];
 
 var availableSizes = [["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"]];
 
-var itemPrices = ["59.95", "59.95", "14.95", "14.95", "4.95", "4.95"];
+var itemPrices = ["0.01", "59.95", "14.95", "14.95", "4.95", "4.95"];
 var itemNames = ["ITEM-1 NAME", "ITEM-2 NAME", "ITEM-3 NAME", "ITEM-4 NAME", "ITEM-5 NAME", "ITEM-6 NAME"];
 
 var checkout_helper_msg_counter = 0;
 
-var checkoutOpen = false;
+// var checkoutOpen = false;
 
 function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elt){
     elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
@@ -80,10 +80,15 @@ function updateBag(){
         document.getElementById('empty-bag-msg').style.opacity = "1";
         document.getElementById('checkout-btn').style.opacity = "0.5";
         document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
+        
+        document.getElementById('checkout-btn').onclick = function() { return null; };
+        hideCheckout();
     } else {
         document.getElementById('empty-bag-msg').style.opacity = "0";
         document.getElementById('checkout-btn').style.opacity = "1";
         document.getElementById('checkout-btn-container').title = "";
+
+        document.getElementById('checkout-btn').onclick = function() { printCartToConsole(); showCheckout(); };
     }
 
     // document.getElementById('subtotal-value').innerHTML = getBagTotal() +  ` USD`;
@@ -453,22 +458,22 @@ function previewItem(parent){
 }
 
 function triggerBag(){
-    if(checkoutOpen){
-        closeCheckout();
-        checkoutOpen = false;
-        setTimeout(() => {
-            document.getElementById("bag-flyout").style.transform = "translateX(0px)";
-        }, 1200);
-        bag_open = true;
+    if(bag_open){
+        document.getElementById("bag-flyout").style.transform = "translateX(400px)";
+        bag_open = false;
+
+        hideCheckout();
     } else {
-        if(bag_open){
-            document.getElementById("bag-flyout").style.transform = "translateX(400px)";
-            bag_open = false;
-        } else {
-            document.getElementById("bag-flyout").style.transform = "translateX(0px)";
-            bag_open = true;
-        }
+        document.getElementById("bag-flyout").style.transform = "translateX(0px)";
+        bag_open = true;
     }
+}
+
+function hideBag(){
+    document.getElementById("bag-flyout").style.transform = "translateX(400px)";
+    bag_open = false;
+
+    hideCheckout();
 }
 
 function openCheckout(){
@@ -499,14 +504,14 @@ function openCheckout(){
     }
 }
 
-function closeCheckout(){
-    document.getElementById("checkout-form").style.transform = "translateX(-700px)";
-    setTimeout(() => {
-        document.getElementById("checkout-bg").style.transform = "translateX(100vw)";
-        document.getElementById("checkout-form-divider").style.transform = "translateX(100vw)";
-    }, 600);
-    checkoutOpen = false;
-}
+// function closeCheckout(){
+//     document.getElementById("checkout-form").style.transform = "translateX(-700px)";
+//     setTimeout(() => {
+//         document.getElementById("checkout-bg").style.transform = "translateX(100vw)";
+//         document.getElementById("checkout-form-divider").style.transform = "translateX(100vw)";
+//     }, 600);
+//     checkoutOpen = false;
+// }
 
 // function triggerCheckoutScroll(){
 //     if(!checkoutOpen){
@@ -574,19 +579,19 @@ function goTop(){
 }
 
 function triggerHome(){
-    closeCheckout(); hideAbout(); hideShop(); hideContact(); showHome();
+    hideBag(); hideCheckout(); hideAbout(); hideShop(); hideContact(); showHome();
 }
 
 function triggerAbout(){
-    closeCheckout(); hideHome(); hideShop(); hideContact(); showAbout();
+    hideBag(); hideCheckout(); hideHome(); hideShop(); hideContact(); showAbout();
 }
 
 function triggerShop(){
-    closeCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); showShop();
+    hideBag(); hideCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); showShop();
 }
 
 function triggerContact(){
-    closeCheckout(); hideHome(); hideAbout(); hideShop(); showContact();
+    hideBag(); hideCheckout(); hideHome(); hideAbout(); hideShop(); showContact();
 }
 
 function showHome(){

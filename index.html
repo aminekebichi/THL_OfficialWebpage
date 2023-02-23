@@ -17,9 +17,8 @@
     <script src="/index.js"></script>
     <script src="/item-carousel.js"></script>
     <script src="/emailform.js"></script>
-    <script src="/checkout.js"></script>
 </head>
-<body>    
+<body>
     <div id="offline-site">
         <div id="temp"></div>
         <!-- <img id="offline-logo" src="/imgs/THL_OfflineLogo(new).png"> -->
@@ -48,6 +47,7 @@
             <div id="checkout-form-divider"></div>
             <div id="checkout-form-wrapper" style="display: none !important;">
                 <div id="checkout-form">
+
                     <p>Shipping Information</p>
                     <form id="checkout-form-email" onsubmit="return false;">
                         <input id="checkout-input-email" type="text" id="femail" name="femail" placeholder="Email address"><br>
@@ -116,8 +116,6 @@
             </div>
             <div id="checkout-bg"></div>
             <div id="bag-flyout">
-                <img id="empty-bag-msg" src="/imgs/empty-bag-msg-1.png" style="display: none;">
-        
                 <div id="my-bag">
                     <p id="my-bag-header">MY BAG</p>
                     <div class="divider"></div>
@@ -165,10 +163,16 @@
         
                 <div id="checkout-btn-container" title="Checkout unavailable while cart is empty">
                     <!-- <button id="checkout-btn" onclick="openCheckout();">CHECKOUT</button> -->
-                    <button id="checkout-btn" onclick="printCartToConsole();">CHECKOUT</button>
+                    <button id="checkout-btn" onclick="">CHECKOUT</button>
                     <p id="checkout-helper-msg">Checkout unavailable while cart is empty</p>
-                </div>
-        
+                    <div id="paypal-hider"></div>
+                    <div id="paypal-container">
+                        <div id="paypal-button-container"></div>
+                    </div>
+                    <div style="height: 100px;"></div>
+                </div>  
+                
+                <img id="empty-bag-msg" src="/imgs/empty-bag-msg-1.png" style="display: none;">
             </div>
         </div>
     
@@ -486,9 +490,51 @@
             <p onclick="">LOOKBOOK</p>
         </div>
     </div>
+<!-- 
+    <script src="https://www.paypal.com/sdk/js?client-id=AX-wfLArBYaTanYnRnBQvW-tB-kAbyFM1QPOkQSXPMKK3veRRZuZ_9cVjLS4R7U0OhtSoJ_w8M9V-HUS"></script>
+    <script>paypal.Buttons().render('checkout-btn-container');</script> -->
 </body>
 <script src="/updateDetails.js"></script>
 <script src="/livesite.js"></script>
 <script src="/livebg.js"></script>
-<script src="/generateCheckout.js"></script>
+<!-- <script src="/generateCheckout.js"></script> -->
+<script src="/checkout.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AX-wfLArBYaTanYnRnBQvW-tB-kAbyFM1QPOkQSXPMKK3veRRZuZ_9cVjLS4R7U0OhtSoJ_w8M9V-HUS&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AX-wfLArBYaTanYnRnBQvW-tB-kAbyFM1QPOkQSXPMKK3veRRZuZ_9cVjLS4R7U0OhtSoJ_w8M9V-HUS&enable-funding=venmo"></script>
+<script>
+    var total = getBagTotal();
+    paypal.Buttons({
+      // Sets up the transaction when a payment button is clicked
+      style: {
+          shape: 'rect',
+          color: 'black',
+          layout: 'vertical',
+          label: 'paypal',
+          
+        },
+      createOrder: (data, actions) => {
+        total = getBagTotal();
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: `${total}` // Can also reference a variable or function
+            }
+          }]
+        });
+      },
+      // Finalize the transaction after payer approval
+      onApprove: (data, actions) => {
+        return actions.order.capture().then(function(orderData) {
+          // Successful capture! For dev/demo purposes:
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+          const transaction = orderData.purchase_units[0].payments.captures[0];
+          alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+          // When ready to go live, remove the alert and show a success message within this page. For example:
+          // const element = document.getElementById('paypal-button-container');
+          // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+          // Or go to another URL:  actions.redirect('thank_you.html');
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
 </html>

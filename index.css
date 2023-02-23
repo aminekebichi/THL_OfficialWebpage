@@ -34,7 +34,7 @@ body #offline-site {
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 100;
+  z-index: 104;
   opacity: 1;
   -webkit-transition: 1.2s;
   transition: 1.2s;
@@ -464,11 +464,34 @@ body #online-site #bag-flyout #bag-overview table #shipping-value:hover, body #o
   opacity: 1;
 }
 
+body #online-site #bag-flyout #paypal-hider {
+  width: auto;
+  height: 800px;
+  background: none;
+  -webkit-transition: 0.6s !important;
+  transition: 0.6s !important;
+}
+
 body #online-site #bag-flyout #checkout-btn-container {
   margin-top: 40px;
   text-align: center;
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body #online-site #bag-flyout #checkout-btn-container #buttons-container {
+  -webkit-transform: translateY(0vh);
+          transform: translateY(0vh);
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+body #online-site #bag-flyout #checkout-btn-container #paypal-container #paypal-button-container {
+  padding: 40px;
+}
+
+body #online-site #bag-flyout #checkout-btn-container #paypal-container #paypal-button-container .paypal-button {
+  background-color: #808080 !important;
 }
 
 body #online-site #bag-flyout #checkout-btn-container #checkout-helper-msg {
@@ -487,7 +510,6 @@ body #online-site #bag-flyout #checkout-btn-container #checkout-btn {
   position: relative;
   width: 80%;
   padding: 15px 0;
-  margin: 0 40px;
   border: none;
   opacity: 0.5;
   cursor: pointer;

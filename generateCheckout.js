@@ -69,15 +69,3 @@ document.getElementById("express-delivery-txt").innerHTML=`Delivered on or befor
 input_days = 2;
 getNextWeekday();
 document.getElementById("nextday-delivery-txt").innerHTML=`Delivered on or before ` + days[day] + `, ` + months[mm-1] + ` ` + dd + `, ` + yyyy;
-
-// var shopifyButton = document.createElement('div');
-// shopifyButton.innerHTML = '<div id="shopify-button-target"></div>';
-// // document.body.appendChild(shopifyButton);
-// document.getElementById("checkout-btn-container").appendChild(shopifyButton);
-// var script = document.createElement('script');
-// script.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-// script.type = 'text/javascript';
-// document.body.appendChild(script);
-// var script = document.createElement('script');
-// script.innerHTML = 'var client = ShopifyBuy.buildClient({domain: "thehabibiline.myshopify.com", storefrontAccessToken: "3bb85c9d5b4d60496851cfead56250e7"});var ui = ShopifyBuy.UI.init(client);ui.createComponent("product", {id: [123456789],node: document.getElementById("shopify-button-target"),moneyFormat: "%24%7B%7Bamount%7D%7D",options: {product: {variantId: "all",width: "240px",contents: {img: false,imgWithCarousel: false,title: false,variantTitle: false,price: false,description: false,buttonWithQuantity: false,quantity: false},text: {button: "BUY NOW"}}}});';
-// document.body.appendChild(script);
