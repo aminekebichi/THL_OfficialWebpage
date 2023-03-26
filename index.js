@@ -273,6 +273,7 @@ function previewItem1(){
     console.log('preview');
     goTop();
     document.getElementById("shop").style.opacity = "0";
+    document.getElementById("item-1").onclick = "";
 
     setTimeout(() => {
         resetCarousel();
@@ -305,6 +306,7 @@ function previewItem1(){
 function previewItem2(){
     goTop();
     document.getElementById("shop").style.opacity = "0";
+    document.getElementById("item-2").onclick = "";
 
     setTimeout(() => {
         resetCarousel();
@@ -332,6 +334,7 @@ function previewItem2(){
 function previewItem3(){
     goTop();
     document.getElementById("shop").style.opacity = "0";
+    document.getElementById("item-3").onclick = "";
 
     setTimeout(() => {
         resetCarousel();
@@ -359,6 +362,7 @@ function previewItem3(){
 function previewItem4(){
     goTop();
     document.getElementById("shop").style.opacity = "0";
+    document.getElementById("item-4").onclick = "";
 
     setTimeout(() => {
         resetCarousel();
@@ -386,6 +390,7 @@ function previewItem4(){
 function previewItem5(){
     goTop();
     document.getElementById("shop").style.opacity = "0";
+    document.getElementById("item-5").onclick = "";
 
     setTimeout(() => {
         resetCarousel();
@@ -413,6 +418,7 @@ function previewItem5(){
 function previewItem6(){
     goTop();
     document.getElementById("shop").style.opacity = "0";
+    document.getElementById("item-6").onclick = "";
 
     setTimeout(() => {
         resetCarousel();
@@ -538,7 +544,8 @@ function resetSizeSelections() {
     el.selectedIndex = "none";
 }
 
-function returnFromPreview(){    
+function returnFromPreview(){
+    restoreItemsOnClick();
     document.getElementById("shop").style.opacity = "0";
     document.getElementById("shop").style.rowGap = "100px";
 
@@ -581,19 +588,19 @@ function goTop(){
 }
 
 function triggerHome(){
-    hideBag(); hideCheckout(); hideAbout(); hideShop(); hideContact(); showHome();
+    hideBag(); hideCheckout(); hideAbout(); hideShop(); hideContact(); showHome(); restoreItemsOnClick();
 }
 
 function triggerAbout(){
-    hideBag(); hideCheckout(); hideHome(); hideShop(); hideContact(); showAbout();
+    hideBag(); hideCheckout(); hideHome(); hideShop(); hideContact(); showAbout(); restoreItemsOnClick();
 }
 
 function triggerShop(){
-    hideBag(); hideCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); showShop();
+    hideBag(); hideCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); returnFromPreview(); showShop();
 }
 
 function triggerContact(){
-    hideBag(); hideCheckout(); hideHome(); hideAbout(); hideShop(); showContact();
+    hideBag(); hideCheckout(); hideHome(); hideAbout(); hideShop(); showContact(); restoreItemsOnClick();
 }
 
 function showHome(){
@@ -621,8 +628,25 @@ function hideHome(){
     }, 600);
 }
 
+function restoreItemsOnClick(){
+    document.getElementById('item-1').onclick = function() { previewItem1(); };
+    document.getElementById('item-2').onclick = function() { previewItem2(); };
+    document.getElementById('item-3').onclick = function() { previewItem3(); };
+    document.getElementById('item-4').onclick = function() { previewItem4(); };
+    document.getElementById('item-5').onclick = function() { previewItem5(); };
+    document.getElementById('item-6').onclick = function() { previewItem6(); };
+}
+
 function showShop(){
     // console.log("show shop!");
+    setTimeout(() => {
+        var items_list = document.querySelectorAll(".item");
+        for (var i = 0; i < items_list.length; i++) {
+            var elem = items_list[i];
+            elem.classList.toggle("untouchable");
+        }
+    }, 200);
+
     if(inPreview){
         returnFromPreview();
         inPreview = false;

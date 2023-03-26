@@ -698,6 +698,10 @@ body{
 
                 transition: 0.6s;
 
+                .untouchable{
+                    pointer-events: none;
+                }
+
                 .item {
                     position: relative;
                     display: block;

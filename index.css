@@ -671,6 +671,10 @@ body #online-site #shop-container #shop {
   transition: 0.6s;
 }
 
+body #online-site #shop-container #shop .untouchable {
+  pointer-events: none;
+}
+
 body #online-site #shop-container #shop .item {
   position: relative;
   display: block;
