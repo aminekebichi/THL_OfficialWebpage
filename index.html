@@ -161,9 +161,9 @@
                     </table>
                 </div>
         
-                <div id="checkout-btn-container" title="Checkout unavailable while cart is empty">
+                <div id="checkout-btn-container">
                     <!-- <button id="checkout-btn" onclick="openCheckout();">CHECKOUT</button> -->
-                    <button id="checkout-btn" onclick="">CHECKOUT</button>
+                    <button id="checkout-btn" onclick="printCartToConsole();">CHECKOUT</button>
                     <p id="checkout-helper-msg">Checkout unavailable while cart is empty</p>
                     <div id="paypal-hider"></div>
                     <div id="paypal-container">
@@ -191,7 +191,7 @@
         
         <div id="shop-container">
             <div id="shop">
-                <div class="item" id="item-1">
+                <div class="item" id="item-1" onclick="previewItem1()">
                     <table class="item-desc">
                         <tr>
                             <td class="item-name" id="item-1-name">ITEM 1 NAME</td>
@@ -202,10 +202,10 @@
                         </tr>
                     </table>
                     <div class="arrows">
-                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
-                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                        <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
                     </div>
-                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
                 </div>
                 <div class="item-preview" id="item-1-preview">
                     <div class="item-preview-header">
@@ -229,7 +229,7 @@
                         &nbsp;&nbsp;Back to store
                     </p>
                 </div>
-                <div class="item" id="item-2">
+                <div class="item" id="item-2" onclick="previewItem2()">
                     <table class="item-desc">
                         <tr>
                             <td class="item-name" id="item-2-name">ITEM 2 NAME</td>
@@ -240,10 +240,10 @@
                         </tr>
                     </table>
                     <div class="arrows">
-                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
-                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                        <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
                     </div>
-                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
                 </div>
                 <div class="item-preview" id="item-2-preview">
                     <div class="item-preview-header">
@@ -272,7 +272,7 @@
                         &nbsp;&nbsp;Back to store
                     </p>
                 </div>
-                <div class="item" id="item-3">
+                <div class="item" id="item-3" onclick="previewItem3()">
                     <table class="item-desc">
                         <tr>
                             <td class="item-name" id="item-3-name">ITEM 3 NAME</td>
@@ -283,10 +283,10 @@
                         </tr>
                     </table>
                     <div class="arrows">
-                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
-                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                        <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
                     </div>
-                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
                 </div>
                 <div class="item-preview" id="item-3-preview">
                     <div class="item-preview-header">
@@ -326,10 +326,10 @@
                         </tr>
                     </table>
                     <div class="arrows">
-                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
-                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                        <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
                     </div>
-                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
                 </div>
                 <div class="item-preview" id="item-4-preview">
                     <div class="item-preview-header">
@@ -369,10 +369,10 @@
                         </tr>
                     </table>
                     <div class="arrows">
-                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
-                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                        <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
                     </div>
-                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
                 </div>
                 <div class="item-preview" id="item-5-preview">
                     <div class="item-preview-header">
@@ -412,10 +412,10 @@
                         </tr>
                     </table>
                     <div class="arrows">
-                        <p class="left-arrow" onclick="leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
-                        <p class="right-arrow" onclick="rightArrow(this)" style="float: right;">&#8594;</p>
+                        <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                        <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
                     </div>
-                    <button class="preview-btn" onclick="previewItem(this)">PREVIEW</button>
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
                 </div>
                 <div class="item-preview" id="item-6-preview">
                     <div class="item-preview-header">
@@ -514,6 +514,7 @@
         },
       createOrder: (data, actions) => {
         total = getBagTotal();
+        printCartToConsole();
         return actions.order.create({
           purchase_units: [{
             amount: {
@@ -524,6 +525,7 @@
       },
       // Finalize the transaction after payer approval
       onApprove: (data, actions) => {
+        console.log('GENERATE ORDER INFORMATION HERE');
         return actions.order.capture().then(function(orderData) {
           // Successful capture! For dev/demo purposes:
           console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));

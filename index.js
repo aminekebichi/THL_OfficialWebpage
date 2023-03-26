@@ -10,8 +10,6 @@ var availableSizes = [["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S"
 var itemPrices = ["0.01", "59.95", "14.95", "14.95", "4.95", "4.95"];
 var itemNames = ["ITEM-1 NAME", "ITEM-2 NAME", "ITEM-3 NAME", "ITEM-4 NAME", "ITEM-5 NAME", "ITEM-6 NAME"];
 
-var checkout_helper_msg_counter = 0;
-
 // var checkoutOpen = false;
 
 function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elt){
@@ -79,16 +77,19 @@ function updateBag(){
     if(getBagSize() == 0){
         document.getElementById('empty-bag-msg').style.opacity = "1";
         document.getElementById('checkout-btn').style.opacity = "0.5";
-        document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
+        // document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
         
-        document.getElementById('checkout-btn').onclick = function() { return null; };
+        document.getElementById('checkout-btn').onclick = function() { printCartToConsole(); };
         hideCheckout();
+        
+        document.getElementById('checkout-btn').title = "Checkout unavailable while cart is empty";
     } else {
         document.getElementById('empty-bag-msg').style.opacity = "0";
         document.getElementById('checkout-btn').style.opacity = "1";
-        document.getElementById('checkout-btn-container').title = "";
+        // document.getElementById('checkout-btn-container').title = "";
 
         document.getElementById('checkout-btn').onclick = function() { printCartToConsole(); showCheckout(); };
+        document.getElementById('checkout-btn').title = "";
     }
 
     // document.getElementById('subtotal-value').innerHTML = getBagTotal() +  ` USD`;
@@ -269,6 +270,7 @@ function getBagTotal(){
 }
 
 function previewItem1(){
+    console.log('preview');
     goTop();
     document.getElementById("shop").style.opacity = "0";
 

@@ -466,10 +466,11 @@ body #online-site #bag-flyout #bag-overview table #shipping-value:hover, body #o
 
 body #online-site #bag-flyout #paypal-hider {
   width: auto;
-  height: 800px;
+  height: 100vh;
   background: none;
-  -webkit-transition: 0.6s !important;
-  transition: 0.6s !important;
+  -webkit-transition: 1.2s !important;
+  transition: 1.2s !important;
+  display: none;
 }
 
 body #online-site #bag-flyout #checkout-btn-container {
@@ -484,6 +485,10 @@ body #online-site #bag-flyout #checkout-btn-container #buttons-container {
           transform: translateY(0vh);
   -webkit-transition: 0.6s;
   transition: 0.6s;
+}
+
+body #online-site #bag-flyout #checkout-btn-container #paypal-container {
+  display: none;
 }
 
 body #online-site #bag-flyout #checkout-btn-container #paypal-container #paypal-button-container {

@@ -1,3 +1,6 @@
+var checkout_helper_msg_counter = 0;
+var checkoutVisible = false;
+
 function printCartToConsole(){
     console.log("--------------------------------------");
     console.log("format: [ITEM NUM, ITEM SIZE, ITEM QTY]");
@@ -16,10 +19,8 @@ function printCartToConsole(){
           document.getElementById("checkout-helper-msg").style.opacity=0;
           }, 3000);
       }
-  }
+    }
 }
-
-var checkoutVisible = false;
 
 function triggerCheckout(){
     if(checkoutVisible){ hideCheckout(); }
@@ -27,12 +28,24 @@ function triggerCheckout(){
 }
 
 function showCheckout(){
-    document.getElementById('paypal-hider').style.height = "0px";
+    document.getElementById('paypal-hider').style.display = "block";
+    document.getElementById('paypal-container').style.display = "block";
+
+    setTimeout(() => {
+        document.getElementById('paypal-hider').style.height = "0px";
+    }, 200);
+
     checkoutVisible = true;
 }
 
 function hideCheckout(){
-    document.getElementById('paypal-hider').style.height = "800px";
+    document.getElementById('paypal-hider').style.height = "100vh";
+
+    setTimeout(() => {
+        document.getElementById('paypal-hider').style.display = "none";
+        document.getElementById('paypal-container').style.display = "none";
+    }, 1400);
+
     checkoutVisible = false;
 
 }

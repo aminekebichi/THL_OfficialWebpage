@@ -28,6 +28,7 @@ function resetCarousel() {
 }
 
 function rightArrow(elem) {
+        console.log('arrow click');
     const parent_id = elem.parentNode.parentNode.id;
     const item_num = parent_id.substring(parent_id.length-1);
     switch(item_num){
