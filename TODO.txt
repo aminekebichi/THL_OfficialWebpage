@@ -1,0 +1,5 @@
+TODO list
+
+- Stylize for mobile view (dynamic styling)
+- Setup backend for inventory tracking
+- Generate email for purchase confirmation
