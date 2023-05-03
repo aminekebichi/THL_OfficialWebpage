@@ -3,3 +3,13 @@ TODO list
 - Stylize for mobile view (dynamic styling)
 - Setup backend for inventory tracking
 - Generate email for purchase confirmation
+- Learn about cookies
+    > I'm fairly certain that if a user presses
+    the back button on their browser, or refreshes
+    the page, they will lose all their progress 
+    (that being the current items in their cart)
+    > I believe the solution is looking into
+    cookies as they save information within each
+    session to preserve anything a user might 
+    want to revisit after refreshing or pressing
+    back button

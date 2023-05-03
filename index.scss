@@ -234,6 +234,7 @@ body{
         display: none;
 
         #scroll-text{
+            // color: red;
             // padding-top: 10px;
 
             /* animation properties */
@@ -241,9 +242,9 @@ body{
             -webkit-transform: translateX(100vw);
             transform: translateX(100vw);
             
-            -moz-animation: my-animation 30s linear infinite;
-            -webkit-animation: my-animation 30s linear infinite;
-            animation: my-animation 30s linear infinite;
+            -moz-animation: my-animation 60s linear infinite;
+            -webkit-animation: my-animation 60s linear infinite;
+            animation: my-animation 60s linear infinite;
         }
 
         /* for Firefox */
@@ -962,9 +963,10 @@ body{
             display: none;
 
             #about, #contact{
+                font-family: $secondary-font;
                 opacity: 0;
 
-                width: 30vw;
+                width: 50vw;
                 font-size: 16px;
                 letter-spacing: 0.1rem;
                 
@@ -972,6 +974,11 @@ body{
                 text-align: center;
 
                 transition: 0.6s;
+
+                #about-header{
+                    font-family: $primary-font;
+                    color: white;
+                }
 
                 #dissapointment{
                     font-family: $secondary-font;
@@ -982,6 +989,7 @@ body{
             }
 
             #contact{
+                font-family: $primary-font;
                 text-align: right;
                 min-width: 500px !important;
                 transform: translateX(-10px);

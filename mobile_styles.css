@@ -3,39 +3,37 @@
     background-image: url("/imgs/THL_BG_4k.jpg");
   }
 }
-
 @media all and (min-width: 1921px) and (max-width: 2600px) {
   body {
     background-image: url("/imgs/THL_BG_Large.jpg");
   }
 }
-
 @media all and (min-width: 1025px) and (max-width: 1920px) {
   body {
     background-image: url("/imgs/THL_BG_Default.jpg");
   }
 }
-
 @media all and (min-width: 960px) and (max-width: 1024px) {
+  #scroll-text {
+    /* animation properties */
+    transform: translateX(100vw);
+    animation: my-animation 30s linear infinite;
+  }
   #thl-logo {
-    -webkit-transform: scale(80%);
-            transform: scale(80%);
+    transform: scale(80%);
     z-index: 2 !important;
   }
   #shop-btn {
     background-color: coral !important;
   }
   #user-bag {
-    -webkit-transform: scale(45%) translateX(50px) !important;
-            transform: scale(45%) translateX(50px) !important;
+    transform: scale(45%) translateX(50px) !important;
   }
   #user-bag-qty {
-    -webkit-transform: translateX(22px);
-            transform: translateX(22px);
+    transform: translateX(22px);
   }
   #empty-bag-msg {
-    -webkit-transform: translateY(225px) !important;
-            transform: translateY(225px) !important;
+    transform: translateY(225px) !important;
   }
   .item-preview {
     padding-bottom: 150px;
@@ -47,27 +45,27 @@
     display: none;
   }
 }
-
 @media all and (min-width: 801px) and (max-width: 959px) {
+  #scroll-text {
+    /* animation properties */
+    transform: translateX(100vw);
+    animation: my-animation 30s linear infinite;
+  }
   #thl-logo {
-    -webkit-transform: scale(80%);
-            transform: scale(80%);
+    transform: scale(80%);
     z-index: 2 !important;
   }
   #shop-btn {
     background-color: coral !important;
   }
   #user-bag {
-    -webkit-transform: scale(45%) translateX(50px) !important;
-            transform: scale(45%) translateX(50px) !important;
+    transform: scale(45%) translateX(50px) !important;
   }
   #user-bag-qty {
-    -webkit-transform: translateX(22px);
-            transform: translateX(22px);
+    transform: translateX(22px);
   }
   #empty-bag-msg {
-    -webkit-transform: translateY(225px) !important;
-            transform: translateY(225px) !important;
+    transform: translateY(225px) !important;
   }
   .item-preview {
     text-align: center;
@@ -83,27 +81,27 @@
     display: none;
   }
 }
-
 @media all and (min-width: 769px) and (max-width: 800px) {
+  #scroll-text {
+    /* animation properties */
+    transform: translateX(100vw);
+    animation: my-animation 15s linear infinite;
+  }
   #thl-logo {
-    -webkit-transform: scale(80%);
-            transform: scale(80%);
+    transform: scale(80%);
     z-index: 2 !important;
   }
   #shop-btn {
     background-color: coral !important;
   }
   #user-bag {
-    -webkit-transform: scale(45%) translateX(50px) !important;
-            transform: scale(45%) translateX(50px) !important;
+    transform: scale(45%) translateX(50px) !important;
   }
   #user-bag-qty {
-    -webkit-transform: translateX(22px);
-            transform: translateX(22px);
+    transform: translateX(22px);
   }
   #empty-bag-msg {
-    -webkit-transform: translateY(225px) !important;
-            transform: translateY(225px) !important;
+    transform: translateY(225px) !important;
   }
   .item-preview {
     text-align: center;
@@ -119,27 +117,27 @@
     display: none;
   }
 }
-
 @media all and (min-width: 569px) and (max-width: 768px) {
+  #scroll-text {
+    /* animation properties */
+    transform: translateX(100vw);
+    animation: my-animation 30s linear infinite;
+  }
   #thl-logo {
-    -webkit-transform: scale(80%);
-            transform: scale(80%);
+    transform: scale(80%);
     z-index: 2 !important;
   }
   #shop-btn {
     background-color: coral !important;
   }
   #user-bag {
-    -webkit-transform: scale(45%) translateX(50px) !important;
-            transform: scale(45%) translateX(50px) !important;
+    transform: scale(45%) translateX(50px) !important;
   }
   #user-bag-qty {
-    -webkit-transform: translateX(22px);
-            transform: translateX(22px);
+    transform: translateX(22px);
   }
   #empty-bag-msg {
-    -webkit-transform: translateY(225px) !important;
-            transform: translateY(225px) !important;
+    transform: translateY(225px) !important;
   }
   .item-preview {
     text-align: center;
@@ -155,27 +153,27 @@
     display: none;
   }
 }
-
 @media all and (min-width: 481px) and (max-width: 568px) {
+  #scroll-text {
+    /* animation properties */
+    transform: translateX(100vw);
+    animation: my-animation 30s linear infinite;
+  }
   #thl-logo {
-    -webkit-transform: scale(80%);
-            transform: scale(80%);
+    transform: scale(80%);
     z-index: 2 !important;
   }
   #shop-btn {
     background-color: coral !important;
   }
   #user-bag {
-    -webkit-transform: scale(45%) translateX(50px) !important;
-            transform: scale(45%) translateX(50px) !important;
+    transform: scale(45%) translateX(50px) !important;
   }
   #user-bag-qty {
-    -webkit-transform: translateX(22px);
-            transform: translateX(22px);
+    transform: translateX(22px);
   }
   #empty-bag-msg {
-    -webkit-transform: translateY(225px) !important;
-            transform: translateY(225px) !important;
+    transform: translateY(225px) !important;
   }
   .item-preview {
     text-align: center;
@@ -191,27 +189,27 @@
     display: none;
   }
 }
-
 @media all and (min-width: 321px) and (max-width: 480px) {
+  #scroll-text {
+    /* animation properties */
+    transform: translateX(100vw);
+    animation: my-animation 30s linear infinite;
+  }
   #thl-logo {
-    -webkit-transform: scale(80%);
-            transform: scale(80%);
+    transform: scale(80%);
     z-index: 2 !important;
   }
   #shop-btn {
     background-color: coral !important;
   }
   #user-bag {
-    -webkit-transform: scale(45%) translateX(50px) !important;
-            transform: scale(45%) translateX(50px) !important;
+    transform: scale(45%) translateX(50px) !important;
   }
   #user-bag-qty {
-    -webkit-transform: translateX(22px);
-            transform: translateX(22px);
+    transform: translateX(22px);
   }
   #empty-bag-msg {
-    -webkit-transform: translateY(225px) !important;
-            transform: translateY(225px) !important;
+    transform: translateY(225px) !important;
   }
   .item-preview {
     text-align: center;
@@ -227,27 +225,27 @@
     display: none;
   }
 }
-
 @media all and (min-width: 0px) and (max-width: 320px) {
+  #scroll-text {
+    /* animation properties */
+    transform: translateX(100vw);
+    animation: my-animation 30s linear infinite;
+  }
   #thl-logo {
-    -webkit-transform: scale(80%);
-            transform: scale(80%);
+    transform: scale(80%);
     z-index: 2 !important;
   }
   #shop-btn {
     background-color: coral !important;
   }
   #user-bag {
-    -webkit-transform: scale(45%) translateX(50px) !important;
-            transform: scale(45%) translateX(50px) !important;
+    transform: scale(45%) translateX(50px) !important;
   }
   #user-bag-qty {
-    -webkit-transform: translateX(22px);
-            transform: translateX(22px);
+    transform: translateX(22px);
   }
   #empty-bag-msg {
-    -webkit-transform: translateY(225px) !important;
-            transform: translateY(225px) !important;
+    transform: translateY(225px) !important;
   }
   .item-preview {
     text-align: center;
@@ -262,5 +260,4 @@
   #checkout-bg {
     display: none;
   }
-}
-/*# sourceMappingURL=mobile_styles.css.map */
+}/*# sourceMappingURL=mobile_styles.css.map */

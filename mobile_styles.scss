@@ -23,6 +23,19 @@
 }
 
 @media all and (min-width:960px) and (max-width: 1024px) {
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
     #thl-logo{
         transform: scale(80%);
         z-index: 2 !important;
@@ -67,6 +80,19 @@
 }
 
 @media all and (min-width:801px) and (max-width: 959px) {
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
     #thl-logo{
         transform: scale(80%);
         z-index: 2 !important;
@@ -111,6 +137,19 @@
 }
 
 @media all and (min-width:769px) and (max-width: 800px) {
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 15s linear infinite;
+        -webkit-animation: my-animation 15s linear infinite;
+        animation: my-animation 15s linear infinite;
+    }
+
     #thl-logo{
         transform: scale(80%);
         z-index: 2 !important;
@@ -155,6 +194,19 @@
 }
 
 @media all and (min-width:569px) and (max-width: 768px) {
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
     #thl-logo{
         transform: scale(80%);
         z-index: 2 !important;
@@ -199,6 +251,19 @@
 }
 
 @media all and (min-width:481px) and (max-width: 568px) {
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
     #thl-logo{
         transform: scale(80%);
         z-index: 2 !important;
@@ -243,6 +308,19 @@
 }
 
 @media all and (min-width:321px) and (max-width: 480px) {
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
     #thl-logo{
         transform: scale(80%);
         z-index: 2 !important;
@@ -287,6 +365,19 @@
 }
 
 @media all and (min-width:0px) and (max-width: 320px) {
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
     #thl-logo{
         transform: scale(80%);
         z-index: 2 !important;
