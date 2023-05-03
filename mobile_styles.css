@@ -85,7 +85,7 @@
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
-    animation: my-animation 15s linear infinite;
+    animation: my-animation 30s linear infinite !important;
   }
   #thl-logo {
     transform: scale(80%);
@@ -121,7 +121,7 @@
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
-    animation: my-animation 30s linear infinite;
+    animation: my-animation 30s linear infinite !important;
   }
   #thl-logo {
     transform: scale(80%);
@@ -157,7 +157,7 @@
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
-    animation: my-animation 30s linear infinite;
+    animation: my-animation 30s linear infinite !important;
   }
   #thl-logo {
     transform: scale(80%);
@@ -193,7 +193,7 @@
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
-    animation: my-animation 30s linear infinite;
+    animation: my-animation 30s linear infinite !important;
   }
   #thl-logo {
     transform: scale(80%);
@@ -229,7 +229,7 @@
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
-    animation: my-animation 30s linear infinite;
+    animation: my-animation 30s linear infinite !important;
   }
   #thl-logo {
     transform: scale(80%);
