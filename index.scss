@@ -31,7 +31,7 @@ body{
 
     position: absolute;
     // overflow-y: scroll;
-    width: 100vw;
+    width: 100%;
 
     #offline-site{
         display: flex;
@@ -51,8 +51,8 @@ body{
             margin-top: 3px;
             margin-left: 76px;
         
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
         }
         
         .bg-wrapper{
@@ -75,7 +75,7 @@ body{
         
         #bg{
             /* background-repeat: round; */
-            width:100vw; height:100vh;
+            width:100%; height:100%;
             /* background-image: -moz-element(#fractal); */
         }
         
@@ -213,7 +213,9 @@ body{
     }
 
     #top-banner{
-        width: 100vw;
+        width: 100%;
+        box-sizing: border-box;
+
         background-color: #ff7f50;
         color: white;
         font-family: $secondary-font;
@@ -238,9 +240,9 @@ body{
             // padding-top: 10px;
 
             /* animation properties */
-            -moz-transform: translateX(100vw);
-            -webkit-transform: translateX(100vw);
-            transform: translateX(100vw);
+            -moz-transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
             
             -moz-animation: my-animation 60s linear infinite;
             -webkit-animation: my-animation 60s linear infinite;
@@ -249,19 +251,19 @@ body{
 
         /* for Firefox */
         @-moz-keyframes my-animation {
-            from { -moz-transform: translateX(100vw); }
-            to { -moz-transform: translateX(-100vw); }
+            from { -moz-transform: translateX(100%); }
+            to { -moz-transform: translateX(-100%); }
         }
         
         /* for Chrome */
         @-webkit-keyframes my-animation {
-            from { -webkit-transform: translateX(100vw); }
-            to { -webkit-transform: translateX(-100vw); }
+            from { -webkit-transform: translateX(100%); }
+            to { -webkit-transform: translateX(-100%); }
         }
         
         @keyframes my-animation {
             100%{
-                transform: translate(-100vw, 0);
+                transform: translate(-100%, 0);
             }
             // from {
             // -moz-transform: translateX(100%);
@@ -278,6 +280,9 @@ body{
 
     #online-site{
         display: none;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
 
         .divider{
             height: 2px;
@@ -290,11 +295,11 @@ body{
         #checkout-bg{
             position: fixed;
 
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             background-color: $primary-font-color;
 
-            transform: translateX(100vw);
+            transform: translateX(100%);
             transition: 0.6s;
 
             z-index: 100;
@@ -313,7 +318,7 @@ body{
             transform: translateX(400px);
 
             width: 400px;
-            height: 100vh;
+            height: 100%;
 
             // background-color: rgba($color: #000000, $alpha: 0.65);
             background-color: rgba(25, 24, 22, 1);
@@ -484,7 +489,7 @@ body{
 
             #paypal-hider{
                 width: auto;
-                height: 100vh;
+                height: 100%;
 
                 background: none;
                 transition: 1.2s !important;
@@ -602,7 +607,7 @@ body{
             align-items: center;
             flex-direction: column;
 
-            height: 100vh;
+            height: 100%;
 
             z-index: 1;
 
@@ -661,8 +666,10 @@ body{
         }
 
         #shop-container{
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
+
+            box-sizing: border-box;
 
             display: flex;
             justify-content: center;
@@ -676,11 +683,11 @@ body{
             transition: 0.6s;
 
             #shop{
-                transform: translateX(-9px);
+                // transform: translateX(-9px);
                 opacity: 0;
                 display: none;
 
-                width: 75vw;
+                width: 100%;
 
                 padding: 140px 0;
         
@@ -810,8 +817,10 @@ body{
         
                 #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
                     // sizing for small moitor
-                    height: 600px; min-height: 600px;
-                    width: 435px; min-width: 435px;
+                    height: 600px;
+                    // min-height: 600px;
+                    width: 435px;
+                    // min-width: 435px;
 
                     // height: 800px; min-height: 800px;
                     // width: 550px; min-width: 550px;
@@ -847,6 +856,17 @@ body{
                         }
                     }
 
+                    select {
+                        -webkit-appearance: none !important;
+                        -moz-appearance: none !important;
+                        appearance: none !important;
+                        border-radius: 0 !important;
+                    }
+
+                    select option {
+                        border-radius: 0 !important;
+                    }
+
                     .size-select{
                         position: relative;
                         font-family: $secondary-font;
@@ -869,6 +889,7 @@ body{
                             cursor: pointer;
 
                             option {
+                                border-radius: 0px !important;
                                 min-height: 100px !important;
                                 margin: 20px 0;
                             }
@@ -876,15 +897,27 @@ body{
                         
                     }
                     
-                    .size-select select {
-                        appearance: none;
+                    .size-select select{
+                        border-style: none !important;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        -webkit-border-radius: 0px !important;
+                        appearance: none !important;
+                    }
+
+                    .size-select option{
+                        border-style: none !important;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        -webkit-border-radius: 0px !important;
+                        appearance: none !important;
                     }
 
                     .size-select::after{
                         content: "\25b6";
                         transform: rotate(90deg);
                         position: absolute; 
-                        top: 5px; 
+                        top: 4px; 
                         right: 2.25rem;
 
                         color: $primary-font-color;
@@ -944,8 +977,8 @@ body{
         }
 
         #about-container, #contact-container{
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
 
             top: 0;
             
@@ -966,7 +999,7 @@ body{
                 font-family: $secondary-font;
                 opacity: 0;
 
-                width: 50vw;
+                width: 50%;
                 font-size: 16px;
                 letter-spacing: 0.1rem;
                 
@@ -991,12 +1024,23 @@ body{
             #contact{
                 font-family: $primary-font;
                 text-align: right;
-                min-width: 500px !important;
+                max-width: 500px !important;
                 transform: translateX(-10px);
 
                 #contact-table{
                     border-spacing: 0 15px;
-                    margin: 0 auto;
+                    margin: 0;
+                    table-layout: fixed;
+
+                    .contact-col1{
+                        text-align: right;
+                        // white-space: nowrap;
+                        min-width: 200px;
+                    }
+
+                    .contact-col2{
+                        width: 100%;
+                    }
 
                     #contact-ig, #contact-tw{
                         display: none;
@@ -1012,17 +1056,17 @@ body{
                     }
                     #contact-ig:hover, #contact-tw:hover{
                         opacity: 1;
+                        background-color: $highlight-color;
                     }
                 }
             }
         }
 
-
         .footer {
             position: fixed;
             // left: 0;
             bottom: 0;
-            width: 100vw; 
+            width: 100%; 
             // background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(0, 0, 0, 0)));
             background: linear-gradient(0deg, black, rgba(0, 0, 0, 0));
             

@@ -14,6 +14,16 @@
   }
 }
 @media all and (min-width: 960px) and (max-width: 1024px) {
+  #gen-inq {
+    display: none;
+  }
+  .contact-col1 {
+    min-width: 135px !important;
+  }
+  #contact-ig, #contact-tw {
+    background-color: coral !important;
+    opacity: 1 !important;
+  }
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
@@ -46,6 +56,16 @@
   }
 }
 @media all and (min-width: 801px) and (max-width: 959px) {
+  #gen-inq {
+    display: none;
+  }
+  .contact-col1 {
+    min-width: 135px !important;
+  }
+  #contact-ig, #contact-tw {
+    background-color: coral !important;
+    opacity: 1 !important;
+  }
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
@@ -82,6 +102,16 @@
   }
 }
 @media all and (min-width: 769px) and (max-width: 800px) {
+  #gen-inq {
+    display: none;
+  }
+  .contact-col1 {
+    min-width: 135px !important;
+  }
+  #contact-ig, #contact-tw {
+    background-color: coral !important;
+    opacity: 1 !important;
+  }
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
@@ -118,6 +148,19 @@
   }
 }
 @media all and (min-width: 569px) and (max-width: 768px) {
+  #gen-inq {
+    display: none;
+  }
+  .contact-col1 {
+    min-width: 135px !important;
+  }
+  #contact-ig, #contact-tw {
+    background-color: coral !important;
+    opacity: 1 !important;
+  }
+  #about, #contact {
+    width: 75% !important;
+  }
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
@@ -154,6 +197,19 @@
   }
 }
 @media all and (min-width: 481px) and (max-width: 568px) {
+  #gen-inq {
+    display: none;
+  }
+  .contact-col1 {
+    min-width: 135px !important;
+  }
+  #contact-ig, #contact-tw {
+    background-color: coral !important;
+    opacity: 1 !important;
+  }
+  #about, #contact {
+    width: 75% !important;
+  }
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
@@ -190,6 +246,19 @@
   }
 }
 @media all and (min-width: 321px) and (max-width: 480px) {
+  #gen-inq {
+    display: none;
+  }
+  .contact-col1 {
+    min-width: 135px !important;
+  }
+  #contact-ig, #contact-tw {
+    background-color: coral !important;
+    opacity: 1 !important;
+  }
+  #about, #contact {
+    width: 75% !important;
+  }
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);
@@ -226,6 +295,19 @@
   }
 }
 @media all and (min-width: 0px) and (max-width: 320px) {
+  #gen-inq {
+    display: none;
+  }
+  .contact-col1 {
+    min-width: 135px !important;
+  }
+  #contact-ig, #contact-tw {
+    background-color: coral;
+    opacity: 1 !important;
+  }
+  #about, #contact {
+    width: 75% !important;
+  }
   #scroll-text {
     /* animation properties */
     transform: translateX(100vw);

@@ -17,7 +17,7 @@ body {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
   position: absolute;
-  width: 100vw;
+  width: 100%;
 }
 body #offline-site {
   display: flex;
@@ -37,8 +37,8 @@ body #offline-site {
 body #offline-site #temp {
   margin-top: 3px;
   margin-left: 76px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 body #offline-site .bg-wrapper {
   display: flex;
@@ -53,8 +53,8 @@ body #offline-site .bg-wrapper {
 }
 body #offline-site #bg {
   /* background-repeat: round; */
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   /* background-image: -moz-element(#fractal); */
 }
 body #offline-site .center-wrapper {
@@ -167,7 +167,8 @@ body #offline-site #emailform-error-msg {
   transition: 0.6s;
 }
 body #top-banner {
-  width: 100vw;
+  width: 100%;
+  box-sizing: border-box;
   background-color: #ff7f50;
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -185,16 +186,19 @@ body #top-banner {
 }
 body #top-banner #scroll-text {
   /* animation properties */
-  transform: translateX(100vw);
+  transform: translateX(100%);
   animation: my-animation 60s linear infinite;
 }
 @keyframes my-animation {
   100% {
-    transform: translate(-100vw, 0);
+    transform: translate(-100%, 0);
   }
 }
 body #online-site {
   display: none;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 body #online-site .divider {
   height: 2px;
@@ -205,10 +209,10 @@ body #online-site .divider {
 }
 body #online-site #checkout-bg {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #191816;
-  transform: translateX(100vw);
+  transform: translateX(100%);
   transition: 0.6s;
   z-index: 100;
 }
@@ -221,7 +225,7 @@ body #online-site #bag-flyout {
   scrollbar-width: none; /* Firefox */
   transform: translateX(400px);
   width: 400px;
-  height: 100vh;
+  height: 100%;
   background-color: rgb(25, 24, 22);
   z-index: 101;
   transition: 0.6s;
@@ -350,7 +354,7 @@ body #online-site #bag-flyout #bag-overview table #shipping-value:hover, body #o
 }
 body #online-site #bag-flyout #paypal-hider {
   width: auto;
-  height: 100vh;
+  height: 100%;
   background: none;
   transition: 1.2s !important;
   display: none;
@@ -434,7 +438,7 @@ body #online-site #home {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
   transition: 0.6s;
 }
@@ -471,8 +475,9 @@ body #online-site #home #shop-btn:hover {
   background-color: coral;
 }
 body #online-site #shop-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -482,10 +487,9 @@ body #online-site #shop-container {
   transition: 0.6s;
 }
 body #online-site #shop-container #shop {
-  transform: translateX(-9px);
   opacity: 0;
   display: none;
-  width: 75vw;
+  width: 100%;
   padding: 140px 0;
   display: flex;
   justify-content: center;
@@ -584,9 +588,7 @@ body #online-site #shop-container #shop .item .preview-btn {
 }
 body #online-site #shop-container #shop #item-1, body #online-site #shop-container #shop #item-2, body #online-site #shop-container #shop #item-3, body #online-site #shop-container #shop #item-4, body #online-site #shop-container #shop #item-5, body #online-site #shop-container #shop #item-6 {
   height: 600px;
-  min-height: 600px;
   width: 435px;
-  min-width: 435px;
   background: white;
   transition: 0.6s;
   display: block;
@@ -606,6 +608,15 @@ body #online-site #shop-container #shop .item-preview {
 body #online-site #shop-container #shop .item-preview .item-preview-header p {
   margin-top: 0;
   color: white;
+}
+body #online-site #shop-container #shop .item-preview select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  border-radius: 0 !important;
+}
+body #online-site #shop-container #shop .item-preview select option {
+  border-radius: 0 !important;
 }
 body #online-site #shop-container #shop .item-preview .size-select {
   position: relative;
@@ -627,19 +638,29 @@ body #online-site #shop-container #shop .item-preview .size-select #item-1-sizes
   cursor: pointer;
 }
 body #online-site #shop-container #shop .item-preview .size-select #item-1-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-2-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-3-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-4-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-5-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-6-sizes option {
+  border-radius: 0px !important;
   min-height: 100px !important;
   margin: 20px 0;
 }
 body #online-site #shop-container #shop .item-preview .size-select select {
+  border-style: none !important;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px !important;
+  appearance: none !important;
+}
+body #online-site #shop-container #shop .item-preview .size-select option {
+  border-style: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px !important;
+  appearance: none !important;
 }
 body #online-site #shop-container #shop .item-preview .size-select::after {
   content: "▶";
   transform: rotate(90deg);
   position: absolute;
-  top: 5px;
+  top: 4px;
   right: 2.25rem;
   color: #191816;
   pointer-events: none;
@@ -681,8 +702,8 @@ body #online-site #shop-container #shop .flex-break {
   height: 60px;
 }
 body #online-site #about-container, body #online-site #contact-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   justify-content: center;
   align-items: center;
@@ -692,7 +713,7 @@ body #online-site #about-container, body #online-site #contact-container {
 body #online-site #about-container #about, body #online-site #about-container #contact, body #online-site #contact-container #about, body #online-site #contact-container #contact {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   opacity: 0;
-  width: 50vw;
+  width: 50%;
   font-size: 16px;
   letter-spacing: 0.1rem;
   color: white;
@@ -712,12 +733,20 @@ body #online-site #about-container #about #dissapointment, body #online-site #ab
 body #online-site #about-container #contact, body #online-site #contact-container #contact {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: right;
-  min-width: 500px !important;
+  max-width: 500px !important;
   transform: translateX(-10px);
 }
 body #online-site #about-container #contact #contact-table, body #online-site #contact-container #contact #contact-table {
   border-spacing: 0 15px;
-  margin: 0 auto;
+  margin: 0;
+  table-layout: fixed;
+}
+body #online-site #about-container #contact #contact-table .contact-col1, body #online-site #contact-container #contact #contact-table .contact-col1 {
+  text-align: right;
+  min-width: 200px;
+}
+body #online-site #about-container #contact #contact-table .contact-col2, body #online-site #contact-container #contact #contact-table .contact-col2 {
+  width: 100%;
 }
 body #online-site #about-container #contact #contact-table #contact-ig, body #online-site #about-container #contact #contact-table #contact-tw, body #online-site #contact-container #contact #contact-table #contact-ig, body #online-site #contact-container #contact #contact-table #contact-tw {
   display: none;
@@ -730,11 +759,12 @@ body #online-site #about-container #contact #contact-table #contact-ig, body #on
 }
 body #online-site #about-container #contact #contact-table #contact-ig:hover, body #online-site #about-container #contact #contact-table #contact-tw:hover, body #online-site #contact-container #contact #contact-table #contact-ig:hover, body #online-site #contact-container #contact #contact-table #contact-tw:hover {
   opacity: 1;
+  background-color: #ff7f50;
 }
 body #online-site .footer {
   position: fixed;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   background: linear-gradient(0deg, black, rgba(0, 0, 0, 0));
   padding: 40px 0;
   padding-bottom: 20px;

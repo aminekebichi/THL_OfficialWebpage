@@ -1,6 +1,14 @@
 TODO list
 
 - Stylize for mobile view (dynamic styling)
+    > Mobile view of shop should show full screen
+    images, single column format
+    >UPDATE: this is mostly done, just need to
+    figure out a way to dynamically style the bag
+    flyout
+    >POTENTIAL CONCERNS: images will need to be
+    checked for stretching/sizing issues when
+    assets are finished & uploaded
 - Setup backend for inventory tracking
 - Generate email for purchase confirmation
 - Learn about cookies

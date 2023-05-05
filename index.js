@@ -10,6 +10,8 @@ var availableSizes = [["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S"
 var itemPrices = ["0.01", "59.95", "14.95", "14.95", "4.95", "4.95"];
 var itemNames = ["ITEM-1 NAME", "ITEM-2 NAME", "ITEM-3 NAME", "ITEM-4 NAME", "ITEM-5 NAME", "ITEM-6 NAME"];
 
+var shopVisible = 0;
+
 // var checkoutOpen = false;
 
 function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elt){
@@ -484,33 +486,33 @@ function hideBag(){
     hideCheckout();
 }
 
-function openCheckout(){
-    hideHome();
-    document.body.style.overflowY = "scroll";
-    if(getBagSize() == 0){
-        checkout_helper_msg_counter++;
-        document.getElementById("checkout-btn").className="animate__animated animate__shakeX";
-        setTimeout(() => {
-            document.getElementById("checkout-btn").className="";
-        }, (1200));
-        if(checkout_helper_msg_counter>0 && checkout_helper_msg_counter%3==0){
-            document.getElementById("checkout-helper-msg").style.opacity=1;
-            setTimeout(() => {
-            document.getElementById("checkout-helper-msg").style.opacity=0;
-            }, 3000);
-        }
-    } else {
-        // Bag must be open to open checkout => triggerBag() will close bag view
-        triggerBag();
-        bag_open=false;
-        document.getElementById("checkout-bg").style.transform = "translateX(0)";
-        document.getElementById("checkout-form-divider").style.transform = "translateX(0)";
-        setTimeout(() => {
-            document.getElementById("checkout-form").style.transform = "translateX(0)";
-        }, 600);
-        checkoutOpen = true;
-    }
-}
+// function openCheckout(){
+//     hideHome();
+//     document.body.style.overflowY = "scroll";
+//     if(getBagSize() == 0){
+//         checkout_helper_msg_counter++;
+//         document.getElementById("checkout-btn").className="animate__animated animate__shakeX";
+//         setTimeout(() => {
+//             document.getElementById("checkout-btn").className="";
+//         }, (1200));
+//         if(checkout_helper_msg_counter>0 && checkout_helper_msg_counter%3==0){
+//             document.getElementById("checkout-helper-msg").style.opacity=1;
+//             setTimeout(() => {
+//             document.getElementById("checkout-helper-msg").style.opacity=0;
+//             }, 3000);
+//         }
+//     } else {
+//         // Bag must be open to open checkout => triggerBag() will close bag view
+//         triggerBag();
+//         bag_open=false;
+//         document.getElementById("checkout-bg").style.transform = "translateX(0)";
+//         document.getElementById("checkout-form-divider").style.transform = "translateX(0)";
+//         setTimeout(() => {
+//             document.getElementById("checkout-form").style.transform = "translateX(0)";
+//         }, 600);
+//         checkoutOpen = true;
+//     }
+// }
 
 // function closeCheckout(){
 //     document.getElementById("checkout-form").style.transform = "translateX(-700px)";
@@ -596,7 +598,7 @@ function triggerAbout(){
 }
 
 function triggerShop(){
-    hideBag(); hideCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); returnFromPreview(); showShop();
+    hideBag(); hideCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); returnFromPreview(); toggleItemVisibility(); showShop();
 }
 
 function triggerContact(){
@@ -637,15 +639,23 @@ function restoreItemsOnClick(){
     document.getElementById('item-6').onclick = function() { previewItem6(); };
 }
 
+function toggleItemVisibility(){
+    if(shopVisible == 0){
+        setTimeout(() => {
+            var items_list = document.querySelectorAll(".item");
+            for (var i = 0; i < items_list.length; i++) {
+                var elem = items_list[i];
+                elem.classList.toggle("untouchable");
+            }
+        }, 200);
+
+        shopVisible = 1;
+    }
+}
+
 function showShop(){
     // console.log("show shop!");
-    setTimeout(() => {
-        var items_list = document.querySelectorAll(".item");
-        for (var i = 0; i < items_list.length; i++) {
-            var elem = items_list[i];
-            elem.classList.toggle("untouchable");
-        }
-    }, 200);
+    shopVisible = true;
 
     if(inPreview){
         returnFromPreview();
@@ -664,6 +674,7 @@ function showShop(){
 function hideShop(){
     // document.getEz
     document.getElementById("shop").style.opacity = "0";
+    shopVisible = false;
     // setTimeout(() => {
     //     document.getElementById("shop").style.display = "none";
     // }, 600);
