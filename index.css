@@ -646,14 +646,14 @@ body #online-site #shop-container #shop .item-preview .size-select select {
   border-style: none !important;
   -webkit-appearance: none;
   -moz-appearance: none;
-  -webkit-border-radius: 0px !important;
+  border-radius: 0px !important;
   appearance: none !important;
 }
 body #online-site #shop-container #shop .item-preview .size-select option {
   border-style: none !important;
   -webkit-appearance: none;
   -moz-appearance: none;
-  -webkit-border-radius: 0px !important;
+  border-radius: 0px !important;
   appearance: none !important;
 }
 body #online-site #shop-container #shop .item-preview .size-select::after {
