@@ -28,3 +28,7 @@ TODO list
     > DFTTYGAWYS Hoodie (Green/Brown)
     > THL Headscarf (Brown/Yellow/Green/Blue)
     > Bracelet? Necklace? Pants?
+
+
+FIX TOGGLE ISSUE, WHEN EXITING STORE ITEMS BECOME
+UNTOUCHABLE UPON RETURN

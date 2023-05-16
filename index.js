@@ -598,7 +598,7 @@ function triggerAbout(){
 }
 
 function triggerShop(){
-    hideBag(); hideCheckout(); resetCarousel(); hideContact(); goTop(); hideHome(); hideAbout(); hideContact(); returnFromPreview(); toggleItemVisibility(); showShop();
+    hideBag(); hideHome(); hideAbout(); hideContact(); hideCheckout(); hideContact(); returnFromPreview(); resetCarousel(); goTop(); showShop();
 }
 
 function triggerContact(){
@@ -639,23 +639,36 @@ function restoreItemsOnClick(){
     document.getElementById('item-6').onclick = function() { previewItem6(); };
 }
 
-function toggleItemVisibility(){
-    if(shopVisible == 0){
+function toggleItemVisibilityOff(){
+    if(shopVisible == 1){
+        console.log("leaving shop => toggle visibility OFF");
         setTimeout(() => {
             var items_list = document.querySelectorAll(".item");
             for (var i = 0; i < items_list.length; i++) {
                 var elem = items_list[i];
-                elem.classList.toggle("untouchable");
+                elem.classList.add("untouchable");
             }
-        }, 200);
-
-        shopVisible = 1;
+        }, 1000);
+        shopVisible = 0;
     }
+}
+
+function toggleItemVisibilityOn(){
+    console.log("entering shop => toggle visibility ON");
+    setTimeout(() => {
+        var items_list = document.querySelectorAll(".item");
+        for (var i = 0; i < items_list.length; i++) {
+            var elem = items_list[i];
+            elem.classList.remove("untouchable");
+        }
+    }, 1000);
+    shopVisible = 1;
+
 }
 
 function showShop(){
     // console.log("show shop!");
-    shopVisible = true;
+    toggleItemVisibilityOn();
 
     if(inPreview){
         returnFromPreview();
@@ -673,8 +686,8 @@ function showShop(){
 
 function hideShop(){
     // document.getEz
+    toggleItemVisibilityOff();
     document.getElementById("shop").style.opacity = "0";
-    shopVisible = false;
     // setTimeout(() => {
     //     document.getElementById("shop").style.display = "none";
     // }, 600);
