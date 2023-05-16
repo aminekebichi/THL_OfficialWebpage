@@ -102,6 +102,9 @@
   }
 }
 @media all and (min-width: 769px) and (max-width: 800px) {
+  #shop-container {
+    padding: 0;
+  }
   #gen-inq {
     display: none;
   }
@@ -148,6 +151,9 @@
   }
 }
 @media all and (min-width: 569px) and (max-width: 768px) {
+  #shop-container {
+    padding: 0;
+  }
   #gen-inq {
     display: none;
   }
@@ -197,6 +203,13 @@
   }
 }
 @media all and (min-width: 481px) and (max-width: 568px) {
+  #shop-container {
+    padding: 0;
+  }
+  #item-1, #item-2, #item-3, #item-4, #item-5, #item-6 {
+    height: 145vw !important;
+    width: 100vw !important;
+  }
   #gen-inq {
     display: none;
   }
@@ -246,6 +259,13 @@
   }
 }
 @media all and (min-width: 321px) and (max-width: 480px) {
+  #shop-container {
+    padding: 0;
+  }
+  #item-1, #item-2, #item-3, #item-4, #item-5, #item-6 {
+    height: 145vw !important;
+    width: 100vw !important;
+  }
   #gen-inq {
     display: none;
   }
@@ -295,6 +315,13 @@
   }
 }
 @media all and (min-width: 0px) and (max-width: 320px) {
+  #shop-container {
+    padding: 0;
+  }
+  #item-1, #item-2, #item-3, #item-4, #item-5, #item-6 {
+    height: 145vw !important;
+    width: 100vw !important;
+  }
   #gen-inq {
     display: none;
   }
