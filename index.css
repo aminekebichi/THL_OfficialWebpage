@@ -178,7 +178,7 @@ body #top-banner {
   letter-spacing: 0.05rem;
   white-space: nowrap;
   position: fixed;
-  z-index: 103;
+  z-index: 107;
   overflow: hidden;
   display: none;
   /* for Firefox */
@@ -223,11 +223,11 @@ body #online-site #bag-flyout {
   overflow-y: scroll;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
-  transform: translateX(400px);
-  width: 400px;
+  transform: translateX(100vw);
+  width: 100vw;
   height: 100%;
   background-color: rgb(25, 24, 22);
-  z-index: 101;
+  z-index: 104;
   transition: 0.6s;
 }
 body #online-site #bag-flyout #empty-bag-msg {
@@ -391,6 +391,7 @@ body #online-site #bag-flyout #checkout-btn-container #checkout-btn {
   background-color: white;
   position: relative;
   width: 80%;
+  max-width: 300px;
   padding: 15px 0;
   border: none;
   opacity: 0.5;
@@ -411,7 +412,7 @@ body #online-site #user-bag {
   margin: 5px;
   padding-top: 35px;
   cursor: pointer;
-  z-index: 103;
+  z-index: 105;
   transition: 0.6s;
 }
 body #online-site #user-bag:hover {
@@ -428,10 +429,30 @@ body #online-site #user-bag-qty {
   background-color: coral;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 103;
+  z-index: 105;
   width: 16px;
   padding: 3px;
   margin-top: 85px;
+}
+body #online-site #user-bag-qty-animation {
+  opacity: 0%;
+  position: fixed;
+  right: 0;
+  margin: 0 58px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+  background-color: coral;
+  border: 2px solid coral;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 104;
+  height: 16px;
+  width: 16px;
+  padding: 3px;
+  margin-top: 82px;
+  transition: 0.5s;
 }
 body #online-site #home {
   display: flex;
@@ -776,7 +797,7 @@ body #online-site .footer {
   -moz-column-gap: 40px;
        column-gap: 40px;
   row-gap: 1px;
-  z-index: 103 !important;
+  z-index: 106 !important;
 }
 body #online-site .footer p {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;

@@ -1,5 +1,6 @@
 TODO list
 
+- Consider adding item preview images to bag flyout
 - Stylize for mobile view (dynamic styling)
     > Mobile view of shop should show full screen
     images, single column format
@@ -8,7 +9,8 @@ TODO list
     flyout
     >POTENTIAL CONCERNS: images will need to be
     checked for stretching/sizing issues when
-    assets are finished & uploaded
+    assets are finished & uploaded >> refer to
+    $imageRatio variable in mobile_styles.scss
 - Setup backend for inventory tracking
 - Generate email for purchase confirmation
 - Learn about cookies
@@ -21,6 +23,9 @@ TODO list
     session to preserve anything a user might 
     want to revisit after refreshing or pressing
     back button
+    > Keep in mind: the only information that needs
+    to be saved/stored is user login info (if a 
+    login is used) & current bag -- lifetime 20min
 
 - FINAL ITEM LIST FOR THLFW24
     > La Cantine
@@ -28,7 +33,3 @@ TODO list
     > DFTTYGAWYS Hoodie (Green/Brown)
     > THL Headscarf (Brown/Yellow/Green/Blue)
     > Bracelet? Necklace? Pants?
-
-
-FIX TOGGLE ISSUE, WHEN EXITING STORE ITEMS BECOME
-UNTOUCHABLE UPON RETURN

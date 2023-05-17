@@ -176,10 +176,18 @@ function add2bag(elem){
     if(item_size === "none"){
         sizesErrorForm(item_num);
     } else {
-        if(!bag_open){
-            document.getElementById("bag-flyout").style.transform = "translateX(0px)";
-            bag_open = true;
-        }
+        // if(!bag_open){
+        //     document.getElementById("bag-flyout").style.transform = "translateX(0px)";
+        //     bag_open = true;
+        // }
+        document.getElementById("user-bag-qty-animation").style.opacity = "100%";
+        document.getElementById("user-bag-qty-animation").style.transform = "scale(150%)";
+
+        setTimeout(() => {
+            document.getElementById("user-bag-qty-animation").style.opacity = "0%";
+            document.getElementById("user-bag-qty-animation").style.transform = "scale(100%)";
+        }, 500);
+
         if(getItemIndex(currentBag, item_arr) == -1 || currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
             if(getItemIndex(currentBag, item_arr) == -1){
                 currentBag.push(item_arr);
@@ -467,9 +475,11 @@ function previewItem(parent){
     inPreview = true;
 }
 
+var flyoutWidth = "100vw";
+
 function triggerBag(){
     if(bag_open){
-        document.getElementById("bag-flyout").style.transform = "translateX(400px)";
+        document.getElementById("bag-flyout").style.transform = `translateX(`+flyoutWidth+`)`;
         bag_open = false;
 
         hideCheckout();
@@ -480,7 +490,7 @@ function triggerBag(){
 }
 
 function hideBag(){
-    document.getElementById("bag-flyout").style.transform = "translateX(400px)";
+    document.getElementById("bag-flyout").style.transform = `translateX(`+flyoutWidth+`)`;
     bag_open = false;
 
     hideCheckout();

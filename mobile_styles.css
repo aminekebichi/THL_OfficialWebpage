@@ -259,6 +259,9 @@
   }
 }
 @media all and (min-width: 321px) and (max-width: 480px) {
+  #user-bag-qty-animation {
+    transform: translateX(22px);
+  }
   #shop-container {
     padding: 0;
   }
