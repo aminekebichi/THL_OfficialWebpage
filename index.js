@@ -559,9 +559,9 @@ function resetSizeSelections() {
 function returnFromPreview(){
     restoreItemsOnClick();
     document.getElementById("shop").style.opacity = "0";
-    document.getElementById("shop").style.rowGap = "100px";
 
     setTimeout(() => {
+        document.getElementById("shop").style.rowGap = "100px";
         document.getElementById("shop").style.columnGap = "200px";
 
         document.getElementById("item-1-preview").style.display = "none";
@@ -696,6 +696,11 @@ function showShop(){
 
 function hideShop(){
     // document.getEz
+    goTop(); 
+    if(inPreview){
+        returnFromPreview();
+        inPreview = false;
+    }
     toggleItemVisibilityOff();
     document.getElementById("shop").style.opacity = "0";
     // setTimeout(() => {
