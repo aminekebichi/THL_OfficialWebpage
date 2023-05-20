@@ -696,13 +696,19 @@ function showShop(){
 
 function hideShop(){
     // document.getEz
-    goTop(); 
+    goTop();
+
+    document.getElementById("shop").style.opacity = "0";
+    setTimeout(() => {
+        toggleItemVisibilityOff();
+        document.getElementById("shop").style.rowGap = "100px";
+        document.getElementById("shop").style.columnGap = "200px";
+    }, 600);
+
     if(inPreview){
         returnFromPreview();
         inPreview = false;
     }
-    toggleItemVisibilityOff();
-    document.getElementById("shop").style.opacity = "0";
     // setTimeout(() => {
     //     document.getElementById("shop").style.display = "none";
     // }, 600);
