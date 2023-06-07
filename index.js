@@ -47,7 +47,8 @@ function updateSizeAvailability(){
         if(item_qtys[item_num-1][Math.max(size_num, 0)] - item_qty < 0){
             if(item_qtys[item_num-1][Math.max(size_num, 0)] == 0){
                 alert('Sorry, this item is out of stock and your transaction cannot be completed');
-                removeItemFromBag(i);
+                currentBag[i][2] = 0;
+                removeItemFromBag(i); updateBag();
             } else {
                 alert(invalid_qty_errorMsg);
                 document.getElementById('bagged-item-'+i+'-qty').innerHTML = `
