@@ -15,9 +15,31 @@ var shopVisible = 0;
 
 // var checkoutOpen = false;
 
+function getItemSizeIndex(item_size){
+    let size_num = 0;
+    switch(item_size){
+        case 'XS':  size_num = 0;
+        break;
+        case 'S':   size_num = 1;
+        break;
+        case 'M':   size_num = 2;
+        break;
+        case 'L':   size_num = 3;
+        break;
+        case 'XL':  size_num = 4;
+        break;
+        default:    size_num = -1;
+        break;
+    }
+
+    return size_num;
+}
+
 //this function will iterate through the current bag and decrement the item_qtys as they appear in the bag, if there are less items in inventory than 
 //there are in bag, throw an error message, update the bag with the proper qtys, call updateBag()
-var invalid_qty_errorMsg = "YOUR REQUEST WAS CANCELED. YOU HAVE REQUESTED MORE THAN OUR INVENTORY CAN PROVIDE... YOUR BAG WILL BE UPDATED TO REFLECT OUR AVAILABILITY";
+var alert_inventory = false;
+var alert_outOfStock = false;
+var invalid_qty_errorMsg = "Sorry, you have requested a certain quantity of items that our inventory cannot supply... This transaction will be canceled, and your bag will be updated to reflect our inventory.";
 function updateSizeAvailability(){
     console.log('current bag: ' + currentBag);
     console.log('old inventory count: ' + item_qtys); 
@@ -28,25 +50,11 @@ function updateSizeAvailability(){
 
         console.log('item ' + (item_num) + ': size ' + item_size + ' [x' + item_qty + ']');
 
-        let size_num = 0;
-        switch(item_size){
-            case 'XS':  size_num = 0;
-            break;
-            case 'S':   size_num = 1;
-            break;
-            case 'M':   size_num = 2;
-            break;
-            case 'L':   size_num = 3;
-            break;
-            case 'XL':  size_num = 4;
-            break;
-            default:    size_num = -1;
-            break;
-        }
+        let size_num = getItemSizeIndex(item_size);
 
         if(item_qtys[item_num-1][Math.max(size_num, 0)] - item_qty < 0){
             if(item_qtys[item_num-1][Math.max(size_num, 0)] == 0){
-                alert('Sorry, this item is out of stock and your transaction cannot be completed');
+                alert('Sorry, an item you requested is out of stock and your transaction cannot be completed');
                 currentBag[i][2] = 0;
                 removeItemFromBag(i); updateBag();
             } else {
@@ -235,15 +243,23 @@ function incrementItem(elem){
     // console.log(elem.parentNode);
     var bagged_item_i = elem.parentNode.id.split('-')[2];
     // console.log('bagged_item_i: ', bagged_item_i);
-    currentBag[bagged_item_i][2]++;
 
-    document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
-        <button onclick="decrementItem(this)" class="qty-btn">-</button>
-        <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
-        (x` + currentBag[bagged_item_i][2] + `)
-    `;
+    let item_num = currentBag[bagged_item_i][0];
+    let item_size = currentBag[bagged_item_i][1];
+    let size_num = getItemSizeIndex(item_size);
 
-    updateBag();
+    if (currentBag[bagged_item_i][2] < item_qtys[item_num-1][Math.max(size_num, 0)]){
+        currentBag[bagged_item_i][2]++;
+        document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
+            <button onclick="decrementItem(this)" class="qty-btn">-</button>
+            <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
+            (x` + currentBag[bagged_item_i][2] + `)
+        `;
+        updateBag();
+    } else {
+        alert('You cannot request more of this item.');
+    }
+
 }
 
 function decrementItem(elem){

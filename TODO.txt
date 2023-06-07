@@ -7,11 +7,12 @@ TODO list
     >UPDATE: this is mostly done, just need to
     figure out a way to dynamically style the bag
     flyout
+    >UPDATE pt.2: bag flyout is set to cover 100% viewport width, which eliminates the dymanic styling issue, but potentially negatively affecting visual appeal
     >POTENTIAL CONCERNS: images will need to be
     checked for stretching/sizing issues when
     assets are finished & uploaded >> refer to
     $imageRatio variable in mobile_styles.scss
-- Setup backend for inventory tracking
+- Setup backend for inventory tracking (see availableSizes variable in index.js)
 - Generate email for purchase confirmation
 - Learn about cookies
     > I'm fairly certain that if a user presses
@@ -26,10 +27,15 @@ TODO list
     > Keep in mind: the only information that needs
     to be saved/stored is user login info (if a 
     login is used) & current bag -- lifetime 20min
+- Add falling 'ticket' animation for adding item to bag
 
 - FINAL ITEM LIST FOR THLFW24
-    > La Cantine
     > MYFP Hoodie (Matcha/Black)
     > DFTTYGAWYS Hoodie (Green/Brown)
     > THL Headscarf (Brown/Yellow/Green/Blue)
     > Bracelet? Necklace? Pants?
+
+- WORKING ITEM LIST FOR THLSS24
+     > La Cantine
+     > La Chemise (t-shirt, djellaba inspired)
+     > Some kind of pants? Linen? Carpenter?
