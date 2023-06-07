@@ -2,17 +2,21 @@
   height: 140px;
   width: 100vw;
   background: #191816;
-  border-bottom: solid 2px rgba(63, 63, 63, 0.9294117647);
+  border-bottom: solid 2px #3f3f3fed;
   position: fixed;
   z-index: 102;
   pointer-events: none;
-  transform: translateX(100vw);
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
 #checkout-form-wrapper {
   width: 100vw;
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   text-align: center;
@@ -23,20 +27,24 @@
   z-index: 101 !important;
   pointer-events: none;
 }
+
 #checkout-form-wrapper input:focus, #checkout-form-wrapper select:focus, #checkout-form-wrapper textarea:focus, #checkout-form-wrapper button:focus {
   outline-width: 0;
   outline: none;
 }
+
 #checkout-form-wrapper #checkout-summary {
   height: 100vh;
   width: auto;
   text-align: left !important;
 }
+
 #checkout-form-wrapper #checkout-summary #checkout-summary-item {
   height: auto;
   width: auto;
   color: white;
 }
+
 #checkout-form-wrapper #checkout-summary #checkout-summary-item #checkout-summary-item-img {
   position: fixed;
   display: block;
@@ -46,21 +54,26 @@
   z-index: 102;
   color: white;
 }
+
 #checkout-form-wrapper #checkout-form {
   text-align: left !important;
-  transform: translateX(-700px);
+  -webkit-transform: translateX(-700px);
+          transform: translateX(-700px);
   color: white !important;
   letter-spacing: 0.05rem;
   pointer-events: all;
   position: relative;
   padding: 0 40px;
+  -webkit-transition: 0.6s;
   transition: 0.6s;
   width: 50vw;
 }
+
 #checkout-form-wrapper #checkout-form #checkout-form-email, #checkout-form-wrapper #checkout-form #checkout-form-delivery-address, #checkout-form-wrapper #checkout-form #checkout-form-billing-address {
   position: relative;
   padding: 20px 0;
 }
+
 #checkout-form-wrapper #checkout-form #checkout-form-email input, #checkout-form-wrapper #checkout-form #checkout-form-delivery-address input, #checkout-form-wrapper #checkout-form #checkout-form-billing-address input {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #191816 !important;
@@ -68,13 +81,17 @@
   padding: 10px;
   margin: 2.5px 0;
 }
+
 #checkout-form-wrapper #checkout-form #delivery-options-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 10px 0;
   padding-right: 20px;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
 }
+
 #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices p {
   margin: 0 !important;
   padding: 0;
@@ -82,39 +99,46 @@
   height: 100px;
   font-weight: 600;
 }
+
 #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options .delivery-option, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices .delivery-option {
   height: 100px;
   width: 450px;
 }
+
 #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options input, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices input {
   position: relative;
   float: right;
 }
-#checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options input[type=radio]:after, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices input[type=radio]:after {
+
+#checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options input[type='radio']:after, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices input[type='radio']:after {
   width: 10px;
   height: 10px;
   position: relative;
   background-color: #d1d3d1;
-  content: "";
+  content: '';
   display: inline-block;
   visibility: visible;
   border: 2px solid white;
 }
-#checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options input[type=radio]:checked:after, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices input[type=radio]:checked:after {
+
+#checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options input[type='radio']:checked:after, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices input[type='radio']:checked:after {
   width: 10px;
   height: 10px;
   position: relative;
   background-color: #ff7f50;
-  content: "";
+  content: '';
   display: inline-block;
   visibility: visible;
   border: 2px solid white;
 }
+
 #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options label, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options p, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices label, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices p {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: white !important;
   margin: 0;
 }
+
 #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-options .delivery-txt, #checkout-form-wrapper #checkout-form #delivery-options-wrapper #delivery-option-prices .delivery-txt {
   margin-top: 10px;
-}/*# sourceMappingURL=checkout_form.css.map */
+}
+/*# sourceMappingURL=checkout_form.css.map */

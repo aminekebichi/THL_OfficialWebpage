@@ -5,7 +5,8 @@ var speed = 0.1;
 
 var currentBag = [];
 
-var availableSizes = [["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"], ["XS", "S", "L", "XL"]];
+var item_qtys = [[15], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5]]; // THIS IS HARDCODED LOCALLY --> WILL NEED TO FETCH DATA FROM SERVER
+var availableSizes = [["XS", "S", "M", "L", "XL"], ["XS", "S", "M", "L", "XL"], ["XS", "S", "M", "L", "XL"], ["XS", "S", "M", "L", "XL"], ["XS", "S", "M", "L", "XL"], ["XS", "S", "M", "L", "XL"]];
 
 var itemPrices = ["0.01", "59.95", "14.95", "14.95", "4.95", "4.95"];
 var itemNames = ["ITEM-1 NAME", "ITEM-2 NAME", "ITEM-3 NAME", "ITEM-4 NAME", "ITEM-5 NAME", "ITEM-6 NAME"];
@@ -14,65 +15,165 @@ var shopVisible = 0;
 
 // var checkoutOpen = false;
 
-function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elt){
-    elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
+//this function will iterate through the current bag and decrement the item_qtys as they appear in the bag, if there are less items in inventory than 
+//there are in bag, throw an error message, update the bag with the proper qtys, call updateBag()
+var invalid_qty_errorMsg = "YOUR REQUEST WAS CANCELED. YOU HAVE REQUESTED MORE THAN OUR INVENTORY CAN PROVIDE... YOUR BAG WILL BE UPDATED TO REFLECT OUR AVAILABILITY";
+function updateSizeAvailability(){
+    console.log('current bag: ' + currentBag);
+    console.log('old inventory count: ' + item_qtys); 
+    for (let i = 0; i < currentBag.length; i++){
+        let item_num = currentBag[i][0];
+        let item_size = currentBag[i][1];
+        let item_qty = currentBag[i][2];
+
+        console.log('item ' + (item_num) + ': size ' + item_size + ' [x' + item_qty + ']');
+
+        let size_num = 0;
+        switch(item_size){
+            case 'XS':  size_num = 0;
+            break;
+            case 'S':   size_num = 1;
+            break;
+            case 'M':   size_num = 2;
+            break;
+            case 'L':   size_num = 3;
+            break;
+            case 'XL':  size_num = 4;
+            break;
+            default:    size_num = -1;
+            break;
+        }
+
+        if(item_qtys[item_num-1][Math.max(size_num, 0)] - item_qty < 0){
+            if(item_qtys[item_num-1][Math.max(size_num, 0)] == 0){
+                alert('Sorry, this item is out of stock and your transaction cannot be completed');
+                removeItemFromBag(i);
+            } else {
+                alert(invalid_qty_errorMsg);
+                document.getElementById('bagged-item-'+i+'-qty').innerHTML = `
+                <button onclick="decrementItem(this)" class="qty-btn">-</button>
+                <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
+                (x` + item_qtys[item_num-1][Math.max(size_num, 0)] + `)`;
+                console.log('BAG UPDATE INCOMING');
+                currentBag[i][2] = item_qtys[item_num-1][Math.max(size_num, 0)];
+                updateBag();
+            }
+        } else { item_qtys[item_num-1][Math.max(size_num,0)] -= item_qty; }
+
+        if(item_qtys[item_num-1][Math.max(size_num, 0)] == 0){  // find bagged item index => call removeItemFromBag('index')
+            switch(size_num){
+                case 0: document.getElementById('item-'+item_num+'-sizing-xs').innerHTML = `
+                <strike>XS</strike>
+                `;
+                break;
+                case 1: document.getElementById('item-'+item_num+'-sizing-s').innerHTML = `
+                <strike>S</strike>
+                `;
+                break;
+                case 2: document.getElementById('item-'+item_num+'-sizing-m').innerHTML = `
+                <strike>M</strike>
+                `;
+                break;
+                case 3: document.getElementById('item-'+item_num+'-sizing-l').innerHTML = `
+                <strike>L</strike>
+                `;
+                break;
+                case 4: document.getElementById('item-'+item_num+'-sizing-xl').innerHTML = `
+                <strike>XL</strike>
+                `;
+                break;
+                default: document.getElementById('item-'+item_num+'-sizing').innerHTML = `
+                SOLD OUT
+                `;
+                break;
+            }
+        }
+
+    }
+    console.log('new inventory count: ' + item_qtys);
+}
+
+function removeItemFromBag(bagged_item_i){
+    document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
+            <button onclick="" class="qty-btn">-</button>
+            <button onclick="" class="qty-btn" style="margin-right: 8px;">+</button>
+            (x` + currentBag[bagged_item_i][2] + `)
+            `;
+
+            var element1 = document.getElementById('bagged-item-' + bagged_item_i);
+            var element2 = document.getElementById('bagged-item-' + bagged_item_i + '-qty');
+            element1.className = "animate__animated animate__fadeOut";
+            element2.className = "animate__animated animate__fadeOut";
+            // console.log(element2.classList);
+            setTimeout(() => {
+                element1.parentNode.removeChild(element1);
+                element2.parentNode.removeChild(element2);
+            }, 1000);
+}
+
+function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elem){
+    // elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
     if(startNbrDol < endNbrDol && startNbrCent < endNbrCent){
         setTimeout(() => {
-            updPriceRec(startNbrDol+1, startNbrCent+1, endNbrDol, endNbrCent, elt);  
+            updPriceRec(startNbrDol+1, startNbrCent+1, endNbrDol, endNbrCent, elem);  
         }, speed);
     } else if (startNbrDol < endNbrDol && startNbrCent === endNbrCent){
         setTimeout(() => {
-            updPriceRec(startNbrDol+1, startNbrCent, endNbrDol, endNbrCent, elt);
+            updPriceRec(startNbrDol+1, startNbrCent, endNbrDol, endNbrCent, elem);
         }, speed);
     } else if (startNbrDol < endNbrDol && startNbrCent > endNbrCent){
         setTimeout(() => {
-            updPriceRec(startNbrDol+1, startNbrCent-1, endNbrDol, endNbrCent, elt);
+            updPriceRec(startNbrDol+1, startNbrCent-1, endNbrDol, endNbrCent, elem);
         }, speed);
     } else if (startNbrDol === endNbrDol && startNbrCent < endNbrCent){
         setTimeout(() => {
-            updPriceRec(startNbrDol, startNbrCent+1, endNbrDol, endNbrCent, elt);
+            updPriceRec(startNbrDol, startNbrCent+1, endNbrDol, endNbrCent, elem);
         }, speed);
     } else if (startNbrDol === endNbrDol && startNbrCent > endNbrCent) {
         setTimeout(() => {
-            updPriceRec(startNbrDol, startNbrCent-1, endNbrDol, endNbrCent, elt);
+            updPriceRec(startNbrDol, startNbrCent-1, endNbrDol, endNbrCent, elem);
         }, speed);
     }  else if (startNbrDol > endNbrDol && startNbrCent < endNbrCent){
         setTimeout(() => {
-            updPriceRec(startNbrDol-1, startNbrCent+1, endNbrDol, endNbrCent, elt);
+            updPriceRec(startNbrDol-1, startNbrCent+1, endNbrDol, endNbrCent, elem);
         }, speed);
     } else if (startNbrDol > endNbrDol && startNbrCent === endNbrCent){
         setTimeout(() => {
-            updPriceRec(startNbrDol-1, startNbrCent, endNbrDol, endNbrCent, elt);
+            updPriceRec(startNbrDol-1, startNbrCent, endNbrDol, endNbrCent, elem);
         }, speed);    
     } else if (startNbrDol > endNbrDol && startNbrCent > endNbrCent){
         setTimeout(() => {
-            updPriceRec(startNbrDol-1, startNbrCent-1, endNbrDol, endNbrCent, elt);
+            updPriceRec(startNbrDol-1, startNbrCent-1, endNbrDol, endNbrCent, elem);
         }, speed);
     }
+    // setTimeout(() => {
+    //     elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
+    // }, 300);
+    elem.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
 }
 
-function incNbrRec(i, endNbr, elt) {
-    if (i <= endNbr) {
-      elt.innerHTML = i + `.00 USD`;
-      setTimeout(function() {//Delay a bit before calling the function again.
-        incNbrRec(i+1, endNbr, elt);
-      }, speed);
-    } else {
-        document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
-    }
+// function incNbrRec(i, endNbr, elt) {
+//     if (i <= endNbr) {
+//       elt.innerHTML = i + `.00 USD`;
+//       setTimeout(function() {//Delay a bit before calling the function again.
+//         incNbrRec(i+1, endNbr, elt);
+//       }, speed);
+//     } else {
+//         document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
+//     }
     
-} 
+// } 
 
-function decNbrRec(i, endNbr, elt) {
-    if (i >= endNbr) {
-      elt.innerHTML = i + `.00 USD`;
-      setTimeout(function() {//Delay a bit before calling the function again.
-        decNbrRec(i-1, endNbr, elt);
-      }, speed);
-    } else {
-        document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
-    }
-}
+// function decNbrRec(i, endNbr, elt) {
+//     if (i >= endNbr) {
+//       elt.innerHTML = i + `.00 USD`;
+//       setTimeout(function() {//Delay a bit before calling the function again.
+//         decNbrRec(i-1, endNbr, elt);
+//       }, speed);
+//     } else {
+//         document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
+//     }
+// }
 
 function updateBag(){
     document.getElementById('user-bag-qty').innerHTML = getBagSize();
@@ -81,7 +182,7 @@ function updateBag(){
         document.getElementById('checkout-btn').style.opacity = "0.5";
         // document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
         
-        document.getElementById('checkout-btn').onclick = function() { printCartToConsole(); };
+        document.getElementById('checkout-btn').onclick = function() {};
         hideCheckout();
         
         document.getElementById('checkout-btn').title = "Checkout unavailable while cart is empty";
@@ -90,31 +191,43 @@ function updateBag(){
         document.getElementById('checkout-btn').style.opacity = "1";
         // document.getElementById('checkout-btn-container').title = "";
 
-        document.getElementById('checkout-btn').onclick = function() { printCartToConsole(); showCheckout(); };
+        document.getElementById('checkout-btn').onclick = function() { updateSizeAvailability(); showCheckout(); }; // IMPORTANT!! Make sure to update here anytime changes are made to checkout-btn onclick
         document.getElementById('checkout-btn').title = "";
     }
 
-    // document.getElementById('subtotal-value').innerHTML = getBagTotal() +  ` USD`;
-    let price_str = String(document.getElementById('subtotal-value').innerHTML);
-    let prevTotal = Number(price_str.split(" ")[0]);
+    updateSubtotal(document.getElementById('subtotal-value'));
+}
+
+function updateSubtotal(elem){
+    let price_str = String(elem.innerHTML);
+    let prevTotal = String(price_str.split(" ")[0]);
+
+    // elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
 
     // console.log('prevTotal: ' + prevTotal);
 
-    var startNbrDol = Number(String(prevTotal).split(".")[0]);
-    var startNbrCent = Number(String(prevTotal).split(".")[1]);
+    var startNbrDol = Number(prevTotal.split(".")[0]);
+    var startNbrCent = Number(prevTotal.split(".")[1]);
     var endNbrDol = Number(getBagTotal().split(".")[0]);
     var endNbrCent = Number(getBagTotal().split(".")[1]);
 
-    if(prevTotal === 0){
-        startNbrCent = 0;
-    }
+    // if(prevTotal.length < 1){
+    //     startNbrDol = 0;
+    //     startNbrCent = 0;
+    // }
+
+    console.log('prevTotal: ' + prevTotal);
+    console.log('currTotal: ' + getBagTotal());
+    console.log('updPriceRec params: ['+ startNbrDol + ', ' + startNbrCent + ', ' + endNbrDol + ', ' + endNbrCent + ', ' + elem);
+
+
     // , startNbrCent, endNbrDol, endNbrCent
 
     // console.log("TESTING");
     // console.log("[" + startNbrDol, startNbrCent, endNbrDol, endNbrCent + "]");
     // console.log("TESTING");
 
-    updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, document.getElementById('subtotal-value'));
+    updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elem);
 }
 
 function incrementItem(elem){
@@ -134,7 +247,9 @@ function incrementItem(elem){
 
 function decrementItem(elem){
     var bagged_item_i = elem.parentNode.id.split('-')[2];
-    // console.log('bagged_item_i: ' + bagged_item_i);
+    console.log('DECREMENTING bagged_item_' + bagged_item_i);
+    console.log('PARENT: ' + elem.parentNode.id);
+
     if(currentBag[bagged_item_i][2] != 0){
         currentBag[bagged_item_i][2]--;
         document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
@@ -143,21 +258,7 @@ function decrementItem(elem){
             (x` + currentBag[bagged_item_i][2] + `)
         `;
         if(currentBag[bagged_item_i][2] < 1){
-            document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
-            <button onclick="" class="qty-btn">-</button>
-            <button onclick="" class="qty-btn" style="margin-right: 8px;">+</button>
-            (x` + currentBag[bagged_item_i][2] + `)
-            `;
-
-            var element1 = document.getElementById('bagged-item-' + bagged_item_i);
-            var element2 = document.getElementById('bagged-item-' + bagged_item_i + '-qty');
-            element1.className = "animate__animated animate__fadeOut";
-            element2.className = "animate__animated animate__fadeOut";
-            // console.log(element2.classList);
-            setTimeout(() => {
-                element1.parentNode.removeChild(element1);
-                element2.parentNode.removeChild(element2);
-            }, 1000);
+            removeItemFromBag(bagged_item_i);
         }
 
         updateBag();
@@ -275,7 +376,7 @@ function getBagTotal(){
     for(var i = 0; i < currentBag.length; i++){
         total += (itemPrices[currentBag[i][0]-1]*currentBag[i][2]);
     }
-    // console.log('total: ' + total.toFixed(2));
+    console.log('total: ' + total.toFixed(2));
     return total.toFixed(2);
 }
 
@@ -496,33 +597,24 @@ function hideBag(){
     hideCheckout();
 }
 
-// function openCheckout(){
-//     hideHome();
-//     document.body.style.overflowY = "scroll";
-//     if(getBagSize() == 0){
-//         checkout_helper_msg_counter++;
-//         document.getElementById("checkout-btn").className="animate__animated animate__shakeX";
-//         setTimeout(() => {
-//             document.getElementById("checkout-btn").className="";
-//         }, (1200));
-//         if(checkout_helper_msg_counter>0 && checkout_helper_msg_counter%3==0){
-//             document.getElementById("checkout-helper-msg").style.opacity=1;
-//             setTimeout(() => {
-//             document.getElementById("checkout-helper-msg").style.opacity=0;
-//             }, 3000);
-//         }
-//     } else {
-//         // Bag must be open to open checkout => triggerBag() will close bag view
-//         triggerBag();
-//         bag_open=false;
-//         document.getElementById("checkout-bg").style.transform = "translateX(0)";
-//         document.getElementById("checkout-form-divider").style.transform = "translateX(0)";
-//         setTimeout(() => {
-//             document.getElementById("checkout-form").style.transform = "translateX(0)";
-//         }, 600);
-//         checkoutOpen = true;
-//     }
-// }
+function testBagBeforeCheckout(){
+    if(getBagSize() == 0){
+        checkout_helper_msg_counter++;
+        document.getElementById("checkout-btn").className="animate__animated animate__shakeX";
+        setTimeout(() => {
+            document.getElementById("checkout-btn").className="";
+        }, (1200));
+        if(checkout_helper_msg_counter>0 && checkout_helper_msg_counter%3==0){
+            document.getElementById("checkout-helper-msg").style.opacity=1;
+            setTimeout(() => {
+            document.getElementById("checkout-helper-msg").style.opacity=0;
+            }, 3000);
+        }
+    } else {
+        // Bag must be open to open checkout => triggerBag() will close bag view
+
+    }
+}
 
 // function closeCheckout(){
 //     document.getElementById("checkout-form").style.transform = "translateX(-700px)";

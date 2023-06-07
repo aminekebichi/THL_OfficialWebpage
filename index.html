@@ -89,8 +89,8 @@
                 </div>
         
                 <div id="checkout-btn-container">
-                    <!-- <button id="checkout-btn" onclick="openCheckout();">CHECKOUT</button> -->
-                    <button id="checkout-btn" onclick="printCartToConsole();">CHECKOUT</button>
+                    <!-- <button id="checkout-btn" onclick="printCartToConsole();">CHECKOUT</button> -->
+                    <button id="checkout-btn">CHECKOUT</button>
                     <p id="checkout-helper-msg">Checkout unavailable while cart is empty</p>
                     <div id="paypal-hider"></div>
                     <div id="paypal-container">
@@ -126,7 +126,7 @@
                             <td class="item-price" id="item-1-price">??? USD</td>
                         </tr>
                         <tr>
-                            <td class="item-sizing">ONE SIZE FITS ALL</td>
+                            <td id="item-1-sizing" class="item-sizing">ONE SIZE FITS ALL</td>
                         </tr>
                     </table>
                     <div class="arrows">
@@ -164,7 +164,13 @@
                             <td class="item-price" id="item-2-price">??? USD</td>
                         </tr>
                         <tr>
-                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                            <td id="item-2-sizing" class="item-sizing">
+                                <span id="item-2-sizing-xs">XS</span> &nbsp;
+                                <span id="item-2-sizing-s">S</span> &nbsp; 
+                                <span id="item-2-sizing-m">M</span> &nbsp; 
+                                <span id="item-2-sizing-l">L</span> &nbsp;
+                                <span id="item-2-sizing-xl">XL</span> &nbsp;
+                            </td>
                         </tr>
                     </table>
                     <div class="arrows">
@@ -195,6 +201,7 @@
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
                     <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                    <div id="item-ticket"></div>
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
                         &nbsp;&nbsp;Back to store
@@ -207,7 +214,13 @@
                             <td class="item-price" id="item-3-price">??? USD</td>
                         </tr>
                         <tr>
-                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                            <td id="item-3-sizing" class="item-sizing">
+                                <span id="item-3-sizing-xs">XS</span> &nbsp;
+                                <span id="item-3-sizing-s">S</span> &nbsp; 
+                                <span id="item-3-sizing-m">M</span> &nbsp; 
+                                <span id="item-3-sizing-l">L</span> &nbsp;
+                                <span id="item-3-sizing-xl">XL</span> &nbsp;
+                            </td>
                         </tr>
                     </table>
                     <div class="arrows">
@@ -250,7 +263,13 @@
                             <td class="item-price" id="item-4-price">??? USD</td>
                         </tr>
                         <tr>
-                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                            <td id="item-4-sizing" class="item-sizing">
+                                <span id="item-4-sizing-xs">XS</span> &nbsp;
+                                <span id="item-4-sizing-s">S</span> &nbsp; 
+                                <span id="item-4-sizing-m">M</span> &nbsp; 
+                                <span id="item-4-sizing-l">L</span> &nbsp;
+                                <span id="item-4-sizing-xl">XL</span> &nbsp;
+                            </td>
                         </tr>
                     </table>
                     <div class="arrows">
@@ -293,7 +312,13 @@
                             <td class="item-price" id="item-5-price">??? USD</td>
                         </tr>
                         <tr>
-                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                            <td id="item-5-sizing" class="item-sizing">
+                                <span id="item-5-sizing-xs">XS</span> &nbsp;
+                                <span id="item-5-sizing-s">S</span> &nbsp; 
+                                <span id="item-5-sizing-m">M</span> &nbsp; 
+                                <span id="item-5-sizing-l">L</span> &nbsp;
+                                <span id="item-5-sizing-xl">XL</span> &nbsp;
+                            </td>
                         </tr>
                     </table>
                     <div class="arrows">
@@ -336,7 +361,13 @@
                             <td class="item-price" id="item-6-price">??? USD</td>
                         </tr>
                         <tr>
-                            <td class="item-sizing">XS &nbsp; S &nbsp; M &nbsp; L &nbsp; XL &nbsp; XXL</td>
+                            <td id="item-6-sizing" class="item-sizing">
+                                <span id="item-6-sizing-xs">XS</span> &nbsp;
+                                <span id="item-6-sizing-s">S</span> &nbsp; 
+                                <span id="item-6-sizing-m">M</span> &nbsp; 
+                                <span id="item-6-sizing-l">L</span> &nbsp;
+                                <span id="item-6-sizing-xl">XL</span> &nbsp;
+                            </td>
                         </tr>
                     </table>
                     <div class="arrows">

@@ -347,6 +347,8 @@ body{
                 
                 overflow: auto;
 
+                // max-width: 1440px;
+
                 .clear{
                     clear: both;
                 }
@@ -439,6 +441,7 @@ body{
                 font-weight: 700;
                 letter-spacing: 0.1rem;
                 // transform: translateY(20px);
+                // max-width: 1440px;
 
                 p{
                     padding: 0 40px;
@@ -505,6 +508,8 @@ body{
                 color: white;
                 font-family: $secondary-font;
 
+                // max-width: 1440px;  
+
                 #buttons-container{
                     transform: translateY(0vh);
                     transition: 0.6s;
@@ -541,8 +546,8 @@ body{
         
                     position: relative;
         
-                    width: 80%;
-                    max-width: 300px;
+                    width: 50%;
+                    // max-width: 300px;
 
                     padding: 15px 0;
                     // margin: 0 40px;
@@ -723,6 +728,7 @@ body{
                 display: none;
 
                 // width: 100%;
+                max-width: 1440px;
 
                 padding: 140px 0;
         
@@ -991,6 +997,14 @@ body{
                     }
                     .add2bag-btn:hover{
                         opacity: 1;
+                    }
+
+                    #item-ticket{
+                        width: 20px;
+                        height: 55px;
+
+                        z-index: 1000;
+                        background-color: green;
                     }
 
                     .back2store-btn{

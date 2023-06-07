@@ -95,6 +95,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:801px) and (max-width: 959px) {
+    #checkout-btn{
+        width: 80% !important;
+    }
+
     #gen-inq{
         display: none;
     }
@@ -174,6 +178,10 @@ $imageRatio: 1.45; //ratio = height/width
     //     margin: 0 !important; margin-bottom: 140px; padding: 100px 0 !important;
     // }
 
+    #checkout-btn{
+        width: 80% !important;
+    }
+
     #shop-container{
         padding: 0;
     }
@@ -244,6 +252,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:569px) and (max-width: 768px) {
+    #checkout-btn{
+        width: 80% !important;
+    }
+
     #shop-container{
         padding: 0;
     }
@@ -326,6 +338,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:481px) and (max-width: 568px) {
+    #checkout-btn{
+        width: 80% !important;
+    }
+
     #shop-container{
         padding: 0;
     }
@@ -409,6 +425,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:321px) and (max-width: 480px) {
+    #checkout-btn{
+        width: 80% !important;
+    }
+
     #user-bag-qty-animation{
         transform: translateX(22px);
     }
@@ -496,6 +516,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:0px) and (max-width: 320px) {
+    #checkout-btn{
+        width: 80% !important;
+    }
+
     #shop-container{
         padding: 0;
     }
