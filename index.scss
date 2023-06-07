@@ -977,34 +977,55 @@ body{
                         }
                     }
 
-                    .add2bag-btn{
-                        width: 100%;
+                    .add2bag-container{
+                        position: relative;
 
-                        padding: 20px;
+                        .add2bag-btn{
+                            width: 100%;
+    
+                            padding: 20px;
+    
+                            background-color: #ffe6dd;
+                            border: none;
+                            color: $secondary-font-color;
+                            font-family: $secondary-font;
+                            letter-spacing: 1px;
+                            font-weight: 700;
+                            font-size: 13px;
+    
+                            cursor: pointer;
+    
+                            opacity: 0.05;
+                            transition: 0.6s;
+    
+                            z-index: 1001;
+                            position: relative;
+                        }
+                        .add2bag-btn:hover{
+                            opacity: 1;
+                        }
+                                                
+                        #item-ticket{
+                            position: absolute;
+                            // top: 0;
+                            // left: 0;
+    
+                            width: 25px;
+                            height: 30px;
+                            transform: translateY(-30px);
+    
+                            z-index: 1000;
+                            background-color: $highlight-color;
+                            // float: right;
+                            right: 0;
 
-                        background-color: #ffe6dd;
-                        border: none;
-                        color: $secondary-font-color;
-                        font-family: $secondary-font;
-                        letter-spacing: 1px;
-                        font-weight: 700;
-                        font-size: 13px;
-
-                        cursor: pointer;
-
-                        opacity: 0.8;
-                        transition: 0.6s;
+                            transition: 0.6s;
+                        }
                     }
-                    .add2bag-btn:hover{
-                        opacity: 1;
-                    }
-
-                    #item-ticket{
-                        width: 20px;
-                        height: 55px;
-
-                        z-index: 1000;
-                        background-color: green;
+                    .add2bag-container:hover{
+                        #item-ticket{
+                            transform: translate(25px, -30px);
+                        }
                     }
 
                     .back2store-btn{
