@@ -55,10 +55,12 @@ function updateSizeAvailability(){
         if(item_qtys[item_num-1][Math.max(size_num, 0)] - item_qty < 0){
             if(item_qtys[item_num-1][Math.max(size_num, 0)] == 0){
                 alert('Sorry, an item you requested is out of stock and your transaction cannot be completed');
+                alert_outOfStock = true;
                 currentBag[i][2] = 0;
                 removeItemFromBag(i); updateBag();
             } else {
                 alert(invalid_qty_errorMsg);
+                alert_inventory = true;
                 document.getElementById('bagged-item-'+i+'-qty').innerHTML = `
                 <button onclick="decrementItem(this)" class="qty-btn">-</button>
                 <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
@@ -186,7 +188,9 @@ function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elem){
 
 function updateBag(){
     document.getElementById('user-bag-qty').innerHTML = getBagSize();
+    console.log('UPDATE bag-qty => ' + getBagSize());
     if(getBagSize() == 0){
+        console.log('EMPTY BAG!');
         document.getElementById('empty-bag-msg').style.opacity = "1";
         document.getElementById('checkout-btn').style.opacity = "0.5";
         // document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
@@ -284,8 +288,10 @@ function decrementItem(elem){
 
 function add2bag(elem){
     // FORMAT FOR ADDING ITEM TO BAG = [ITEMNUM,ITEMSIZE,ITEMFREQ]
-    var id = String(elem.parentNode.id).split("-")[1];
+    var id = String(elem.parentNode.parentNode.id).split("-")[1];
+    console.log('ELEM ID = ' + id);
     var item_num = Number(id);
+    console.log('item_num = ' + item_num);
     var item_size = document.getElementById('item-'+item_num+'-sizes').value;
     var item_arr = [item_num,item_size,1];
 
