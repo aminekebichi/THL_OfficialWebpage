@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="mobile_styles.css">
     <link rel="stylesheet" href="checkout_form.css">
+    <link rel="stylesheet" href="toast_notifications.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- SCRIPTS -->
@@ -40,6 +41,8 @@
         <div id="top-banner" class="animate__animated animate__slideInRight">
             <div id="scroll-text"><span style="margin-right: 25vw;">THL FW 2024 DROP IS NOW LIVE</span><span style="margin-right: 25vw;">THL FW 2024 DROP EST MAINTENANT DISPONIBLE</span><span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;">مفتوح الآن </span>THL 2024<span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;"> سوق خريف/شتاء</span></div>
         </div>
+
+        <ul class="notifications"></ul>
     
         <div id="site-wrapper">
             <div id="bag-flyout">
@@ -151,9 +154,9 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
-                    <div class="add2bag-container">
+                    <div id="item-1-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
-                        <div id="item-ticket"></div>
+                        <div class="item-ticket"></div>
                     </div>
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
@@ -204,9 +207,9 @@
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
 
-                    <div class="add2bag-container">
+                    <div id="item-2-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
-                        <div id="item-ticket"></div>
+                        <div class="item-ticket"></div>
                     </div>
 
                     <p class="back2store-btn" onclick="returnFromPreview()">
@@ -257,9 +260,9 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
-                    <div class="add2bag-container">
+                    <div id="item-3-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
-                        <div id="item-ticket"></div>
+                        <div class="item-ticket"></div>
                     </div>
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
@@ -309,9 +312,9 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
-                    <div class="add2bag-container">
+                    <div id="item-4-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
-                        <div id="item-ticket"></div>
+                        <div class="item-ticket"></div>
                     </div>
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
@@ -361,9 +364,9 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
-                    <div class="add2bag-container">
+                    <div id="item-5-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
-                        <div id="item-ticket"></div>
+                        <div class="item-ticket"></div>
                     </div>
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
@@ -413,9 +416,9 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
-                    <div class="add2bag-container">
+                    <div id="item-6-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
-                        <div id="item-ticket"></div>
+                        <div class="item-ticket"></div>
                     </div>
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
@@ -473,6 +476,9 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AX-wfLArBYaTanYnRnBQvW-tB-kAbyFM1QPOkQSXPMKK3veRRZuZ_9cVjLS4R7U0OhtSoJ_w8M9V-HUS"></script>
     <script>paypal.Buttons().render('checkout-btn-container');</script> -->
 </body>
+
+<!-- POST SCRIPTS -->
+<script src="toast.js"></script>
 <script src="/updateDetails.js"></script>
 <script src="/livesite.js"></script>
 <script src="/livebg.js"></script>

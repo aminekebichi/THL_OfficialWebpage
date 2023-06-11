@@ -13,6 +13,9 @@ var itemNames = ["ITEM-1 NAME", "ITEM-2 NAME", "ITEM-3 NAME", "ITEM-4 NAME", "IT
 
 var shopVisible = 0;
 
+var ongoingAnimation = false;   // used if there is an ongoing animation that needs to complete before other processes can continue
+var ongoingDuration = 0;        // this is the duration of said animation
+
 // var checkoutOpen = false;
 
 function getItemSizeIndex(item_size){
@@ -286,85 +289,120 @@ function decrementItem(elem){
     }
 }
 
+function animateBagQty(){
+    document.getElementById("user-bag-qty-animation").style.opacity = "100%";
+    document.getElementById("user-bag-qty-animation").style.transform = "scale(150%)";
+
+    setTimeout(() => {
+        document.getElementById("user-bag-qty-animation").style.opacity = "0%";
+        document.getElementById("user-bag-qty-animation").style.transform = "scale(100%)";
+    }, 500);
+}
+
+function animateTicket(elem){
+    let id = String(elem.parentNode.id);
+    let parent = document.getElementById(id);   //figure out how to get parent of ticket using getElementById and we'll be all set
+    console.log('parent: ' + parent.id);
+    
+    let curr_ticket = parent.lastElementChild;
+    curr_ticket.classList.add("post-item-ticket");
+
+    let new_ticket = document.createElement("div");
+    new_ticket.className = "pre-item-ticket";
+    parent.appendChild(new_ticket);
+
+    setTimeout(() => {
+        new_ticket.classList.add("item-ticket");
+    }, 600);
+
+    // setTimeout(() => {
+    //     parent.appendChild(new_ticket);
+    // }, 600);
+}
+
 function add2bag(elem){
     // FORMAT FOR ADDING ITEM TO BAG = [ITEMNUM,ITEMSIZE,ITEMFREQ]
-    var id = String(elem.parentNode.parentNode.id).split("-")[1];
-    console.log('ELEM ID = ' + id);
-    var item_num = Number(id);
-    console.log('item_num = ' + item_num);
-    var item_size = document.getElementById('item-'+item_num+'-sizes').value;
-    var item_arr = [item_num,item_size,1];
 
-    // console.log(item_num);
+    // setTimeout(() => {  // this gives illusion of loading? maybe a feature?
+                        // real reason is so that ticket sliding entrance animation can complete b4 descending exit
+        var id = String(elem.parentNode.parentNode.id).split("-")[1];
+        console.log('ELEM ID = ' + id);
+        var item_num = Number(id);
+        console.log('item_num = ' + item_num);
+        var item_size = document.getElementById('item-'+item_num+'-sizes').value;
+        var item_arr = [item_num,item_size,1];
 
-    if(item_size === "none"){
-        sizesErrorForm(item_num);
-    } else {
-        // if(!bag_open){
-        //     document.getElementById("bag-flyout").style.transform = "translateX(0px)";
-        //     bag_open = true;
-        // }
-        document.getElementById("user-bag-qty-animation").style.opacity = "100%";
-        document.getElementById("user-bag-qty-animation").style.transform = "scale(150%)";
+        // console.log(item_num);
 
-        setTimeout(() => {
-            document.getElementById("user-bag-qty-animation").style.opacity = "0%";
-            document.getElementById("user-bag-qty-animation").style.transform = "scale(100%)";
-        }, 500);
-
-        if(getItemIndex(currentBag, item_arr) == -1 || currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
-            if(getItemIndex(currentBag, item_arr) == -1){
-                currentBag.push(item_arr);
-            }
-            if(currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
-                currentBag[getItemIndex(currentBag, item_arr)][2]++;
-            }
-
-            var li = document.createElement("li");
-            li.id = 'bagged-item-'+getItemIndex(currentBag, item_arr);
-            li.classList.add("animate__animated", "animate__fadeIn");
-            if(item_size === ""){
-                li.innerHTML = `
-                <span style="margin-right: 10px;">` + itemNames[item_num-1] + `</span>` + item_size +`<br>
-                <span style="color: grey;">`+ itemPrices[item_num-1] + ` USD</span>
-                `;
-            } else {
-                li.innerHTML = `
-                <span style="margin-right: 10px;">` + itemNames[item_num-1] + `</span><span style="font-size: 10px">` + item_size +`</span><br>
-                <span style="color: grey;">`+ itemPrices[item_num-1] + ` USD</span>
-                `;
-            }
-
-            // console.log(currentPricing[item_num-1]);
-
-            var li_qty = document.createElement("li");
-            li_qty.id = 'bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty';
-            li_qty.classList.add("animate__animated", "animate__fadeIn");
-            li_qty.innerHTML = `
-                <button onclick="decrementItem(this)" class="qty-btn">-</button>
-                <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
-                (x` + currentBag[getItemIndex(currentBag, item_arr)][2] + `)
-            `;
-
-            document.getElementById('bag-items').appendChild(li);
-            document.getElementById('bag-item-qtys').appendChild(li_qty);
-
+        if(item_size === "none"){
+            sizesErrorForm(item_num);
         } else {
-            // console.log('INC ITEM!');
-            // console.log('item-i: ' + getItemIndex(currentBag, item_arr));
-            currentBag[getItemIndex(currentBag, item_arr)][2] += 1;
+            // if(!bag_open){
+            //     document.getElementById("bag-flyout").style.transform = "translateX(0px)";
+            //     bag_open = true;
+            // }
 
-            document.getElementById('bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty').innerHTML = `
-                <button onclick="decrementItem(this)" class="qty-btn">-</button>
-                <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
-                (x` + currentBag[getItemIndex(currentBag, item_arr)][2] + `)
-            `;
-        }
+            animateBagQty();
+            animateTicket(elem);
 
-        updateBag();
-    
-        // console.log('adding item-' + item_num + ', ' + item_size + ' to bag.\nitem-freq = ' + currentBag[getItemIndex(currentBag, item_arr)][2]);
-    }
+            setTimeout(() => {
+                createToast('success');
+            }, 600);
+
+            if(getItemIndex(currentBag, item_arr) == -1 || currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
+                if(getItemIndex(currentBag, item_arr) == -1){
+                    currentBag.push(item_arr);
+                }
+                if(currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
+                    currentBag[getItemIndex(currentBag, item_arr)][2]++;
+                }
+
+                var li = document.createElement("li");
+                li.id = 'bagged-item-'+getItemIndex(currentBag, item_arr);
+                li.classList.add("animate__animated", "animate__fadeIn");
+                if(item_size === ""){
+                    li.innerHTML = `
+                    <span style="margin-right: 10px;">` + itemNames[item_num-1] + `</span>` + item_size +`<br>
+                    <span style="color: grey;">`+ itemPrices[item_num-1] + ` USD</span>
+                    `;
+                } else {
+                    li.innerHTML = `
+                    <span style="margin-right: 10px;">` + itemNames[item_num-1] + `</span><span style="font-size: 10px">` + item_size +`</span><br>
+                    <span style="color: grey;">`+ itemPrices[item_num-1] + ` USD</span>
+                    `;
+                }
+
+                // console.log(currentPricing[item_num-1]);
+
+                var li_qty = document.createElement("li");
+                li_qty.id = 'bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty';
+                li_qty.classList.add("animate__animated", "animate__fadeIn");
+                li_qty.innerHTML = `
+                    <button onclick="decrementItem(this)" class="qty-btn">-</button>
+                    <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
+                    (x` + currentBag[getItemIndex(currentBag, item_arr)][2] + `)
+                `;
+
+                document.getElementById('bag-items').appendChild(li);
+                document.getElementById('bag-item-qtys').appendChild(li_qty);
+
+            } else {
+                // console.log('INC ITEM!');
+                // console.log('item-i: ' + getItemIndex(currentBag, item_arr));
+                currentBag[getItemIndex(currentBag, item_arr)][2] += 1;
+
+                document.getElementById('bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty').innerHTML = `
+                    <button onclick="decrementItem(this)" class="qty-btn">-</button>
+                    <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
+                    (x` + currentBag[getItemIndex(currentBag, item_arr)][2] + `)
+                `;
+            }
+
+            updateBag();
+        
+            // console.log('adding item-' + item_num + ', ' + item_size + ' to bag.\nitem-freq = ' + currentBag[getItemIndex(currentBag, item_arr)][2]);
+        }   
+    // }, 600);
 
 }
 
@@ -597,6 +635,7 @@ function previewItem(parent){
     }
 
     inPreview = true;
+    // document.body.style.overflowY = "hidden";
 }
 
 var flyoutWidth = "100vw";

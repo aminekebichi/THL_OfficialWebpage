@@ -1,5 +1,17 @@
 TODO list
+new
+---------------------------------------------------------
+- Checkout when bag is empty still needs error msg
+- Disable add2bag buttons for sold out items
+    > Disable options in dropdown for sold out sizes
+- Add color visualizer selectors
+- Implement Stripe checkout
+- Setup backend for inventory tracking (see availableSizes variable in index.js)
+- Generate email for purchase confirmation
+- Store session info/cookies <-- Need to learn
 
+old
+---------------------------------------------------------
 - Consider adding item preview images to bag flyout
 - Stylize for mobile view (dynamic styling)
     > Mobile view of shop should show full screen
@@ -28,6 +40,7 @@ TODO list
     to be saved/stored is user login info (if a 
     login is used) & current bag -- lifetime 20min
 - Add falling 'ticket' animation for adding item to bag
+    > DONE
 
 - FINAL ITEM LIST FOR THLFW24
     > MYFP Hoodie (Matcha/Black)

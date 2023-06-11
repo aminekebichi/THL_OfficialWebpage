@@ -25,6 +25,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:960px) and (max-width: 1024px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
     #gen-inq{
         display: none;
     }
@@ -95,6 +99,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:801px) and (max-width: 959px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
     #checkout-btn{
         width: 80% !important;
     }
@@ -169,14 +177,13 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:769px) and (max-width: 800px) {
-    // #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
-    //     height: calc((100vw)*$imageRatio) !important;
-    //     width: 100vw !important;
-    // }
+    #user-bag-qty-animation{
+        display: none;
+    }
 
-    // #shop{
-    //     margin: 0 !important; margin-bottom: 140px; padding: 100px 0 !important;
-    // }
+    .item-ticket{
+        display: none;
+    }
 
     #checkout-btn{
         width: 80% !important;
@@ -252,6 +259,14 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:569px) and (max-width: 768px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    .item-ticket{
+        display: none;
+    }
+
     #checkout-btn{
         width: 80% !important;
     }
@@ -338,6 +353,14 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:481px) and (max-width: 568px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    .item-ticket{
+        display: none;
+    }
+
     #checkout-btn{
         width: 80% !important;
     }
@@ -425,6 +448,14 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:321px) and (max-width: 480px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    .item-ticket{
+        display: none;
+    }
+
     #checkout-btn{
         width: 80% !important;
     }
@@ -516,6 +547,14 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:0px) and (max-width: 320px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+    
+    .item-ticket{
+        display: none;
+    }
+
     #checkout-btn{
         width: 80% !important;
     }
