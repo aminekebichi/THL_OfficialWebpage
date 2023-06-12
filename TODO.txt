@@ -1,6 +1,7 @@
 TODO list
 new
 ---------------------------------------------------------
+- ERROR: add2bag main button can add above inventory max. need to apply boundary same as increment btn
 - Checkout when bag is empty still needs error msg
 - Disable add2bag buttons for sold out items
     > Disable options in dropdown for sold out sizes

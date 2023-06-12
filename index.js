@@ -75,28 +75,69 @@ function updateSizeAvailability(){
         if(item_qtys[item_num-1][Math.max(size_num, 0)] == 0){  // find bagged item index => call removeItemFromBag('index')
             switch(size_num){
                 case 0: document.getElementById('item-'+item_num+'-sizing-xs').innerHTML = `
-                <strike>XS</strike>
-                `;
+                        <strike>XS</strike>
+                        `;
+                        var op = document.getElementById('item-'+item_num+'-sizes').getElementsByTagName("option");
+                        for (var j = 0; j < op.length; j++) {
+                            // lowercase comparison for case-insensitivity
+                            (op[j].value.toLowerCase() == "xs")
+                              ? (op[j].disabled = true, op[j].text = "XS - SOLD OUT")
+                              : console.log("");
+                        };
                 break;
                 case 1: document.getElementById('item-'+item_num+'-sizing-s').innerHTML = `
-                <strike>S</strike>
-                `;
+                        <strike>S</strike>
+                        `;
+                        var op = document.getElementById('item-'+item_num+'-sizes').getElementsByTagName("option");
+                        for (var j = 0; j < op.length; j++) {
+                            // lowercase comparison for case-insensitivity
+                            (op[j].value.toLowerCase() == "s")
+                              ? (op[j].disabled = true, op[j].text = "S - SOLD OUT")
+                              : console.log("");
+                        };
                 break;
                 case 2: document.getElementById('item-'+item_num+'-sizing-m').innerHTML = `
-                <strike>M</strike>
-                `;
+                        <strike>M</strike>
+                        `;
+                        var op = document.getElementById('item-'+item_num+'-sizes').getElementsByTagName("option");
+                        for (var j = 0; j < op.length; j++) {
+                            // lowercase comparison for case-insensitivity
+                            (op[j].value.toLowerCase() == "m")
+                              ? (op[j].disabled = true, op[j].text = "M - SOLD OUT")
+                              : console.log("");
+                        };
                 break;
                 case 3: document.getElementById('item-'+item_num+'-sizing-l').innerHTML = `
-                <strike>L</strike>
-                `;
+                        <strike>L</strike>
+                        `;
+                        var op = document.getElementById('item-'+item_num+'-sizes').getElementsByTagName("option");
+                        for (var j = 0; j < op.length; j++) {
+                            // lowercase comparison for case-insensitivity
+                            (op[j].value.toLowerCase() == "l")
+                              ? (op[j].disabled = true, op[j].text = "L - SOLD OUT")
+                              : console.log("");
+                        };
                 break;
                 case 4: document.getElementById('item-'+item_num+'-sizing-xl').innerHTML = `
-                <strike>XL</strike>
-                `;
+                        <strike>XL</strike>
+                        `;
+                        var op = document.getElementById('item-'+item_num+'-sizes').getElementsByTagName("option");
+                        for (var j = 0; j < op.length; j++) {
+                            // lowercase comparison for case-insensitivity
+                            (op[j].value.toLowerCase() == "xl")
+                              ? (op[j].disabled = true, op[j].text = "XL - SOLD OUT")
+                              : console.log("");
+                        };
                 break;
                 default: document.getElementById('item-'+item_num+'-sizing').innerHTML = `
-                SOLD OUT
-                `;
+                        SOLD OUT
+                        `;
+                        var op = document.getElementById('item-'+item_num+'-sizes').getElementsByTagName("option");
+                        for (var j = 0; j < op.length; j++) {
+                            // lowercase comparison for case-insensitivity
+                            op[j].disabled = true;
+                            op[j].text = "ONE SIZE FITS ALL - SOLD OUT"
+                        };
                 break;
             }
         }
@@ -352,13 +393,6 @@ function add2bag(elem){
             //     bag_open = true;
             // }
 
-            animateBagQty();
-            animateTicket(elem);
-
-            setTimeout(() => {
-                createToast('success');
-            }, 600);
-
             if(getItemIndex(currentBag, item_arr) == -1 || currentBag[getItemIndex(currentBag, item_arr)][2] == 0){
                 if(getItemIndex(currentBag, item_arr) == -1){
                     currentBag.push(item_arr);
@@ -395,17 +429,39 @@ function add2bag(elem){
 
                 document.getElementById('bag-items').appendChild(li);
                 document.getElementById('bag-item-qtys').appendChild(li_qty);
-
+                
+                animateBagQty();
+                animateTicket(elem);
+    
+                setTimeout(() => {
+                    createToast('success');
+                }, 600);    
             } else {
                 // console.log('INC ITEM!');
                 // console.log('item-i: ' + getItemIndex(currentBag, item_arr));
-                currentBag[getItemIndex(currentBag, item_arr)][2] += 1;
+                    
+                let bagged_item_i = getItemIndex(currentBag, item_arr);
+                let size_num = getItemSizeIndex(item_size);
 
-                document.getElementById('bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty').innerHTML = `
+                if (currentBag[bagged_item_i][2] < item_qtys[item_num-1][Math.max(size_num, 0)]){
+                    console.log('YAY');
+                    // success here
+                    currentBag[getItemIndex(currentBag, item_arr)][2] += 1;
+                    document.getElementById('bagged-item-'+getItemIndex(currentBag, item_arr)+'-qty').innerHTML = `
                     <button onclick="decrementItem(this)" class="qty-btn">-</button>
                     <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
                     (x` + currentBag[getItemIndex(currentBag, item_arr)][2] + `)
-                `;
+                    `;
+
+                    animateBagQty();
+                    animateTicket(elem);
+        
+                    setTimeout(() => {
+                        createToast('success');
+                    }, 600);    
+                } else {
+                    alert('You cannot request more of this item');
+                }
             }
 
             updateBag();
