@@ -40,9 +40,10 @@ function getItemSizeIndex(item_size){
 
 //this function will iterate through the current bag and decrement the item_qtys as they appear in the bag, if there are less items in inventory than 
 //there are in bag, throw an error message, update the bag with the proper qtys, call updateBag()
-var alert_inventory = false;
+var alert_qtyGreaterThanInventory = false;
 var alert_outOfStock = false;
 var invalid_qty_errorMsg = "Sorry, you have requested a certain quantity of items that our inventory cannot supply... This transaction will be canceled, and your bag will be updated to reflect our inventory.";
+var outOfStock_errorMsg = "Sorry, an item you requested is out of stock and your transaction cannot be completed";
 function updateSizeAvailability(){
     console.log('current bag: ' + currentBag);
     console.log('old inventory count: ' + item_qtys); 
@@ -57,18 +58,15 @@ function updateSizeAvailability(){
 
         if(item_qtys[item_num-1][Math.max(size_num, 0)] - item_qty < 0){
             if(item_qtys[item_num-1][Math.max(size_num, 0)] == 0){
-                alert('Sorry, an item you requested is out of stock and your transaction cannot be completed');
                 alert_outOfStock = true;
                 currentBag[i][2] = 0;
                 removeItemFromBag(i); updateBag();
             } else {
-                alert(invalid_qty_errorMsg);
-                alert_inventory = true;
+                alert_qtyGreaterThanInventory = true;
                 document.getElementById('bagged-item-'+i+'-qty').innerHTML = `
                 <button onclick="decrementItem(this)" class="qty-btn">-</button>
                 <button onclick="incrementItem(this)" class="qty-btn" style="margin-right: 8px;">+</button>
                 (x` + item_qtys[item_num-1][Math.max(size_num, 0)] + `)`;
-                console.log('BAG UPDATE INCOMING');
                 currentBag[i][2] = item_qtys[item_num-1][Math.max(size_num, 0)];
                 updateBag();
             }
@@ -104,6 +102,18 @@ function updateSizeAvailability(){
         }
 
     }
+
+
+    if(alert_qtyGreaterThanInventory){
+        alert(invalid_qty_errorMsg);
+        alert_qtyGreaterThanInventory = false;
+    }
+
+    if(alert_outOfStock){
+        alert(outOfStock_errorMsg);
+        alert_outOfStock = false;
+    }    
+    
     console.log('new inventory count: ' + item_qtys);
 }
 
