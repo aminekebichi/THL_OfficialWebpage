@@ -93,7 +93,7 @@
         
                 <div id="checkout-btn-container">
                     <!-- <button id="checkout-btn" onclick="printCartToConsole();">CHECKOUT</button> -->
-                    <button id="checkout-btn">CHECKOUT</button>
+                    <button id="checkout-btn" onclick="showCheckout();">CHECKOUT</button>
                     <p id="checkout-helper-msg">Checkout unavailable while cart is empty</p>
                     <div id="paypal-hider"></div>
                     <div id="paypal-container">
@@ -106,7 +106,7 @@
             </div>
         </div>
     
-        <div id="user-bag" onclick="triggerBag()">
+        <div id="user-bag" onclick="triggerBag();">
             <img src="/imgs/bag-icon.png">
         </div>
         <p id="user-bag-qty" onclick="triggerBag()">0</p>
@@ -498,7 +498,7 @@
           
         },
       createOrder: (data, actions) => {
-        total = getBagTotal();
+        // total = getBagTotal();
         printCartToConsole();
         return actions.order.create({
           purchase_units: [{

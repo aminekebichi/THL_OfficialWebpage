@@ -1,12 +1,16 @@
 TODO list
 new
 ---------------------------------------------------------
+- ERROR: animated item ticket causing preview to scroll
 - ERROR: add2bag main button can add above inventory max. need to apply boundary same as increment btn
+    > RESOLVED
 - Checkout when bag is empty still needs error msg
+    > DONE
 - Disable add2bag buttons for sold out items
     > Disable options in dropdown for sold out sizes
-- Add color visualizer selectors
-- Implement Stripe checkout
+        > DONE
+- Add color visualizer selectors **not high prio
+- Implement Stripe checkout *** important
 - Setup backend for inventory tracking (see availableSizes variable in index.js)
 - Generate email for purchase confirmation
 - Store session info/cookies <-- Need to learn

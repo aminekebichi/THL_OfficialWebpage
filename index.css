@@ -1094,4 +1094,8 @@ body::-webkit-scrollbar {
 :root {
   --animate-duration: 600ms;
 }
+
+.no-scroll {
+  overflow-y: hidden !important;
+}
 /*# sourceMappingURL=index.css.map */
