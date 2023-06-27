@@ -3,6 +3,7 @@ var bag_open = false;
 var inPreview = false;
 var speed = 0.1;
 
+//currentBag format [[ITEM_NUM, ITEM_SIZE, ITEM_QUANTITY], ...]
 var currentBag = [];
 
 var item_qtys = [[15], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5], [5, 10, 10, 10, 5]]; // THIS IS HARDCODED LOCALLY --> WILL NEED TO FETCH DATA FROM SERVER
@@ -17,6 +18,49 @@ var ongoingAnimation = false;   // used if there is an ongoing animation that ne
 var ongoingDuration = 0;        // this is the duration of said animation
 
 // var checkoutOpen = false;
+
+function triggerStripe(){
+    fetch("http://localhost:3000/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: getItemsForStripe(),
+        }),
+      })
+        .then(res => {
+          if (res.ok) return res.json()
+          return res.json().then(json => Promise.reject(json))
+        })
+        .then(({ url }) => {
+          window.location = url
+        })
+        .catch(e => {
+          console.error(e.error)
+        })
+}
+
+function getItemsForStripe(){
+    console.log('getting items for stripe');
+
+    var res = [];
+
+    for(let i = 0; i < currentBag.length; i++){
+        let item = {
+            id: currentBag[i][0],
+            quantity: currentBag[i][2]
+            // currency: 'usd',
+            // product_data: {
+            //     name: itemNames[currentBag[i][0]-1] + " PLACEHOLDER"
+            // },
+            // unit_amount: itemPrices[currentBag[i][0]-1]*100
+        }
+        res.push(item);
+    }
+
+    return res;
+}
 
 function getItemSizeIndex(item_size){
     let size_num = 0;
@@ -45,7 +89,6 @@ var alert_outOfStock = false;
 var invalid_qty_errorMsg = "Sorry, you have requested a certain quantity of items that our inventory cannot supply... This transaction will be canceled, and your bag will be updated to reflect our inventory.";
 var outOfStock_errorMsg = "Sorry, an item you requested is out of stock and your transaction cannot be completed";
 function updateSizeAvailability(){
-    console.log('AVAILABILITY UPDATING!!!');
     console.log('current bag: ' + currentBag);
     console.log('old inventory count: ' + item_qtys); 
     if(currentBag.length > 0){
@@ -255,7 +298,7 @@ function updateBag(){
         document.getElementById('checkout-btn').style.opacity = "0.5";
         // document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
         
-        document.getElementById('checkout-btn').onclick = function() {};
+        // document.getElementById('checkout-btn').onclick = function() {};
         hideCheckout();
         
         document.getElementById('checkout-btn').title = "Checkout unavailable while cart is empty";
@@ -264,7 +307,7 @@ function updateBag(){
         document.getElementById('checkout-btn').style.opacity = "1";
         // document.getElementById('checkout-btn-container').title = "";
 
-        document.getElementById('checkout-btn').onclick = function() { updateSizeAvailability(); showCheckout();}; // IMPORTANT!! Make sure to update here anytime changes are made to checkout-btn onclick
+        // document.getElementById('checkout-btn').onclick = function() {updateSizeAvailability();}; // IMPORTANT!! Make sure to update here anytime changes are made to checkout-btn onclick
         document.getElementById('checkout-btn').title = "";
     }
 
@@ -397,7 +440,7 @@ function resetStore(){
         triggerHome();
     }, 2900);
 
-    document.getElementById('checkout-btn').onclick = function() { updateSizeAvailability(); showCheckout();}; // IMPORTANT!! Make sure to update here anytime changes are made to checkout-btn onclick
+    document.getElementById('checkout-btn').onclick = function() { updateSizeAvailability(); }; // IMPORTANT!! Make sure to update here anytime changes are made to checkout-btn onclick
 }
 
 function add2bag(elem){

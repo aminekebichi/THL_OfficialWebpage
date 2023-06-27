@@ -24,7 +24,8 @@ old
     >UPDATE: this is mostly done, just need to
     figure out a way to dynamically style the bag
     flyout
-    >UPDATE pt.2: bag flyout is set to cover 100% viewport width, which eliminates the dymanic styling issue, but potentially negatively affecting visual appeal
+    >UPDATE pt.2: bag flyout is set to cover 100% viewport width, which eliminates 
+    the dymanic styling issue, but potentially negatively affecting visual appeal
     >POTENTIAL CONCERNS: images will need to be
     checked for stretching/sizing issues when
     assets are finished & uploaded >> refer to

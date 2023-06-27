@@ -15,12 +15,8 @@
 }
 
 .notifications :where(.toast, .column) {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .notifications .toast {
@@ -33,94 +29,42 @@
   margin-bottom: 10px;
   background: #ff7f50 !important;
   color: white;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-animation: show_toast 0.3s ease forwards;
-          animation: show_toast 0.3s ease forwards;
-}
-
-@-webkit-keyframes show_toast {
-  0% {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-  }
-  40% {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
-  }
-  80% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-  100% {
-    -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
-  }
+  justify-content: space-between;
+  animation: show_toast 0.3s ease forwards;
 }
 
 @keyframes show_toast {
   0% {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
   40% {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
+    transform: translateX(-5%);
   }
   80% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
   }
   100% {
-    -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    transform: translateX(-10px);
   }
 }
-
 .notifications .toast.hide {
-  -webkit-animation: hide_toast 0.3s ease forwards;
-          animation: hide_toast 0.3s ease forwards;
-}
-
-@-webkit-keyframes hide_toast {
-  0% {
-    -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
-  }
-  40% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-  80% {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
-  }
-  100% {
-    -webkit-transform: translateX(calc(-100% - 200px));
-            transform: translateX(calc(-100% - 200px));
-  }
+  animation: hide_toast 0.3s ease forwards;
 }
 
 @keyframes hide_toast {
   0% {
-    -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    transform: translateX(-10px);
   }
   40% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
   }
   80% {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
+    transform: translateX(-5%);
   }
   100% {
-    -webkit-transform: translateX(calc(-100% - 200px));
-            transform: translateX(calc(-100% - 200px));
+    transform: translateX(calc(-100% - 200px));
   }
 }
-
 .toast::before {
   position: absolute;
   content: "";
@@ -128,14 +72,7 @@
   width: 100%;
   bottom: 0px;
   left: 0px;
-  -webkit-animation: progress 5s linear forwards;
-          animation: progress 5s linear forwards;
-}
-
-@-webkit-keyframes progress {
-  100% {
-    width: 0%;
-  }
+  animation: progress 5s linear forwards;
 }
 
 @keyframes progress {
@@ -143,7 +80,6 @@
     width: 0%;
   }
 }
-
 .toast.success::before, .btn#success {
   background: var(--success);
 }
@@ -203,5 +139,4 @@
     font-size: 1rem;
     margin-left: 20px;
   }
-}
-/*# sourceMappingURL=toast_notifications.css.map */
+}/*# sourceMappingURL=toast_notifications.css.map */

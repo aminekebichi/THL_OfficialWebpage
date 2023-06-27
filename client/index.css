@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   scroll-behavior: smooth;
 }
@@ -9,26 +10,18 @@ body {
   background-attachment: fixed;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   -moz-user-select: none;
-   -ms-user-select: none;
        user-select: none;
   -webkit-user-select: none;
   overflow: hidden;
   overflow-y: hidden;
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
-  scrollbar-width: none;
-  /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
   position: absolute;
   width: 100%;
 }
-
 body #offline-site {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   text-align: center;
   background: #f1f1f1;
   width: 100%;
@@ -36,74 +29,52 @@ body #offline-site {
   position: fixed;
   z-index: 104;
   opacity: 1;
-  -webkit-transition: 1.2s;
   transition: 1.2s;
   /* .bg-wrapper:hover{
-            opacity: 1;
-        } */
+      opacity: 1;
+  } */
 }
-
 body #offline-site #temp {
   margin-top: 3px;
   margin-left: 76px;
   width: 100%;
   height: 100%;
 }
-
 body #offline-site .bg-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* position: absolute; */
   opacity: 0;
-  -webkit-transition: 1.6s;
   transition: 1.6s;
-  -webkit-transform: translate(-75px, -3px);
-          transform: translate(-75px, -3px);
+  transform: translate(-75px, -3px);
   /* flex-wrap: wrap; */
 }
-
 body #offline-site #bg {
   /* background-repeat: round; */
   width: 100%;
   height: 100%;
   /* background-image: -moz-element(#fractal); */
 }
-
 body #offline-site .center-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 body #offline-site .square {
   width: 8px;
   height: 8px;
   background: #ff7f50;
 }
-
 body #offline-site .horizontal-rectangle {
   width: 4px;
   height: 8px;
   background: #ff7f50;
 }
-
 body #offline-site .vertical-rectangle {
   width: 8px;
   height: 4px;
   background: #ff7f50;
 }
-
 body #offline-site .triangle-up {
   width: 0;
   height: 0;
@@ -111,7 +82,6 @@ body #offline-site .triangle-up {
   border-right: 4px solid transparent;
   border-bottom: 4px solid #ff7f50;
 }
-
 body #offline-site .triangle-down {
   width: 0;
   height: 0;
@@ -119,7 +89,6 @@ body #offline-site .triangle-down {
   border-right: 4px solid transparent;
   border-top: 4px solid #ff7f50;
 }
-
 body #offline-site .triangle-left {
   width: 0;
   height: 0;
@@ -127,7 +96,6 @@ body #offline-site .triangle-left {
   border-right: 4px solid #ff7f50;
   border-bottom: 4px solid transparent;
 }
-
 body #offline-site .triangle-right {
   width: 0;
   height: 0;
@@ -135,68 +103,44 @@ body #offline-site .triangle-right {
   border-left: 4px solid #ff7f50;
   border-bottom: 4px solid transparent;
 }
-
 body #offline-site #offline-msg {
   text-align: center;
   position: fixed;
   margin-top: 40vh;
   width: 20vw;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: fixed;
 }
-
 body #offline-site #offline-msg #countdown {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  -webkit-transition: 8s;
   transition: 8s;
 }
-
 body #offline-site #offline-msg p {
   min-width: 200px;
 }
-
 body #offline-site #offline-msg .animate__animated.animate__flash {
   --animate-duration: 1s;
 }
-
 body #offline-site #offline-msg #offline-logo {
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  transform: translateX(10px);
 }
-
 body #offline-site .email-inputform {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 body #offline-site .email-inputform #email-input {
   min-height: 45px;
   min-width: 300px;
   padding: 0 10px;
   background-color: #f4f4f4;
-  border: 1px solid #bdbdbd;
+  border: 1px solid rgb(189, 189, 189);
   border-right: none;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #offline-site .email-inputform #submit-btn {
   background-color: coral;
   color: white;
@@ -207,31 +151,24 @@ body #offline-site .email-inputform #submit-btn {
   font-weight: 500;
   letter-spacing: 0.05rem;
   cursor: pointer;
-  -webkit-transition: 1s;
   transition: 1s;
 }
-
 body #offline-site .email-inputform #submit-btn:hover {
-  background-color: #ff9670;
+  background-color: rgb(255, 150, 112);
 }
-
 body #offline-site #emailform-error-msg {
-  color: #cf3232;
+  color: rgb(207, 50, 50);
   opacity: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   text-align: left;
   float: left;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #top-banner {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #ff7f50;
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -247,39 +184,22 @@ body #top-banner {
   /* for Firefox */
   /* for Chrome */
 }
-
 body #top-banner #scroll-text {
   /* animation properties */
-  -webkit-transform: translateX(100%);
   transform: translateX(100%);
-  -webkit-animation: my-animation 60s linear infinite;
   animation: my-animation 60s linear infinite;
 }
-
-@-webkit-keyframes my-animation {
-  from {
-    -webkit-transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
 @keyframes my-animation {
   100% {
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
   }
 }
-
 body #online-site {
   display: none;
   width: 100%;
   height: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body #online-site .divider {
   height: 2px;
   width: auto;
@@ -287,48 +207,36 @@ body #online-site .divider {
   background-color: white;
   position: relative;
 }
-
 body #online-site #checkout-bg {
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: #191816;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  -webkit-transition: 0.6s;
+  transform: translateX(100%);
   transition: 0.6s;
   z-index: 100;
 }
-
 body #online-site #bag-flyout {
   position: fixed;
   right: 0;
   overflow: hidden;
   overflow-y: scroll;
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
-  scrollbar-width: none;
-  /* Firefox */
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  transform: translateX(100vw);
   width: 100vw;
   height: 100%;
-  background-color: #191816;
+  background-color: rgb(25, 24, 22);
   z-index: 104;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #bag-flyout #empty-bag-msg {
   position: fixed;
   margin-left: 26%;
   margin-top: 35vh;
-  -webkit-transform: translateY(225px);
-          transform: translateY(225px);
-  -webkit-transition: 0.6s;
+  transform: translateY(225px);
   transition: 0.6s;
 }
-
 body #online-site #bag-flyout #my-bag {
   color: white;
   padding-top: 55px;
@@ -337,64 +245,51 @@ body #online-site #bag-flyout #my-bag {
   height: auto;
   overflow: auto;
 }
-
 body #online-site #bag-flyout #my-bag .clear {
   clear: both;
 }
-
 body #online-site #bag-flyout #my-bag #my-bag-header {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.1rem;
   margin-left: 40px;
 }
-
 body #online-site #bag-flyout #my-bag ul, body #online-site #bag-flyout #my-bag li {
   list-style-type: none;
 }
-
 body #online-site #bag-flyout #my-bag ul li, body #online-site #bag-flyout #my-bag li li {
   min-height: 50px;
 }
-
 body #online-site #bag-flyout #my-bag #bag-items, body #online-site #bag-flyout #my-bag #bag-item-qtys {
   margin-top: 20px;
 }
-
 body #online-site #bag-flyout #my-bag #bag-items {
   float: left;
 }
-
 body #online-site #bag-flyout #my-bag #bag-item-qtys {
   float: right;
   margin-right: 40px;
 }
-
 body #online-site #bag-flyout #my-bag #bag-item-qtys .qty-btn {
   border: none;
-  background-color: #fdb79e;
+  background-color: rgb(253, 183, 158);
   min-width: 24px;
   cursor: pointer;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #bag-flyout #my-bag #bag-item-qtys .qty-btn:hover {
   background-color: coral;
 }
-
 body #online-site #bag-flyout #my-bag::before, body #online-site #bag-flyout #my-bag::after {
   content: "";
   display: table;
   clear: both;
 }
-
 body #online-site #bag-flyout #add-more-items {
   padding: 20px 40px;
   padding-top: 0;
   position: relative;
 }
-
 body #online-site #bag-flyout #add-more-items #add-more-btn {
   position: relative;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -407,52 +302,42 @@ body #online-site #bag-flyout #add-more-items #add-more-btn {
   height: 100%;
   width: 100%;
   padding: 10px 20px;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
   cursor: pointer;
 }
-
 body #online-site #bag-flyout #add-more-items #add-more-btn:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-
 body #online-site #bag-flyout #bag-overview {
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 700;
   letter-spacing: 0.1rem;
 }
-
 body #online-site #bag-flyout #bag-overview p {
   padding: 0 40px;
 }
-
 body #online-site #bag-flyout #bag-overview .overview-title {
   margin: 20px 0;
   font-size: 20px;
 }
-
 body #online-site #bag-flyout #bag-overview table {
   margin-top: 20px;
   width: 100%;
 }
-
 body #online-site #bag-flyout #bag-overview table .overview-header, body #online-site #bag-flyout #bag-overview table .overview-value {
   padding: 0;
   margin: 0;
 }
-
 body #online-site #bag-flyout #bag-overview table .overview-header {
   text-align: left;
   margin-left: 40px;
 }
-
 body #online-site #bag-flyout #bag-overview table .overview-value {
   font-weight: 500;
   text-align: right;
   margin-right: 40px;
 }
-
 body #online-site #bag-flyout #bag-overview table #shipping-value, body #online-site #bag-flyout #bag-overview table #salestax-value {
   min-width: 20px;
   float: right;
@@ -462,55 +347,41 @@ body #online-site #bag-flyout #bag-overview table #shipping-value, body #online-
   padding-left: 1px;
   margin-right: 42px;
   opacity: 0.5;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #bag-flyout #bag-overview table #shipping-value:hover, body #online-site #bag-flyout #bag-overview table #salestax-value:hover {
   opacity: 1;
 }
-
 body #online-site #bag-flyout #paypal-hider {
   width: auto;
   height: 100%;
   background: none;
-  -webkit-transition: 1.2s !important;
   transition: 1.2s !important;
   display: none;
 }
-
 body #online-site #bag-flyout #checkout-btn-container {
   margin-top: 40px;
   text-align: center;
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
 body #online-site #bag-flyout #checkout-btn-container #buttons-container {
-  -webkit-transform: translateY(0vh);
-          transform: translateY(0vh);
-  -webkit-transition: 0.6s;
+  transform: translateY(0vh);
   transition: 0.6s;
 }
-
 body #online-site #bag-flyout #checkout-btn-container #paypal-container {
   display: none;
 }
-
 body #online-site #bag-flyout #checkout-btn-container #paypal-container #paypal-button-container {
   padding: 40px;
 }
-
 body #online-site #bag-flyout #checkout-btn-container #paypal-container #paypal-button-container .paypal-button {
   background-color: #808080 !important;
 }
-
 body #online-site #bag-flyout #checkout-btn-container #checkout-helper-msg {
   opacity: 0;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #bag-flyout #checkout-btn-container #checkout-btn {
   color: black;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -524,39 +395,28 @@ body #online-site #bag-flyout #checkout-btn-container #checkout-btn {
   border: none;
   opacity: 0.5;
   cursor: pointer;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
-  -webkit-animation-duration: 1.2s;
-          animation-duration: 1.2s;
-  /* don't forget to set a duration! */
+  animation-duration: 1.2s; /* don't forget to set a duration! */
 }
-
 body #online-site #bag-flyout #checkout-btn-container #checkout-btn:hover {
   background-color: coral;
 }
-
 body #online-site #bag-flyout::-webkit-scrollbar {
   display: none;
 }
-
 body #online-site #user-bag {
-  -webkit-transform: scale(45%);
-          transform: scale(45%);
+  transform: scale(45%);
   position: fixed;
   right: 0;
   margin: 5px;
   padding-top: 35px;
   cursor: pointer;
   z-index: 105;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #user-bag:hover {
-  -webkit-transform: scale(50%);
-          transform: scale(50%);
+  transform: scale(50%);
 }
-
 body #online-site #user-bag-qty {
   position: fixed;
   right: 0;
@@ -573,7 +433,6 @@ body #online-site #user-bag-qty {
   padding: 3px;
   margin-top: 85px;
 }
-
 body #online-site #user-bag-qty-animation {
   opacity: 0%;
   position: fixed;
@@ -591,48 +450,31 @@ body #online-site #user-bag-qty-animation {
   width: 16px;
   padding: 3px;
   margin-top: 82px;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
 body #online-site #home {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100%;
   z-index: 1;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #home #home-hider {
   width: 282px;
   height: 63px;
   background: none;
   z-index: 103;
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px);
+  transform: translateY(-40px);
 }
-
 body #online-site #home #thl-logo {
   position: fixed;
   top: 45%;
   z-index: 103;
   cursor: pointer;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #home #shop-btn {
   padding: 18px 40px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -646,140 +488,105 @@ body #online-site #home #shop-btn {
   top: 50%;
   cursor: pointer;
   z-index: 1;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #home #shop-btn:hover {
   background-color: coral;
 }
-
 body #online-site #shop-container {
   width: 100%;
   height: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  box-sizing: border-box;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   position: absolute;
   top: 0;
   left: 0;
   margin-bottom: 140px;
   padding: 0 100px;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #shop-container #shop {
   opacity: 0;
   display: none;
   max-width: 1440px;
   padding: 140px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-column-gap: 200px;
-          column-gap: 200px;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -moz-column-gap: 200px;
+       column-gap: 200px;
   row-gap: 100px;
   z-index: 0;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #shop-container #shop .untouchable {
   pointer-events: none;
 }
-
 body #online-site #shop-container #shop .item {
   position: relative;
   display: block;
   z-index: 0;
 }
-
 body #online-site #shop-container #shop .item .item-desc {
   height: auto;
   width: 100%;
   margin-top: 20px;
   max-height: 10px !important;
   opacity: 0;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #shop-container #shop .item .item-desc .item-name, body #online-site #shop-container #shop .item .item-desc .item-price, body #online-site #shop-container #shop .item .item-desc .item-sizing {
   margin-left: 40px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #191816;
   font-size: 18px;
 }
-
 body #online-site #shop-container #shop .item .item-desc .item-price {
   position: absolute;
   right: 0;
   margin-right: 40px;
 }
-
 body #online-site #shop-container #shop .item .item-desc .item-name, body #online-site #shop-container #shop .item .item-desc .item-sizing {
   float: left;
 }
-
 body #online-site #shop-container #shop .item .item-desc .item-price, body #online-site #shop-container #shop .item .item-desc .item-sizing {
   color: #808080;
   font-size: 14px;
 }
-
 body #online-site #shop-container #shop .item .item-sizing {
   margin-left: 40px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #191816;
   font-size: 18px;
 }
-
 body #online-site #shop-container #shop .item .arrows {
   position: relative;
   margin: 50% 0;
   color: #191816;
   width: 100%;
   opacity: 0;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px);
+  transform: translateY(-40px);
 }
-
 body #online-site #shop-container #shop .item .arrows .left-arrow, body #online-site #shop-container #shop .item .arrows .right-arrow {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
-
 body #online-site #shop-container #shop .item .arrows .left-arrow {
   position: absolute;
   left: 0;
   margin-left: 40px;
   cursor: pointer;
 }
-
 body #online-site #shop-container #shop .item .arrows .right-arrow {
   position: absolute;
   right: 0;
   margin-right: 40px;
   cursor: pointer;
 }
-
 body #online-site #shop-container #shop .item .preview-btn {
   position: absolute;
   bottom: 0;
@@ -797,57 +604,46 @@ body #online-site #shop-container #shop .item .preview-btn {
   font-size: 13px;
   cursor: pointer;
   opacity: 0;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #shop-container #shop #item-1, body #online-site #shop-container #shop #item-2, body #online-site #shop-container #shop #item-3, body #online-site #shop-container #shop #item-4, body #online-site #shop-container #shop #item-5, body #online-site #shop-container #shop #item-6 {
   height: 720px;
   width: 495px;
   background: white;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
   display: block;
 }
-
 body #online-site #shop-container #shop #item-1:hover .item-desc, body #online-site #shop-container #shop #item-1:hover .arrows, body #online-site #shop-container #shop #item-1:hover .preview-btn, body #online-site #shop-container #shop #item-2:hover .item-desc, body #online-site #shop-container #shop #item-2:hover .arrows, body #online-site #shop-container #shop #item-2:hover .preview-btn, body #online-site #shop-container #shop #item-3:hover:hover .item-desc, body #online-site #shop-container #shop #item-3:hover:hover .arrows, body #online-site #shop-container #shop #item-3:hover:hover .preview-btn, body #online-site #shop-container #shop #item-4:hover .item-desc, body #online-site #shop-container #shop #item-4:hover .arrows, body #online-site #shop-container #shop #item-4:hover .preview-btn, body #online-site #shop-container #shop #item-5:hover .item-desc, body #online-site #shop-container #shop #item-5:hover .arrows, body #online-site #shop-container #shop #item-5:hover .preview-btn, body #online-site #shop-container #shop #item-6:hover .item-desc, body #online-site #shop-container #shop #item-6:hover .arrows, body #online-site #shop-container #shop #item-6:hover .preview-btn {
   opacity: 1;
 }
-
 body #online-site #shop-container #shop #item-1:hover .preview-btn:hover, body #online-site #shop-container #shop #item-2:hover .preview-btn:hover, body #online-site #shop-container #shop #item-3:hover:hover .preview-btn:hover, body #online-site #shop-container #shop #item-4:hover .preview-btn:hover, body #online-site #shop-container #shop #item-5:hover .preview-btn:hover, body #online-site #shop-container #shop #item-6:hover .preview-btn:hover {
   opacity: 1;
 }
-
 body #online-site #shop-container #shop .item-preview {
   width: 250px;
   height: auto;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: none;
 }
-
 body #online-site #shop-container #shop .item-preview .item-preview-header p {
   margin-top: 0;
   color: white;
 }
-
 body #online-site #shop-container #shop .item-preview select {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
   border-radius: 0 !important;
 }
-
 body #online-site #shop-container #shop .item-preview select option {
   border-radius: 0 !important;
 }
-
 body #online-site #shop-container #shop .item-preview .size-select {
   position: relative;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 500;
   letter-spacing: 0.01rem;
 }
-
 body #online-site #shop-container #shop .item-preview .size-select #item-1-sizes, body #online-site #shop-container #shop .item-preview .size-select #item-2-sizes, body #online-site #shop-container #shop .item-preview .size-select #item-3-sizes, body #online-site #shop-container #shop .item-preview .size-select #item-4-sizes, body #online-site #shop-container #shop .item-preview .size-select #item-5-sizes, body #online-site #shop-container #shop .item-preview .size-select #item-6-sizes {
   border: none;
   outline: none;
@@ -858,17 +654,14 @@ body #online-site #shop-container #shop .item-preview .size-select #item-1-sizes
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   letter-spacing: 0.01rem;
   font-weight: 500;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
   cursor: pointer;
 }
-
 body #online-site #shop-container #shop .item-preview .size-select #item-1-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-2-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-3-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-4-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-5-sizes option, body #online-site #shop-container #shop .item-preview .size-select #item-6-sizes option {
   border-radius: 0px !important;
   min-height: 100px !important;
   margin: 20px 0;
 }
-
 body #online-site #shop-container #shop .item-preview .size-select select {
   border-style: none !important;
   -webkit-appearance: none;
@@ -876,7 +669,6 @@ body #online-site #shop-container #shop .item-preview .size-select select {
   border-radius: 0px !important;
   appearance: none !important;
 }
-
 body #online-site #shop-container #shop .item-preview .size-select option {
   border-style: none !important;
   -webkit-appearance: none;
@@ -884,27 +676,22 @@ body #online-site #shop-container #shop .item-preview .size-select option {
   border-radius: 0px !important;
   appearance: none !important;
 }
-
 body #online-site #shop-container #shop .item-preview .size-select::after {
-  content: "\25b6";
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  content: "▶";
+  transform: rotate(90deg);
   position: absolute;
   top: 4px;
   right: 2.25rem;
   color: #191816;
   pointer-events: none;
 }
-
 body #online-site #shop-container #shop .item-preview .item-preview-desc p {
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
 body #online-site #shop-container #shop .item-preview .add2bag-container {
   position: relative;
 }
-
 body #online-site #shop-container #shop .item-preview .add2bag-container .add2bag-btn {
   width: 100%;
   padding: 20px;
@@ -916,40 +703,29 @@ body #online-site #shop-container #shop .item-preview .add2bag-container .add2ba
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
   z-index: 1001;
   position: relative;
 }
-
 body #online-site #shop-container #shop .item-preview .add2bag-container .pre-item-ticket, body #online-site #shop-container #shop .item-preview .add2bag-container .item-ticket {
   position: absolute;
   pointer-events: none;
   width: 25px;
   height: 30px;
-  -webkit-transform: translateY(-30px);
-          transform: translateY(-30px);
+  transform: translateY(-30px);
   z-index: 1000;
   background-color: #ff7f50;
   right: 0;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #shop-container #shop .item-preview .add2bag-container .post-item-ticket {
-  -webkit-transition: 1.6s;
   transition: 1.6s;
-  -webkit-animation-timing-function: ease-in;
-          animation-timing-function: ease-in;
-  -webkit-transform: translate(25px, 100vh) !important;
-          transform: translate(25px, 100vh) !important;
+  animation-timing-function: ease-in;
+  transform: translate(25px, 100vh) !important;
 }
-
 body #online-site #shop-container #shop .item-preview .add2bag-container:hover .item-ticket {
-  -webkit-transform: translate(25px, -30px);
-          transform: translate(25px, -30px);
+  transform: translate(25px, -30px);
 }
-
 body #online-site #shop-container #shop .item-preview .back2store-btn {
   color: #ff7f50;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -957,32 +733,23 @@ body #online-site #shop-container #shop .item-preview .back2store-btn {
   background: url("");
   cursor: pointer;
 }
-
 body #online-site #shop-container #shop .item-preview .back2store-btn span {
   margin: 0;
   padding: 0;
 }
-
 body #online-site #shop-container #shop .flex-break {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+  flex-basis: 100%;
   height: 60px;
 }
-
 body #online-site #about-container, body #online-site #contact-container {
   width: 100%;
   height: 100%;
   top: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   display: none;
 }
-
 body #online-site #about-container #about, body #online-site #about-container #contact, body #online-site #contact-container #about, body #online-site #contact-container #contact {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   opacity: 0;
@@ -991,45 +758,36 @@ body #online-site #about-container #about, body #online-site #about-container #c
   letter-spacing: 0.1rem;
   color: white;
   text-align: center;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #about-container #about #about-header, body #online-site #about-container #contact #about-header, body #online-site #contact-container #about #about-header, body #online-site #contact-container #contact #about-header {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
 }
-
 body #online-site #about-container #about #dissapointment, body #online-site #about-container #contact #dissapointment, body #online-site #contact-container #about #dissapointment, body #online-site #contact-container #contact #dissapointment {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 12px;
   letter-spacing: 0.1rem;
   color: coral;
 }
-
 body #online-site #about-container #contact, body #online-site #contact-container #contact {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: right;
   max-width: 500px !important;
-  -webkit-transform: translateX(-10px);
-          transform: translateX(-10px);
+  transform: translateX(-10px);
 }
-
 body #online-site #about-container #contact #contact-table, body #online-site #contact-container #contact #contact-table {
   border-spacing: 0 15px;
   margin: 0;
   table-layout: fixed;
 }
-
 body #online-site #about-container #contact #contact-table .contact-col1, body #online-site #contact-container #contact #contact-table .contact-col1 {
   text-align: right;
   min-width: 200px;
 }
-
 body #online-site #about-container #contact #contact-table .contact-col2, body #online-site #contact-container #contact #contact-table .contact-col2 {
   width: 100%;
 }
-
 body #online-site #about-container #contact #contact-table #contact-ig, body #online-site #about-container #contact #contact-table #contact-tw, body #online-site #contact-container #contact #contact-table #contact-ig, body #online-site #contact-container #contact #contact-table #contact-tw {
   display: none;
   height: 20px;
@@ -1037,39 +795,29 @@ body #online-site #about-container #contact #contact-table #contact-ig, body #on
   background-color: white;
   opacity: 0.6;
   cursor: pointer;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site #about-container #contact #contact-table #contact-ig:hover, body #online-site #about-container #contact #contact-table #contact-tw:hover, body #online-site #contact-container #contact #contact-table #contact-ig:hover, body #online-site #contact-container #contact #contact-table #contact-tw:hover {
   opacity: 1;
   background-color: #ff7f50;
 }
-
 body #online-site .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(0, 0, 0, 0)));
   background: linear-gradient(0deg, black, rgba(0, 0, 0, 0));
   padding: 40px 0;
   padding-bottom: 20px;
   color: white;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-column-gap: 40px;
-          column-gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
   row-gap: 1px;
   z-index: 106 !important;
 }
-
 body #online-site .footer p {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 12px;
@@ -1077,17 +825,14 @@ body #online-site .footer p {
   letter-spacing: 0.1rem;
   margin: 20px 10px;
   cursor: pointer;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 body #online-site .footer p:hover {
   color: coral;
 }
 
 body::-webkit-scrollbar {
-  display: none;
-  /* Safari and Chrome */
+  display: none; /* Safari and Chrome */
 }
 
 /* This changes all the animations globally */
@@ -1097,5 +842,4 @@ body::-webkit-scrollbar {
 
 .no-scroll {
   overflow-y: hidden !important;
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
