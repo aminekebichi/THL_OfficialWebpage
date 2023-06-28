@@ -33,7 +33,8 @@ $highlight-color: #ff7f50;
 .notifications {
     position: fixed;
     top: 40px;
-    left: 20px;
+    left: -40px;
+    z-index: 1000;
 }
 .notifications :where(.toast, .column) {
   display: flex;

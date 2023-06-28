@@ -400,23 +400,24 @@ function animateBagQty(){
 }
 
 function animateTicket(elem){
-    goTop();
-    document.body.classList.add("no-scroll");
+    if(document.body.clientWidth > 800){
+        document.body.classList.add("no-scroll");
 
-    let id = String(elem.parentNode.id);
-    let parent = document.getElementById(id);   //figure out how to get parent of ticket using getElementById and we'll be all set
-    console.log('parent: ' + parent.id);
+        let id = String(elem.parentNode.id);
+        let parent = document.getElementById(id);   //figure out how to get parent of ticket using getElementById and we'll be all set
+        console.log('parent: ' + parent.id);
+        
+        let curr_ticket = parent.lastElementChild;
+        curr_ticket.classList.add("post-item-ticket");
     
-    let curr_ticket = parent.lastElementChild;
-    curr_ticket.classList.add("post-item-ticket");
-
-    let new_ticket = document.createElement("div");
-    new_ticket.className = "pre-item-ticket";
-    parent.appendChild(new_ticket);
-
-    setTimeout(() => {
-        new_ticket.classList.add("item-ticket");
-    }, 600);
+        let new_ticket = document.createElement("div");
+        new_ticket.className = "pre-item-ticket";
+        parent.appendChild(new_ticket);
+    
+        setTimeout(() => {
+            new_ticket.classList.add("item-ticket");
+        }, 600);
+    }
 
     // setTimeout(() => {
     //     parent.appendChild(new_ticket);

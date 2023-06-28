@@ -11,6 +11,7 @@ new
         > DONE
 - Add color visualizer selectors **not high prio
 - Implement Stripe checkout *** important
+    > Initial version done
 - Setup backend for inventory tracking (see availableSizes variable in index.js)
 - Generate email for purchase confirmation
 - Store session info/cookies <-- Need to learn
