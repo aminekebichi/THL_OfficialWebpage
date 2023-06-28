@@ -50,11 +50,6 @@ function getItemsForStripe(){
         let item = {
             id: currentBag[i][0],
             quantity: currentBag[i][2]
-            // currency: 'usd',
-            // product_data: {
-            //     name: itemNames[currentBag[i][0]-1] + " PLACEHOLDER"
-            // },
-            // unit_amount: itemPrices[currentBag[i][0]-1]*100
         }
         res.push(item);
     }
@@ -204,11 +199,6 @@ function updateSizeAvailability(){
 }
 
 function removeItemFromBag(bagged_item_i){
-    // document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
-    //         <button onclick="" class="qty-btn">-</button>
-    //         <button onclick="" class="qty-btn" style="margin-right: 8px;">+</button>
-    //         (x` + currentBag[bagged_item_i][2] + `)
-    //         `;
     document.getElementById('bagged-item-'+bagged_item_i+'-qty').innerHTML = `
             <button onclick="" class="qty-btn">-</button>
             <button onclick="" class="qty-btn" style="margin-right: 8px;">+</button>
@@ -218,7 +208,6 @@ function removeItemFromBag(bagged_item_i){
             var element2 = document.getElementById('bagged-item-' + bagged_item_i + '-qty');
             element1.className = "animate__animated animate__fadeOut";
             element2.className = "animate__animated animate__fadeOut";
-            // console.log(element2.classList);
             setTimeout(() => {
                 element1.parentNode.removeChild(element1);
                 element2.parentNode.removeChild(element2);
@@ -226,7 +215,6 @@ function removeItemFromBag(bagged_item_i){
 }
 
 function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elem){
-    // elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
     if(startNbrDol < endNbrDol && startNbrCent < endNbrCent){
         setTimeout(() => {
             updPriceRec(startNbrDol+1, startNbrCent+1, endNbrDol, endNbrCent, elem);  
@@ -260,34 +248,8 @@ function updPriceRec(startNbrDol, startNbrCent, endNbrDol, endNbrCent, elem){
             updPriceRec(startNbrDol-1, startNbrCent-1, endNbrDol, endNbrCent, elem);
         }, speed);
     }
-    // setTimeout(() => {
-    //     elt.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
-    // }, 300);
     elem.innerHTML = startNbrDol + `.` + (String(startNbrCent).padStart(2, '0')) + ` USD`;
 }
-
-// function incNbrRec(i, endNbr, elt) {
-//     if (i <= endNbr) {
-//       elt.innerHTML = i + `.00 USD`;
-//       setTimeout(function() {//Delay a bit before calling the function again.
-//         incNbrRec(i+1, endNbr, elt);
-//       }, speed);
-//     } else {
-//         document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
-//     }
-    
-// } 
-
-// function decNbrRec(i, endNbr, elt) {
-//     if (i >= endNbr) {
-//       elt.innerHTML = i + `.00 USD`;
-//       setTimeout(function() {//Delay a bit before calling the function again.
-//         decNbrRec(i-1, endNbr, elt);
-//       }, speed);
-//     } else {
-//         document.getElementById('subtotal-value').innerHTML = getBagTotal() + ` USD`;
-//     }
-// }
 
 function updateBag(){
     document.getElementById('user-bag-qty').innerHTML = getBagSize();
@@ -296,18 +258,12 @@ function updateBag(){
         console.log('EMPTY BAG!');
         document.getElementById('empty-bag-msg').style.opacity = "1";
         document.getElementById('checkout-btn').style.opacity = "0.5";
-        // document.getElementById('checkout-btn-container').title = "Checkout unavailable until cart is not empty";
-        
-        // document.getElementById('checkout-btn').onclick = function() {};
         hideCheckout();
         
         document.getElementById('checkout-btn').title = "Checkout unavailable while cart is empty";
     } else {
         document.getElementById('empty-bag-msg').style.opacity = "0";
         document.getElementById('checkout-btn').style.opacity = "1";
-        // document.getElementById('checkout-btn-container').title = "";
-
-        // document.getElementById('checkout-btn').onclick = function() {updateSizeAvailability();}; // IMPORTANT!! Make sure to update here anytime changes are made to checkout-btn onclick
         document.getElementById('checkout-btn').title = "";
     }
 
@@ -807,7 +763,7 @@ function testBagBeforeCheckout(){
         }
     } else {
         // Bag must be open to open checkout => triggerBag() will close bag view
-
+        triggerStripe();
     }
 }
 

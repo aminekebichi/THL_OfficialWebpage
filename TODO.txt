@@ -2,7 +2,9 @@ TODO list
 new
 ---------------------------------------------------------
 - ERROR: animated item ticket causing preview to scroll
-- ERROR: add2bag main button can add above inventory max. need to apply boundary same as increment btn
+    > RESOLVED
+- ERROR: add2bag main button can add above inventory max. 
+need to apply bound same as increment btn
     > RESOLVED
 - Checkout when bag is empty still needs error msg
     > DONE
