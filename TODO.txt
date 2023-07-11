@@ -1,5 +1,32 @@
 TODO list
-new
+
+GENERAL
+---------------------------------------------------------
+- Local stripe implementation requires live node server
+    > nav to /server directory and run "npm run devStart"
+    (this script/shortcut was defined in package.json)
+- FINAL ITEM LIST FOR THLFW24
+    > MYFP Hoodie (Matcha/Black)
+    > DFTTYGAWYS Hoodie (Green/Brown)
+    > THL Headscarf (Brown/Yellow/Green/Blue)
+    > Bracelet? Necklace? Pants?
+- WORKING ITEM LIST FOR THLSS24
+     > La Cantine
+     > La Chemise (t-shirt, djellaba inspired)
+     > Some kind of pants?  Linen? Carpenter? Courdoroy?
+
+07.11
+---------------------------------------------------------
+- Need to add SUCCESS page for positive server response     !!IMPORTANT
+at checkout 
+- Need to store session info (cookies)                      !!IMPORTANT
+- Need to add item IMAGES to stripe server                  !!IMPORTANT
+- Generate email for purchase confirmation                  !!IMPORTANT
+- Add color selector to items
+- Setup backend for inventory tracking (see availableSizes 
+variable in index.js)
+
+06.28
 ---------------------------------------------------------
 - ERROR: animated item ticket causing preview to scroll
     > RESOLVED
@@ -14,11 +41,12 @@ need to apply bound same as increment btn
 - Add color visualizer selectors **not high prio
 - Implement Stripe checkout *** important
     > Initial version done
-- Setup backend for inventory tracking (see availableSizes variable in index.js)
+- Setup backend for inventory tracking (see availableSizes 
+variable in index.js)
 - Generate email for purchase confirmation
 - Store session info/cookies <-- Need to learn
 
-old
+06.16
 ---------------------------------------------------------
 - Consider adding item preview images to bag flyout
 - Stylize for mobile view (dynamic styling)
@@ -27,13 +55,16 @@ old
     >UPDATE: this is mostly done, just need to
     figure out a way to dynamically style the bag
     flyout
-    >UPDATE pt.2: bag flyout is set to cover 100% viewport width, which eliminates 
-    the dymanic styling issue, but potentially negatively affecting visual appeal
+    >UPDATE pt.2: bag flyout is set to cover 100% viewport
+    width, which eliminates 
+    the dymanic styling issue, but potentially negatively
+    affecting visual appeal
     >POTENTIAL CONCERNS: images will need to be
     checked for stretching/sizing issues when
     assets are finished & uploaded >> refer to
     $imageRatio variable in mobile_styles.scss
-- Setup backend for inventory tracking (see availableSizes variable in index.js)
+- Setup backend for inventory tracking (see availableSizes 
+variable in index.js)
 - Generate email for purchase confirmation
 - Learn about cookies
     > I'm fairly certain that if a user presses
@@ -50,14 +81,3 @@ old
     login is used) & current bag -- lifetime 20min
 - Add falling 'ticket' animation for adding item to bag
     > DONE
-
-- FINAL ITEM LIST FOR THLFW24
-    > MYFP Hoodie (Matcha/Black)
-    > DFTTYGAWYS Hoodie (Green/Brown)
-    > THL Headscarf (Brown/Yellow/Green/Blue)
-    > Bracelet? Necklace? Pants?
-
-- WORKING ITEM LIST FOR THLSS24
-     > La Cantine
-     > La Chemise (t-shirt, djellaba inspired)
-     > Some kind of pants? Linen? Carpenter?

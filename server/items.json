@@ -1,0 +1,46 @@
+{
+    "item": [
+        {
+            "id": 1,
+            "name": "Item-1 Placeholder",
+            "price": 1000,
+            "imgName": "img_placeholder.jpg",
+            "itemNum": 1
+        },
+        {
+            "id": 2,
+            "name": "Item-2 Placeholder",
+            "price": 1000,
+            "imgName": "img_placeholder.jpg",
+            "itemNum": 2
+        },
+        {
+            "id": 3,
+            "name": "Item-3 Placeholder",
+            "price": 1000,
+            "imgName": "img_placeholder.jpg",
+            "itemNum": 3
+        },
+        {
+            "id": 4,
+            "name": "Item-4 Placeholder",
+            "price": 1000,
+            "imgName": "img_placeholder.jpg",
+            "itemNum": 4
+        },
+        {
+            "id": 5,
+            "name": "Item-5 Placeholder",
+            "price": 1000,
+            "imgName": "img_placeholder.jpg",
+            "itemNum": 5
+        },
+        {
+            "id": 6,
+            "name": "Item-6 Placeholder",
+            "price": 1000,
+            "imgName": "img_placeholder.jpg",
+            "itemNum": 6
+        }
+    ]
+}

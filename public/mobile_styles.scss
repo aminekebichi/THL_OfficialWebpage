@@ -1,0 +1,647 @@
+$imageRatio: 1.45; //ratio = height/width
+
+@media all and (min-width: 2601px) and (max-width: 4000px){
+    //4K BG
+
+    body{
+        // background-image: url("imgs/THL_BG_4k.jpg");
+        background-image: url("imgs/THL_BG_4k.jpg");
+    }
+}
+
+@media all and (min-width: 1921px) and (max-width: 2600px){
+    //LARGE BG
+    
+    body{
+        background-image: url("imgs/THL_BG_Large.jpg");
+    }
+}
+
+@media all and (min-width: 1025px) and (max-width: 1920px){
+    //DEFAULT BG
+
+    body{
+        background-image: url("imgs/THL_BG_Default.jpg");
+    }
+}
+
+@media all and (min-width:960px) and (max-width: 1024px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    #gen-inq{
+        display: none;
+    }
+
+    .contact-col1{
+        min-width: 135px !important;
+    }
+
+    #contact-ig, #contact-tw{
+        background-color: coral !important;
+        opacity: 1 !important;
+    }
+    
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
+    #thl-logo{
+        transform: scale(80%);
+        z-index: 2 !important;
+    }
+
+    #shop-btn{
+        background-color: coral !important;
+    }
+
+    // #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
+    //     transform: scale(90%) translateX(10px);
+    // }
+
+    #user-bag{
+        transform: scale(45%) translateX(50px) !important;
+    }
+
+    #user-bag-qty{
+        transform: translateX(22px);
+    }
+
+    #empty-bag-msg{
+        transform: translateY(225px) !important;
+    }
+
+    .item-preview{
+        // text-align: center;
+        padding-bottom: 150px;
+    }
+
+    // .size-select::after{
+    //     transform: translateX(15px) scale(80%) rotate(90deg) !important;
+    // }
+
+    .item-desc, .arrows, .preview-btn{
+        opacity: 1 !important;
+    }
+
+    #checkout-bg{
+        display: none;
+    }
+}
+
+@media all and (min-width:801px) and (max-width: 959px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    #checkout-btn{
+        width: 80% !important;
+    }
+
+    #gen-inq{
+        display: none;
+    }
+
+    .contact-col1{
+        min-width: 135px !important;
+    }
+
+    #contact-ig, #contact-tw{
+        background-color: coral !important;
+        opacity: 1 !important;
+    }
+
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite;
+        -webkit-animation: my-animation 30s linear infinite;
+        animation: my-animation 30s linear infinite;
+    }
+
+    #thl-logo{
+        transform: scale(80%);
+        z-index: 2 !important;
+    }
+
+    #shop-btn{
+        background-color: coral !important;
+    }
+
+    // #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
+    //     transform: scale(90%) translateX(10px);
+    // }
+
+    #user-bag{
+        transform: scale(45%) translateX(50px) !important;
+    }
+
+    #user-bag-qty{
+        transform: translateX(22px);
+    }
+
+    #empty-bag-msg{
+        transform: translateY(225px) !important;
+    }
+
+    .item-preview{
+        text-align: center;
+        padding-bottom: 150px;
+    }
+
+    .size-select::after{
+        right: 1.5rem !important;
+    }
+
+    .item-desc, .arrows, .preview-btn{
+        opacity: 1 !important;
+    }
+
+    #checkout-bg{
+        display: none;
+    }
+}
+
+@media all and (min-width:769px) and (max-width: 800px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    .item-ticket{
+        display: none;
+    }
+
+    #checkout-btn{
+        width: 80% !important;
+    }
+
+    #shop-container{
+        padding: 0;
+    }
+
+    #gen-inq{
+        display: none;
+    }
+
+    .contact-col1{
+        min-width: 135px !important;
+    }
+
+    #contact-ig, #contact-tw{
+        background-color: coral !important;
+        opacity: 1 !important;
+    }
+
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite !important;
+        -webkit-animation: my-animation 30s linear infinite !important;
+        animation: my-animation 30s linear infinite !important;
+    }
+
+    #thl-logo{
+        transform: scale(80%);
+        z-index: 2 !important;
+    }
+
+    #shop-btn{
+        background-color: coral !important;
+    }
+
+    #user-bag{
+        transform: scale(45%) translateX(50px) !important;
+    }
+
+    #user-bag-qty{
+        transform: translateX(22px);
+    }
+
+    #empty-bag-msg{
+        transform: translateY(225px) !important;
+    }
+
+    .item-preview{
+        text-align: center;
+        padding-bottom: 150px;
+    }
+
+    .size-select::after{
+        right: 1.5rem !important;
+    }
+
+    .item-desc, .arrows, .preview-btn{
+        opacity: 1 !important;
+    }
+
+    #checkout-bg{
+        display: none;
+    }
+}
+
+@media all and (min-width:569px) and (max-width: 768px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    .item-ticket{
+        display: none;
+    }
+
+    #checkout-btn{
+        width: 80% !important;
+    }
+
+    #shop-container{
+        padding: 0;
+    }
+
+    // #shop{
+    //     margin: 0 !important; margin-bottom: 140px; padding: 100px 0 !important;
+    // }
+
+    // #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
+    //     height: calc((100vw)*$imageRatio) !important;
+    //     width: 100vw !important;
+    // }
+
+    #gen-inq{
+        display: none;
+    }
+
+    .contact-col1{
+        min-width: 135px !important;
+    }
+
+    #contact-ig, #contact-tw{
+        background-color: coral !important;
+        opacity: 1 !important;
+    }
+
+    #about, #contact{
+        width: 75% !important;
+    }
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite !important;
+        -webkit-animation: my-animation 30s linear infinite !important;
+        animation: my-animation 30s linear infinite !important;
+    }
+
+    #thl-logo{
+        transform: scale(80%);
+        z-index: 2 !important;
+    }
+
+    #shop-btn{
+        background-color: coral !important;
+    }
+
+    #user-bag{
+        transform: scale(45%) translateX(50px) !important;
+    }
+
+    #user-bag-qty{
+        transform: translateX(22px);
+    }
+
+    #empty-bag-msg{
+        transform: translateY(225px) !important;
+    }
+
+    .item-preview{
+        text-align: center;
+        padding-bottom: 150px;
+    }
+
+    .size-select::after{
+        right: 1.5rem !important;
+    }
+
+    .item-desc, .arrows, .preview-btn{
+        opacity: 1 !important;
+    }
+    
+    #checkout-bg{
+        display: none;
+    }
+}
+
+@media all and (min-width:481px) and (max-width: 568px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    .item-ticket{
+        display: none;
+    }
+
+    #checkout-btn{
+        width: 80% !important;
+    }
+
+    #shop-container{
+        padding: 0;
+    }
+
+    // #shop{
+    //     margin: 0 !important; margin-bottom: 140px; padding: 100px 0 !important;
+    // }
+
+    #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
+        height: calc((100vw)*$imageRatio) !important;
+        width: 100vw !important;
+    }
+
+    #gen-inq{
+        display: none;
+    }
+
+    .contact-col1{
+        min-width: 135px !important;
+    }
+
+    #contact-ig, #contact-tw{
+        background-color: coral !important;
+        opacity: 1 !important;
+    }
+
+    #about, #contact{
+        width: 75% !important;
+    }
+
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite !important;
+        -webkit-animation: my-animation 30s linear infinite !important;
+        animation: my-animation 30s linear infinite !important;
+    }
+
+    #thl-logo{
+        transform: scale(80%);
+        z-index: 2 !important;
+    }
+
+    #shop-btn{
+        background-color: coral !important;
+    }
+
+    #user-bag{
+        transform: scale(45%) translateX(50px) !important;
+    }
+
+    #user-bag-qty{
+        transform: translateX(22px);
+    }
+
+    #empty-bag-msg{
+        transform: translateY(225px) !important;
+    }
+
+    .item-preview{
+        text-align: center;
+        padding-bottom: 150px;
+    }
+
+    .size-select::after{
+        right: 1.5rem !important;
+    }
+
+    .item-desc, .arrows, .preview-btn{
+        opacity: 1 !important;
+    }
+    
+    #checkout-bg{
+        display: none;
+    }
+}
+
+@media all and (min-width:321px) and (max-width: 480px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+
+    .item-ticket{
+        display: none;
+    }
+
+    #checkout-btn{
+        width: 80% !important;
+    }
+
+    #user-bag-qty-animation{
+        transform: translateX(22px);
+    }
+
+    #shop-container{
+        padding: 0;
+    }
+
+    // #shop{
+    //     margin: 0 !important; margin-bottom: 140px; padding: 100px 0 !important;
+    // }
+
+    #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
+        height: calc((100vw)*$imageRatio) !important;
+        width: 100vw !important;
+    }
+
+    #gen-inq{
+        display: none;
+    }
+
+    .contact-col1{
+        min-width: 135px !important;
+    }
+
+    #contact-ig, #contact-tw{
+        background-color: coral !important;
+        opacity: 1 !important;
+    }
+
+    #about, #contact{
+        width: 75% !important;
+    }
+
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite !important;
+        -webkit-animation: my-animation 30s linear infinite !important;
+        animation: my-animation 30s linear infinite !important;
+    }
+
+    #thl-logo{
+        transform: scale(80%);
+        z-index: 2 !important;
+    }
+
+    #shop-btn{
+        background-color: coral !important;
+    }
+
+    #user-bag{
+        transform: scale(45%) translateX(50px) !important;
+    }
+
+    #user-bag-qty{
+        transform: translateX(22px);
+    }
+
+    #empty-bag-msg{
+        transform: translateY(225px) !important;
+    }
+
+    .item-preview{
+        text-align: center;
+        padding-bottom: 150px;
+    }
+
+    .size-select::after{
+        right: 1.5rem !important;
+    }
+
+    .item-desc, .arrows, .preview-btn{
+        opacity: 1 !important;
+    }
+    
+    #checkout-bg{
+        display: none;
+    }
+}
+
+@media all and (min-width:0px) and (max-width: 320px) {
+    #user-bag-qty-animation{
+        display: none;
+    }
+    
+    .item-ticket{
+        display: none;
+    }
+
+    #checkout-btn{
+        width: 80% !important;
+    }
+
+    #shop-container{
+        padding: 0;
+    }
+
+    // #shop{
+    //     margin: 0 !important; margin-bottom: 140px; padding: 100px 0 !important;
+    // }
+
+    #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
+        height: calc((100vw)*$imageRatio) !important;
+        width: 100vw !important;
+    }
+
+    #gen-inq{
+        display: none;
+    }
+
+    .contact-col1{
+        min-width: 135px !important;
+    }
+
+    #contact-ig, #contact-tw{
+        background-color: coral;
+        opacity: 1 !important;
+    }
+
+    #about, #contact{
+        width: 75% !important;
+    }
+
+    #scroll-text{
+        // padding-top: 10px;
+
+        /* animation properties */
+        -moz-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        transform: translateX(100vw);
+        
+        -moz-animation: my-animation 30s linear infinite !important;
+        -webkit-animation: my-animation 30s linear infinite !important;
+        animation: my-animation 30s linear infinite !important;
+    }
+
+    #thl-logo{
+        transform: scale(80%);
+        z-index: 2 !important;
+    }
+
+    #shop-btn{
+        background-color: coral !important;
+    }
+
+    // #item-1, #item-2, #item-3, #item-4, #item-5, #item-6{
+    //     transform: scale(80%) translateX(10px);
+    // }
+
+    #user-bag{
+        transform: scale(45%) translateX(50px) !important;
+    }
+
+    #user-bag-qty{
+        transform: translateX(22px);
+    }
+    
+    #empty-bag-msg{
+        transform: translateY(225px) !important;
+    }
+
+    .item-preview{
+        text-align: center;
+        padding-bottom: 150px;
+    }
+
+    .size-select::after{
+        right: 1.5rem !important;
+    }
+
+    .item-desc, .arrows, .preview-btn{
+        opacity: 1 !important;
+    }
+    
+    #checkout-bg{
+        display: none;
+    }
+}

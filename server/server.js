@@ -41,9 +41,9 @@ app.post('/create-checkout-session', async (req, res) => {
                     quantity: item.quantity
                 }
             }),
-            success_url: `${process.env.CLIENT_URL}/index.html`,    //make sure to make success page
-            cancel_url: `${process.env.CLIENT_URL}/index.html`      //cancel can take back to home page
-        })                                                          //^need to save session info on return, look into cookies
+            success_url: `${process.env.CLIENT_URL}/public/index.html`,    //make sure to make success page
+            cancel_url: `${process.env.CLIENT_URL}/public/index.html`      //cancel can take back to home page
+        })    //^need to save session info on return, look into cookies
         res.json({ url: session.url })
     } catch (e) {
         res.status(500).json({ error: e.message })

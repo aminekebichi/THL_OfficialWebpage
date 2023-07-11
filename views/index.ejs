@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THL&#8482; US Official Site</title>
+</head>
+<body>
+    <div id="offline-site">
+        <div id="temp"></div>
+        <div id="offline-msg">
+            <img id="offline-logo" src="imgs/THL_OfflineLogo(new).png">
+            <p id="countdown">&nbsp;</p>
+            <!-- <p>While you're here... join our email list to be notified for future events and when we go live!</p>
+            <form id="email-form" class="email-inputform" onsubmit="submitEmail(); return false;">
+                <input id="email-input" type="text" id="fname" name="fname" placeholder="Email address"><br>
+                <button type="button" id="submit-btn" onclick="submitEmail()">SUBMIT</button>
+            </form>
+            <p id="emailform-error-msg" style="min-width: 400px;">Please enter a valid email address</p> -->
+
+            <p style="font-style: italic; margin: 0; transform: translateY(-5px);">Thank you for your patience.<br>We are working on putting together the next drop.</p>
+        </div>
+    </div>
+    
+    <div id="online-site">
+        <div id="top-banner" class="animate__animated animate__slideInRight">
+            <div id="scroll-text"><span style="margin-right: 25vw;">THL FW 2024 DROP IS NOW LIVE</span><span style="margin-right: 25vw;">THL FW 2024 DROP EST MAINTENANT DISPONIBLE</span><span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;">مفتوح الآن </span>THL 2024<span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;"> سوق خريف/شتاء</span></div>
+        </div>
+
+        <ul class="notifications"></ul>
+    
+        <div id="site-wrapper">
+            <div id="bag-flyout">
+                <div id="my-bag">
+                    <p id="my-bag-header">MY BAG</p>
+                    <div class="divider"></div>
+        
+                    <ul id="bag-items"></ul>
+                    <ul id="bag-item-qtys"></ul>
+        
+                    <div class="clear"></div>
+                </div>
+
+                <div id="add-more-items">
+                    <span id="add-more-btn" onclick="triggerBag(); triggerShop();">+ Add more items</span>
+                </div>
+        
+                <div id="bag-overview">
+                    <p class="overview-title">TOTAL</p>
+                    <div class="divider" style="background-color: white;"></div>
+                    <table>
+                        <tr>
+                            <td>
+                                <p class="overview-header">Sub-total</p>
+                            </td>
+                            <td>
+                                <p class="overview-value" id="subtotal-value">0.00 USD</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="overview-header">Shipping</p>
+                            </td>
+                            <td>
+                                <p class="overview-value" title="Shipping and sales tax will be calculated at checkout" id="shipping-value">i</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="overview-header">Sales tax</p>
+                            </td>
+                            <td>
+                                <p class="overview-value" title="Shipping and sales tax will be calculated at checkout" id="salestax-value">i</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div id="checkout-btn-container">
+                    <!-- <button id="checkout-btn" onclick="printCartToConsole();">CHECKOUT</button> -->
+                    <button id="checkout-btn" onclick="testBagBeforeCheckout()">CHECKOUT</button>
+                    <p id="checkout-helper-msg">Checkout unavailable while cart is empty</p>
+                    <div id="paypal-hider"></div>
+                    <div id="paypal-container">
+                        <div id="paypal-button-container"></div>
+                    </div>
+                    <div style="height: 100px;"></div>
+                </div>  
+                
+                <img id="empty-bag-msg" src="imgs/empty-bag-msg-1.png" style="display: none;">
+            </div>
+        </div>
+    
+        <div id="user-bag" onclick="triggerBag();">
+            <img src="imgs/bag-icon.png">
+        </div>
+        <p id="user-bag-qty" onclick="triggerBag()">0</p>
+        <p id="user-bag-qty-animation"></p>
+    
+        <div id="home">
+            <div id="home-hider"></div>
+            <img id="thl-logo" src="imgs/THL_OriginalLogo.png" onclick="triggerShop()">
+            <button id="shop-btn" onclick="triggerShop();">SHOP NOW</button>
+        </div>
+        
+        <div id="shop-container">
+            <div id="shop">
+                <% items.item.forEach(function(item) { %>
+                    <div class="item untouchable" id="item-<%=item.itemNum%>>" data-item-id="<%=item.id%>" onclick="previewItem1()">
+                        <table class="item-desc">
+                            <tr>
+                                <td class="item-name" id="item-<%=item.itemNum%>-name"><%= item.name %></td>
+                                <td class="item-price" id="item-<%=item.itemNum%>-price"><%= item.price / 100 %> USD</td>
+                            </tr>
+                            <tr>
+                                <td id="item-<%=item.itemNum%>-sizing" class="item-sizing">ONE SIZE FITS ALL</td>
+                            </tr>
+                        </table>
+                        <div class="arrows">
+                            <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
+                            <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
+                        </div>
+                        <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
+                    </div>
+                    <div class="item-preview" id="item-<%=item.itemNum%>-preview">
+                        <div class="item-preview-header">
+                            <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
+                            <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-<%=item.itemNum%>-preview-name"><%= item.name %></P>
+                            <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-<%=item.itemNum%>-price"><%= item.price / 100 %> USD</p>
+                        </div>
+                        <div class="size-select">
+                            <label for="sizes">
+                                <select name="sizes" id="item-<%=item.itemNum%>-sizes">
+                                    <option value="" selected>One Size Fits All</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="item-preview-desc">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
+                        </div>
+                        <div id="item-1-add2bag" class="add2bag-container">
+                            <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
+                            <div class="item-ticket"></div>
+                        </div>
+                        <p class="back2store-btn" onclick="returnFromPreview()">
+                            <span style="font-weight: bold">&lt;</span>
+                            &nbsp;&nbsp;Back to store
+                        </p>
+                    </div>
+                <% }) %>
+        </div>
+        <div id="about-container">
+            <div id="about">
+                <p id="about-header">"The high fashion arabic streetwear house"</p>
+                <p>At THL, we strongly believe in the power of self-expression and individualism. We draw inspiration from the rich and vibrant culture of North Africa and the Arab world, and our clothing embodies the creativity and uniqueness of our people. We encourage everyone to embrace their individuality and express themselves confidently despite the boundaries set by their surroundings. With our bold designs, we strive to empower our customers to stand out and spread our message wherever they go.</p>
+                <!-- <p>We are a street wear clothing line that aims to embody the artistic styles present within the arabic world and bring them to the forefront of western fashion.</p> -->
+                <span id="dissapointment">
+                    <p><br>Dissapointing our 1st-gen parents one garment at a time <3</p>
+                </span>
+            </div>
+        </div>
+        <div id="contact-container">
+            <div id="contact">
+                <table id="contact-table">
+                    <tr id="gen-inq">
+                        <td class="contact-col1">General Inquiries &nbsp;&nbsp;&nbsp; //</td>
+                        <td style="padding-left: 24px; user-select: text; -moz-user-select: text; -khtml-user-select: text; -webkit-user-select: text; -ms-user-select: text;">thehabibiline.mgmt@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td class="contact-col1">Instagram &nbsp;&nbsp;&nbsp; //</td>
+                        <td class="contact-col2" style="padding-left: 24px;">
+                            <a href="https://instagram.com/thehabibiline" target="_blank">
+                                <div id="contact-ig"></div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="contact-col1">Twitter &nbsp;&nbsp;&nbsp; //</td>
+                        <td class="contact-col2" style="padding-left: 24px;">
+                            <a href="https://twitter.com/thehabibiline" target="_blank">
+                                <div id="contact-tw"></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="footer" class="footer" style="z-index: 100;">
+            <p onclick="triggerHome();">HOME</p>
+            <p onclick="triggerAbout();">ABOUT</p>
+            <p onclick="triggerShop();">SHOP</p>
+            <p onclick="triggerContact();">CONTACT</p>
+            <p onclick="">LOOKBOOK</p>
+        </div>
+    </div>
+</body>
+
+<!-- POST SCRIPTS -->
+<script src="toast.js"></script>
+<script src="updateDetails.js"></script>
+<script src="livesite.js"></script>
+<script src="livebg.js"></script>
+<script src="checkout.js"></script>
+</html>
