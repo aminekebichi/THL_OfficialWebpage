@@ -58,6 +58,30 @@ function getItemsForStripe(){
     return res;
 }
 
+var counter = 0;
+function selectSize(elem){
+    var select_btns = elem.parentNode.querySelectorAll(".square-container");
+    for (var i = 0; i < select_btns.length; i++){
+        // console.log(select_btns[i]);
+        select_btns[i].classList.remove("square-container-selected");
+    }
+
+    elem.classList.toggle("square-container-selected");
+    let item_num = elem.parentNode.parentNode.id.split('-')[1];
+    let item_size = elem.lastElementChild.innerHTML;
+    let size_i = Math.max(getItemSizeIndex(item_size), 0);
+
+    let selector_name = 'item-'+item_num+'-sizes';
+
+    console.log('test ' + (counter+=1));
+    console.log('size_i: ' + size_i);
+    console.log('item_size: ' + item_size);
+    
+    if(item_size != "ONE SIZE FITS ALL"){
+        document.getElementById(selector_name).getElementsByTagName('option')[size_i+1].selected = 'true';
+    }
+}
+
 function getItemSizeIndex(item_size){
     let size_num = 0;
     switch(item_size){
@@ -498,8 +522,29 @@ function add2bag(elem){
 
 }
 
+var size_helper_msg_counter = 0;
 function sizesErrorForm(item_num) {
+    size_helper_msg_counter++;
+    const size_selectors = document.getElementsByClassName("square-container");
+
+    for(let i = 0; i < size_selectors.length; i++){
+        console.log("i: " + i , size_selectors[i]);
+        size_selectors[i].style.background = "#964c31";
+        setTimeout(() => {
+            size_selectors[i].style.background = "#191816";
+        }, 400);
+    }
+    if(size_helper_msg_counter % 3 == 0){
+        const helper_msgs = document.getElementsByClassName("size-select-helper");
+        for(let i = 0; i < helper_msgs.length; i++){
+            helper_msgs[i].style.opacity = 1;
+            setTimeout(() => {
+                helper_msgs[i].style.opacity = 0;
+            }, 2000);
+        }
+    }
     const element = document.getElementById('item-'+item_num+'-sizes');
+
     element.style.background = "rgb(255, 169, 169)";
     setTimeout(() => {
         element.style.background = "white";
@@ -785,7 +830,22 @@ function testBagBeforeCheckout(){
 //     }
 // }
 
+function selectColor(el){
+    console.log('color-selector: ' + el.id);
+    let selector_num = el.id.split('-')[2];
+    let item = el.parentNode.parentNode;
+    console.log('selector_num: ' + selector_num);
+    console.log('item: ' + item);
+
+    item.style.background = item1_imgs[(selector_num)];
+}
+
 function resetSizeSelections() {
+    let size_selectors = document.querySelectorAll('.square-container');
+    for (var i = 0; i < size_selectors.length; i++){
+        size_selectors[i].classList.remove('square-container-selected')
+    }
+
     var el = document.getElementById("item-1-sizes");
     el.selectedIndex = "none";
     el = document.getElementById("item-2-sizes");
@@ -801,6 +861,8 @@ function resetSizeSelections() {
 }
 
 function returnFromPreview(){
+    checkout_helper_msg_counter = 0;
+    size_helper_msg_counter = 0;
     document.body.classList.remove("no-scroll");
     restoreItemsOnClick();
     document.getElementById("shop").style.opacity = "0";

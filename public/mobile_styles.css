@@ -59,6 +59,9 @@
   }
 }
 @media all and (min-width: 801px) and (max-width: 959px) {
+  .item-size-selection {
+    justify-content: center;
+  }
   #user-bag-qty-animation {
     display: none;
   }
@@ -111,6 +114,9 @@
   }
 }
 @media all and (min-width: 769px) and (max-width: 800px) {
+  .item-size-selection {
+    justify-content: center;
+  }
   #user-bag-qty-animation {
     display: none;
   }
@@ -169,6 +175,9 @@
   }
 }
 @media all and (min-width: 569px) and (max-width: 768px) {
+  .item-size-selection {
+    justify-content: center;
+  }
   #user-bag-qty-animation {
     display: none;
   }
@@ -230,6 +239,9 @@
   }
 }
 @media all and (min-width: 481px) and (max-width: 568px) {
+  .item-size-selection {
+    justify-content: center;
+  }
   #user-bag-qty-animation {
     display: none;
   }
@@ -295,6 +307,9 @@
   }
 }
 @media all and (min-width: 321px) and (max-width: 480px) {
+  .item-size-selection {
+    justify-content: center;
+  }
   #user-bag-qty-animation {
     display: none;
   }
@@ -363,6 +378,9 @@
   }
 }
 @media all and (min-width: 0px) and (max-width: 320px) {
+  .item-size-selection {
+    justify-content: center;
+  }
   #user-bag-qty-animation {
     display: none;
   }

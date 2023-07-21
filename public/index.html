@@ -120,7 +120,7 @@
         
         <div id="shop-container">
             <div id="shop">
-                <div class="item untouchable" id="item-1" onclick="previewItem1()">
+                <div class="item untouchable" id="item-1" onclick=" previewItem1()">
                     <table class="item-desc">
                         <tr>
                             <td class="item-name" id="item-1-name">ITEM 1 NAME</td>
@@ -134,15 +134,30 @@
                         <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;">&#8592;</p>
                         <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;">&#8594;</p>
                     </div>
-                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
+                    <!-- <button class="preview-btn" onclick="previewItem(this)">VIEW</button> -->
+
+                    <div class="pointer-event-blocker" onclick="event.stopPropagation();"></div>
+                    <div class="color-selection">
+                        <div class="color-selector" id="color-selector-1" onclick="event.stopPropagation(); selectColor(this)"></div>
+                        <div class="color-selector" id="color-selector-2" onclick="event.stopPropagation(); selectColor(this)"></div>
+                        <div class="color-selector" id="color-selector-3" onclick="event.stopPropagation(); selectColor(this)"></div>
+                    </div>
                 </div>
                 <div class="item-preview" id="item-1-preview">
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
                         <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-1-preview-name">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-1-price">??? USD</p>
+                        <p style="color:lightgray; font-size: small; margin: 0;" id="preview-item-1-price">??? USD</p>
                     </div>
-                    <div class="size-select">
+
+                    <p class="size-select-helper">Please select a size</p>
+
+                    <div class="item-size-selection">
+                        <div class="square-container square-container-osfa" onclick="selectSize(this)">
+                            <span class="centered-character">ONE SIZE FITS ALL</span>
+                        </div>
+                    </div>
+                    <div class="size-select" style="display: none;">
                         <label for="sizes">
                             <select name="sizes" id="item-1-sizes">
                                 <option value="" selected>One Size Fits All</option>
@@ -187,12 +202,34 @@
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
                         <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-2-preview-name">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-2-price">??? USD</p>
+                        <p style="color:lightgray; font-size: small; margin: 0;" id="preview-item-2-price">??? USD</p>
                     </div>
-                    <div class="size-select">
+
+                    <p class="size-select-helper">Please select a size</p>
+
+                    <div class="item-size-selection">
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XS</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">S</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">M</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">L</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XL</span>
+                        </div>
+                    </div>
+
+
+                    <div class="size-select" style="display: none;">
                         <label for="sizes">
                             <select name="sizes" id="item-2-sizes">
-                                <option value="none" selected="" disabled="" hidden="">Select a size</option>
+                                <option option value="none" selected disabled hidden>Select a size</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
@@ -241,12 +278,34 @@
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
                         <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-3-preview-name">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-3-price">??? USD</p>
+                        <p style="color:lightgray; font-size: small; margin: 0;" id="preview-item-3-price">??? USD</p>
                     </div>
-                    <div class="size-select">
+
+                    <p class="size-select-helper">Please select a size</p>
+
+                    <div class="item-size-selection">
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XS</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">S</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">M</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">L</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XL</span>
+                        </div>
+                    </div>
+
+
+                    <div class="size-select" style="display: none;">
                         <label for="sizes">
                             <select name="sizes" id="item-3-sizes">
-                                <option value="none" selected="" disabled="" hidden="">Select a size</option>
+                                <option option value="none" selected disabled hidden>Select a size</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
@@ -258,10 +317,12 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
+
                     <div id="item-3-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
                         <div class="item-ticket"></div>
                     </div>
+
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
                         &nbsp;&nbsp;Back to store
@@ -293,12 +354,34 @@
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
                         <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-4-preview-name">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-4-price">??? USD</p>
+                        <p style="color:lightgray; font-size: small; margin: 0;" id="preview-item-4-price">??? USD</p>
                     </div>
-                    <div class="size-select">
+
+                    <p class="size-select-helper">Please select a size</p>
+
+                    <div class="item-size-selection">
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XS</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">S</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">M</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">L</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XL</span>
+                        </div>
+                    </div>
+
+
+                    <div class="size-select" style="display: none;">
                         <label for="sizes">
                             <select name="sizes" id="item-4-sizes">
-                                <option value="none" selected="" disabled="" hidden="">Select a size</option>
+                                <option option value="none" selected disabled hidden>Select a size</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
@@ -310,10 +393,12 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
+
                     <div id="item-4-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
                         <div class="item-ticket"></div>
                     </div>
+
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
                         &nbsp;&nbsp;Back to store
@@ -345,12 +430,34 @@
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
                         <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-5-preview-name">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-5-price">??? USD</p>
+                        <p style="color:lightgray; font-size: small; margin: 0;" id="preview-item-5-price">??? USD</p>
                     </div>
-                    <div class="size-select">
+
+                    <p class="size-select-helper">Please select a size</p>
+
+                    <div class="item-size-selection">
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XS</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">S</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">M</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">L</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XL</span>
+                        </div>
+                    </div>
+
+
+                    <div class="size-select" style="display: none;">
                         <label for="sizes">
                             <select name="sizes" id="item-5-sizes">
-                                <option value="none" selected="" disabled="" hidden="">Select a size</option>
+                                <option option value="none" selected disabled hidden>Select a size</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
@@ -362,10 +469,12 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
+
                     <div id="item-5-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
                         <div class="item-ticket"></div>
                     </div>
+
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
                         &nbsp;&nbsp;Back to store
@@ -397,12 +506,34 @@
                     <div class="item-preview-header">
                         <p style="font-size: small; margin-bottom: 0;">THE HABIBI LINE</p>
                         <P style="font-weight: bold; font-size: larger; border: 0; margin: 0;" id="item-6-preview-name">ITEM NAME PLACEHOLDER</P>
-                        <p style="color:lightgray; font-size: small; margin-top: 0;" id="preview-item-6-price">??? USD</p>
+                        <p style="color:lightgray; font-size: small; margin: 0;" id="preview-item-6-price">??? USD</p>
                     </div>
-                    <div class="size-select">
+
+                    <p class="size-select-helper">Please select a size</p>
+
+                    <div class="item-size-selection">
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XS</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">S</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">M</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">L</span>
+                        </div>
+                        <div class="square-container" onclick="selectSize(this)">
+                            <span class="centered-character">XL</span>
+                        </div>
+                    </div>
+
+
+                    <div class="size-select" style="display: none;">
                         <label for="sizes">
                             <select name="sizes" id="item-6-sizes">
-                                <option value="none" selected="" disabled="" hidden="">Select a size</option>
+                                <option option value="none" selected disabled hidden>Select a size</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
@@ -414,16 +545,17 @@
                     <div class="item-preview-desc">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia libero fugit repellendus laudantium, iste quis, fuga sint asperiores distinctio non enim voluptatum commodi qui, quod ut! Nisi sit enim rerum.</p>
                     </div>
+
                     <div id="item-6-add2bag" class="add2bag-container">
                         <button class="add2bag-btn" onclick="add2bag(this)">ADD TO BAG</button>
                         <div class="item-ticket"></div>
                     </div>
+
                     <p class="back2store-btn" onclick="returnFromPreview()">
                         <span style="font-weight: bold">&lt;</span>
                         &nbsp;&nbsp;Back to store
                     </p>
-                </div>
-                <div class="flex-break"></div>
+                <div class="flex-break"></div>     <!-- IMPORTANT -->
             </div>
         </div>
         <div id="about-container">

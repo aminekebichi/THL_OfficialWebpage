@@ -2,8 +2,14 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
+const fs = require('fs')
 const cors = require('cors')
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
+
+
+app.set('view engine', 'ejs')
 app.use(express.json())
+app.use(express.static('public'))
 app.use(
     cors({
         origin: 'http://localhost:5501',
@@ -11,8 +17,6 @@ app.use(
 )
 // app.use(express.static('public'))
 
-const stripe = require('stripe')(process.env.
-    STRIPE_PRIVATE_KEY)
 
 const storeItems = new Map([
     [1, {priceInCents: 10000, name: 'Item-1 Placeholder'}],
@@ -49,5 +53,18 @@ app.post('/create-checkout-session', async (req, res) => {
         res.status(500).json({ error: e.message })
     }
 })
+
+app.get('/store', function(req, res) {
+    fs.readFile('items.json', function(error, data) {
+      if (error) {
+        res.status(500).end()
+      } else {
+        res.render('index.ejs', {
+          stripePublicKey: process.env.STRIPE_PRIVATE_KEY, //need to change to public
+          items: JSON.parse(data)
+        })
+      }
+    })
+  })
 
 app.listen(3000)
