@@ -495,7 +495,7 @@ body #online-site #home #shop-btn:hover {
 }
 body #online-site #shop-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -544,6 +544,7 @@ body #online-site #shop-container #shop .item .color-selection {
   position: absolute;
   bottom: 0;
   margin-bottom: 20px;
+  transition: 0.6s;
 }
 body #online-site #shop-container #shop .item .color-selection .color-selector {
   width: 12px;
@@ -563,12 +564,11 @@ body #online-site #shop-container #shop .item .color-selection #color-selector-3
   background-color: red;
 }
 body #online-site #shop-container #shop .item .item-desc {
-  height: auto;
   width: 100%;
   margin-top: 20px;
   max-height: 10px !important;
-  opacity: 0;
   transition: 0.6s;
+  z-index: 3;
 }
 body #online-site #shop-container #shop .item .item-desc .item-name, body #online-site #shop-container #shop .item .item-desc .item-price, body #online-site #shop-container #shop .item .item-desc .item-sizing {
   margin-left: 40px;
@@ -595,29 +595,36 @@ body #online-site #shop-container #shop .item .item-sizing {
   font-size: 18px;
 }
 body #online-site #shop-container #shop .item .arrows {
-  position: relative;
-  margin: 50% 0;
+  display: flex;
+  transform: translateY(-69px);
+  align-items: center;
+  justify-content: center;
   color: #191816;
   width: 100%;
+  height: 100%;
   opacity: 0;
   transition: 0.6s;
-  transform: translateY(-40px);
 }
 body #online-site #shop-container #shop .item .arrows .left-arrow, body #online-site #shop-container #shop .item .arrows .right-arrow {
+  position: absolute;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
   font-weight: 700;
+  height: 100%;
+  margin: 0;
+  padding: 0 40px;
+  text-align: center;
+}
+body #online-site #shop-container #shop .item .arrows .left-arrow .chevron, body #online-site #shop-container #shop .item .arrows .right-arrow .chevron {
+  display: block;
+  transform: translateY(360px);
 }
 body #online-site #shop-container #shop .item .arrows .left-arrow {
-  position: absolute;
   left: 0;
-  margin-left: 40px;
   cursor: pointer;
 }
 body #online-site #shop-container #shop .item .arrows .right-arrow {
-  position: absolute;
   right: 0;
-  margin-right: 40px;
   cursor: pointer;
 }
 body #online-site #shop-container #shop .item .preview-btn {
@@ -649,10 +656,7 @@ body #online-site #shop-container #shop #item-1, body #online-site #shop-contain
   transition: 0.6s;
   display: block;
 }
-body #online-site #shop-container #shop #item-1:hover .item-desc, body #online-site #shop-container #shop #item-1:hover .arrows, body #online-site #shop-container #shop #item-1:hover .preview-btn, body #online-site #shop-container #shop #item-2:hover .item-desc, body #online-site #shop-container #shop #item-2:hover .arrows, body #online-site #shop-container #shop #item-2:hover .preview-btn, body #online-site #shop-container #shop #item-3:hover:hover .item-desc, body #online-site #shop-container #shop #item-3:hover:hover .arrows, body #online-site #shop-container #shop #item-3:hover:hover .preview-btn, body #online-site #shop-container #shop #item-4:hover .item-desc, body #online-site #shop-container #shop #item-4:hover .arrows, body #online-site #shop-container #shop #item-4:hover .preview-btn, body #online-site #shop-container #shop #item-5:hover .item-desc, body #online-site #shop-container #shop #item-5:hover .arrows, body #online-site #shop-container #shop #item-5:hover .preview-btn, body #online-site #shop-container #shop #item-6:hover .item-desc, body #online-site #shop-container #shop #item-6:hover .arrows, body #online-site #shop-container #shop #item-6:hover .preview-btn {
-  opacity: 1;
-}
-body #online-site #shop-container #shop #item-1:hover .preview-btn:hover, body #online-site #shop-container #shop #item-2:hover .preview-btn:hover, body #online-site #shop-container #shop #item-3:hover:hover .preview-btn:hover, body #online-site #shop-container #shop #item-4:hover .preview-btn:hover, body #online-site #shop-container #shop #item-5:hover .preview-btn:hover, body #online-site #shop-container #shop #item-6:hover .preview-btn:hover {
+body #online-site #shop-container #shop #item-1:hover .arrows, body #online-site #shop-container #shop #item-1:hover .preview-btn, body #online-site #shop-container #shop #item-2:hover .arrows, body #online-site #shop-container #shop #item-2:hover .preview-btn, body #online-site #shop-container #shop #item-3:hover:hover .arrows, body #online-site #shop-container #shop #item-3:hover:hover .preview-btn, body #online-site #shop-container #shop #item-4:hover .arrows, body #online-site #shop-container #shop #item-4:hover .preview-btn, body #online-site #shop-container #shop #item-5:hover .arrows, body #online-site #shop-container #shop #item-5:hover .preview-btn, body #online-site #shop-container #shop #item-6:hover .arrows, body #online-site #shop-container #shop #item-6:hover .preview-btn {
   opacity: 1;
 }
 body #online-site #shop-container #shop .item-preview {
