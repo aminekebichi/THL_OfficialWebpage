@@ -1,5 +1,5 @@
 var dropDate = new Date("Nov 18, 2022 18:00:00").getTime();
-dropDate = new Date("Jul 7, 2023 16:52:00").getTime();
+dropDate = new Date("Oct 5, 2023 15:41:00").getTime();
 var sitelive = true;
 var displaysite = false;
 

@@ -100,6 +100,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:801px) and (max-width: 959px) {
+    #offline-logo{
+        width: 80vw;
+    }
+
     .item-size-selection{
         justify-content: center;
     }
@@ -182,6 +186,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:769px) and (max-width: 800px) {
+    #offline-logo{
+        width: 80vw;
+    }
+
     .item-size-selection{
         justify-content: center;
     }
@@ -268,6 +276,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:569px) and (max-width: 768px) {
+    #offline-logo{
+        width: 80vw;
+    }
+
     .item-size-selection{
         justify-content: center;
     }
@@ -366,6 +378,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:481px) and (max-width: 568px) {
+    #offline-logo{
+        width: 80vw;
+    }
+
     .item-size-selection{
         justify-content: center;
     }
@@ -465,6 +481,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:321px) and (max-width: 480px) {
+    #offline-logo{
+        width: 80vw;
+    }
+
     .item-size-selection{
         justify-content: center;
     }
@@ -568,6 +588,10 @@ $imageRatio: 1.45; //ratio = height/width
 }
 
 @media all and (min-width:0px) and (max-width: 320px) {
+    #offline-logo{
+        width: 80vw;
+    }
+
     .item-size-selection{
         justify-content: center;
     }

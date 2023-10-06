@@ -573,11 +573,14 @@ body{
         }
 
         #user-bag{
-            transform: scale(45%);
+            // transform: scale(45%);
+            filter: invert(100%);
+
+            width: 40px;
+            margin: 28px 40px;
             position: fixed;
             right: 0;
-            margin: 5px;
-            padding-top: 35px;
+            padding-top: 0;
 
             cursor: pointer;
             z-index: 105;
@@ -585,13 +588,13 @@ body{
             transition: 0.6s;
         }
         #user-bag:hover{
-            transform: scale(50%);
+            transform: scale(105%);
         }
 
         #user-bag-qty{
             position: fixed;
             right: 0;
-            margin: 60px 60px;
+            margin: 70px 70px;
             font-family: $secondary-font;
 
             font-size: 12px;
@@ -607,7 +610,7 @@ body{
 
             width: 16px;
             padding: 3px;
-            margin-top: 85px;
+            margin-top: 60px;
         }
 
         #user-bag-qty-animation{
@@ -615,7 +618,7 @@ body{
 
             position: fixed;
             right: 0;
-            margin: 0 58px;
+            margin: 70px 68px;
             font-family: $secondary-font;
 
             font-size: 12px;
@@ -634,21 +637,19 @@ body{
             width: 16px;
             
             padding: 3px;
-            margin-top: 82px;
+            margin-top: 57px;
 
             transition: 0.5s;
         }
 
         #home{
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
 
-            height: 100%;
-
+            height: 100vh;
             z-index: 1;
-
             transition: 0.6s;
 
             #home-hider{
@@ -658,13 +659,27 @@ body{
                 background: none;
                 z-index: 103;
 
-                transform: translateY(-40px);
+                transform: translateY(-30px);
+            }
+
+            .flex-break {
+                flex-basis: 100%;
+                height: 0;
             }
 
             #thl-logo{
-                // margin-top: 40px;
+                opacity: 100%;
+                width: 1200px !important;
+
+                // flex-basis: 50%;
+
+                transform: scale(0.25);
+                filter: invert(100%);
+
+                margin: 0;
+                padding: 0;
                 position: fixed;
-                top: 45%;
+                top: 40%;
 
                 z-index: 103;
                 cursor: pointer;
@@ -672,10 +687,14 @@ body{
                 transition: 0.6s;
             }
 
-            #shop-btn{            
+            #shop-btn{
                 padding: 18px 40px;
+                margin: 0;
+                width: 200px;
                 // margin-top: 30px;
                 // border-radius: 3px;
+
+                top: 0;
 
                 font-family: $primary-font;
                 font-size: 16px;
@@ -1206,7 +1225,7 @@ body{
                 font-family: $secondary-font;
                 opacity: 0;
 
-                width: 50%;
+                width: 30%;
                 font-size: 16px;
                 letter-spacing: 0.1rem;
                 

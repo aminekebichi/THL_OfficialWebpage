@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THL&#8482; US Official Site</title>
+    <title>WLH&#8482; US Official Site</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="mobile_styles.css">
-    <link rel="stylesheet" href="checkout_form.css">
     <link rel="stylesheet" href="toast_notifications.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
 
     <!-- SCRIPTS -->
     <script src="index.js"></script>
     <script src="item-carousel.js"></script>
-    <script src="emailform.js"></script>
-    <!-- <script src="script.js" defer></script> -->
+    <script src="https://checkout.stripe.com/checkout.js" defer></script>
 </head>
 <body>
     <div id="offline-site">
         <div id="temp"></div>
         <!-- <img id="offline-logo" src="/client/imgs/THL_OfflineLogo(new).png"> -->
         <div id="offline-msg">
-            <img id="offline-logo" src="imgs/THL_OfflineLogo(new).png">
+            <img id="offline-logo" src="imgs/WLH_OfficialLogo.png">
             <p id="countdown">&nbsp;</p>
             <!-- <p>While you're here... join our email list to be notified for future events and when we go live!</p>
             <form id="email-form" class="email-inputform" onsubmit="submitEmail(); return false;">
@@ -38,8 +36,8 @@
     </div>
     
     <div id="online-site">
-        <div id="top-banner" class="animate__animated animate__slideInRight">
-            <div id="scroll-text"><span style="margin-right: 25vw;">THL FW 2024 DROP IS NOW LIVE</span><span style="margin-right: 25vw;">THL FW 2024 DROP EST MAINTENANT DISPONIBLE</span><span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;">مفتوح الآن </span>THL 2024<span style="font-size: 16px; font-weight: 500; font-family: 'Times New Roman', Times, serif;"> سوق خريف/شتاء</span></div>
+        <div id="top-banner" class="animate__animated animate__slideInRight" style="position: relative;">
+            <div id="scroll-text"><span style="margin-right: 25vw;">WLH FW 2024 COLLECTION IS NOW AVAILABLE</span><span style="margin-right: 25vw;">WLH FW 2024 NOUVELLE COLLECTION EST MAINTENANT DISPONIBLE</span><span style="font-size: 16px">موجودة الآن</span> WLH 2024 <span style="font-size: 16px">كولكشن جديدة</span></div>
         </div>
 
         <ul class="notifications"></ul>
@@ -107,14 +105,14 @@
         </div>
     
         <div id="user-bag" onclick="triggerBag();">
-            <img src="imgs/bag-icon.png">
+            <img src="imgs/bagIcon.svg">
         </div>
         <p id="user-bag-qty" onclick="triggerBag()">0</p>
         <p id="user-bag-qty-animation"></p>
     
         <div id="home">
-            <div id="home-hider"></div>
-            <img id="thl-logo" src="imgs/THL_OriginalLogo.png" onclick="triggerShop()">
+            <!-- <div id="home-hider"></div> -->
+            <img id="thl-logo" src="imgs/WLH_OfficialLogo.svg" onclick="triggerShop()">
             <button id="shop-btn" onclick="triggerShop();">SHOP NOW</button>
         </div>
         
@@ -134,7 +132,7 @@
                         <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;"><span class="chevron">&#8592;</span></p>
                         <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;"><span class="chevron">&#8594;</span></p>
                     </div>
-                    <!-- <button class="preview-btn" onclick="previewItem(this)">VIEW</button> -->
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
                     <div class="pointer-event-blocker-top" onclick="event.stopPropagation();"></div>
                     <div class="pointer-event-blocker-bottom" onclick="event.stopPropagation();"></div>
                     <div class="color-selection">
@@ -196,7 +194,7 @@
                         <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;"><span class="chevron">&#8592;</span></p>
                         <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;"><span class="chevron">&#8594;</span></p>
                     </div>
-                    <!-- <button class="preview-btn" onclick="previewItem(this)">VIEW</button> -->
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
 
                     <div class="pointer-event-blocker-top" onclick="event.stopPropagation();"></div>
                     <div class="pointer-event-blocker-bottom" onclick="event.stopPropagation();"></div>                    <div class="color-selection">
@@ -279,7 +277,7 @@
                         <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;"><span class="chevron">&#8592;</span></p>
                         <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;"><span class="chevron">&#8594;</span></p>
                     </div>
-                    <!-- <button class="preview-btn" onclick="previewItem(this)">VIEW</button> -->
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
 
                     <div class="pointer-event-blocker-top" onclick="event.stopPropagation();"></div>
                     <div class="pointer-event-blocker-bottom" onclick="event.stopPropagation();"></div>                    <div class="color-selection">
@@ -362,7 +360,7 @@
                         <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;"><span class="chevron">&#8592;</span></p>
                         <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;"><span class="chevron">&#8594;</span></p>
                     </div>
-                    <!-- <button class="preview-btn" onclick="previewItem(this)">VIEW</button> -->
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
 
                     <div class="pointer-event-blocker-top" onclick="event.stopPropagation();"></div>
                     <div class="pointer-event-blocker-bottom" onclick="event.stopPropagation();"></div>                    <div class="color-selection">
@@ -445,7 +443,7 @@
                         <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;"><span class="chevron">&#8592;</span></p>
                         <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;"><span class="chevron">&#8594;</span></p>
                     </div>
-                    <!-- <button class="preview-btn" onclick="previewItem(this)">VIEW</button> -->
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
 
                     <div class="pointer-event-blocker-top" onclick="event.stopPropagation();"></div>
                     <div class="pointer-event-blocker-bottom" onclick="event.stopPropagation();"></div>                    <div class="color-selection">
@@ -528,7 +526,7 @@
                         <p class="left-arrow" onclick="event.stopPropagation(); leftArrow(this)" style="float: left; position: absolute;"><span class="chevron">&#8592;</span></p>
                         <p class="right-arrow" onclick="event.stopPropagation(); rightArrow(this)" style="float: right;"><span class="chevron">&#8594;</span></p>
                     </div>
-                    <!-- <button class="preview-btn" onclick="previewItem(this)">VIEW</button> -->
+                    <button class="preview-btn" onclick="previewItem(this)">VIEW</button>
 
                     <div class="pointer-event-blocker-top" onclick="event.stopPropagation();"></div>
                     <div class="pointer-event-blocker-bottom" onclick="event.stopPropagation();"></div>                    <div class="color-selection">
@@ -595,8 +593,8 @@
         </div>
         <div id="about-container">
             <div id="about">
-                <p id="about-header">"The high fashion arabic streetwear house"</p>
-                <p>At THL, we strongly believe in the power of self-expression and individualism. We draw inspiration from the rich and vibrant culture of North Africa and the Arab world, and our clothing embodies the creativity and uniqueness of our people. We encourage everyone to embrace their individuality and express themselves confidently despite the boundaries set by their surroundings. With our bold designs, we strive to empower our customers to stand out and spread our message wherever they go.</p>
+                <p id="about-header">"The high fashion Arabic streetwear house"</p>
+                <p>At WLH, we strongly believe in the power of self-expression and individualism. We draw inspiration from the rich and vibrant culture of North Africa and the Arab world, and our clothing embodies the creativity and uniqueness of our people. We encourage everyone to embrace their individuality and express themselves confidently despite any boundaries set by their surroundings. With our bold designs, we strive to empower our customers to stand out and spread our message wherever they go.</p>
                 <!-- <p>We are a street wear clothing line that aims to embody the artistic styles present within the arabic world and bring them to the forefront of western fashion.</p> -->
                 <span id="dissapointment">
                     <p><br>Dissapointing our 1st-gen parents one garment at a time <3</p>

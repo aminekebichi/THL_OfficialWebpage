@@ -41,6 +41,26 @@ function triggerStripe(){
         })
 }
 
+function getItemID(item_num, item_size){
+    let start_id = 0;
+    switch(item_num){
+        case 1: start_id = 1;
+            break;
+        case 2: start_id = 2;
+            break;
+        case 3: start_id = 7;
+            break;
+        case 4: start_id = 12;
+            break;
+        case 5: start_id = 17;
+            break;
+        case 6: start_id = 22;
+            break;
+    }
+
+    return (start_id + Math.max(getItemSizeIndex(item_size), 0))
+}
+
 function getItemsForStripe(){
     console.log('getting items for stripe');
 
@@ -48,7 +68,7 @@ function getItemsForStripe(){
 
     for(let i = 0; i < currentBag.length; i++){
         let item = {
-            id: currentBag[i][0],
+            id: getItemID(currentBag[i][0], currentBag[i][1]),
             quantity: currentBag[i][2]
         }
         res.push(item);
@@ -283,7 +303,7 @@ function updateBag(){
         console.log('EMPTY BAG!');
         document.getElementById('empty-bag-msg').style.opacity = "1";
         document.getElementById('checkout-btn').style.opacity = "0.5";
-        hideCheckout();
+        
         
         document.getElementById('checkout-btn').title = "Checkout unavailable while cart is empty";
     } else {
@@ -413,7 +433,7 @@ function resetStore(){
     updateBag();
 
     setTimeout(() => {
-        hideCheckout();
+        
     }, 2000);
     setTimeout(() => {
         hideBag();
@@ -791,7 +811,7 @@ function hideBag(){
     document.getElementById("bag-flyout").style.transform = `translateX(`+flyoutWidth+`)`;
     bag_open = false;
 
-    hideCheckout();
+    
 }
 
 function testBagBeforeCheckout(){
@@ -907,23 +927,23 @@ function goTop(){
 }
 
 function triggerHome(){
-    hideBag(); hideCheckout(); hideAbout(); hideShop(); hideContact(); showHome(); restoreItemsOnClick();
+    hideBag(); hideAbout(); hideShop(); hideContact(); showHome(); restoreItemsOnClick();
 }
 
 function triggerAbout(){
-    hideBag(); hideCheckout(); hideHome(); hideShop(); hideContact(); showAbout(); restoreItemsOnClick();
+    hideBag(); hideHome(); hideShop(); hideContact(); showAbout(); restoreItemsOnClick();
 }
 
 function triggerShop(){
-    hideBag(); hideHome(); hideAbout(); hideContact(); hideCheckout(); hideContact(); returnFromPreview(); resetCarousel(); goTop(); showShop();
+    hideBag(); hideHome(); hideAbout(); hideContact();  hideContact(); returnFromPreview(); resetCarousel(); goTop(); showShop();
 }
 
 function triggerContact(){
-    hideBag(); hideCheckout(); hideHome(); hideAbout(); hideShop(); showContact(); restoreItemsOnClick();
+    hideBag(); hideHome(); hideAbout(); hideShop(); showContact(); restoreItemsOnClick();
 }
 
 function showHome(){
-    document.getElementById("home-hider").style.display = "";
+    // document.getElementById("home-hider").style.display = "";
     document.getElementById("home").style.display = "";
     document.getElementById("shop-btn").style.display = "";
     document.body.style.overflowY = "hidden";
@@ -938,8 +958,8 @@ function showHome(){
 }
 
 function hideHome(){
-    document.getElementById("home-hider").style.display = "none";
-    document.getElementById("thl-logo").style.marginTop = "75px";
+    // document.getElementById("home-hider").style.display = "none";
+    document.getElementById("thl-logo").style.margin = "20px 0";
     document.getElementById("thl-logo").style.top = "0";
     document.getElementById("shop-btn").style.opacity = "0";
     setTimeout(() => {

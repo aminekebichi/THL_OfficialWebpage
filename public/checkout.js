@@ -7,12 +7,6 @@ function printCartToConsole(){
     console.log(currentBag);
     console.log('subtotal: $' + getBagTotal());
 }
-
-// function triggerCheckout(){
-//     if(checkoutVisible){ hideCheckout(); }
-//     else { showCheckout(); }
-// }
-
 function showCheckout(){
     console.log('CHECKOUT------------------------------------------------------');
     if(getBagSize() == 0){
@@ -46,15 +40,4 @@ function showCheckout(){
         checkoutVisible = true;
       }
 
-}
-
-function hideCheckout(){
-    // document.getElementById('paypal-hider').style.height = "100vh";
-
-    // setTimeout(() => {
-    //     document.getElementById('paypal-hider').style.display = "none";
-    //     document.getElementById('paypal-container').style.display = "none";
-    // }, 1400);
-
-    checkoutVisible = false;
 }

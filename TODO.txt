@@ -19,10 +19,11 @@ GENERAL
 ---------------------------------------------------------
 - Need to add SUCCESS page for positive server response     !!IMPORTANT
 at checkout 
+    - Generate email for successful purchase confirmation   !!IMPORTANT
 - Need to store session info (cookies)                      !!IMPORTANT
 - Need to add item IMAGES to stripe server                  !!IMPORTANT
-- Generate email for purchase confirmation                  !!IMPORTANT
 - Add color selector to items
+    - DONE!
 - Setup backend for inventory tracking (see availableSizes 
 variable in index.js)
 

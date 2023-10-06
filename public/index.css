@@ -405,22 +405,23 @@ body #online-site #bag-flyout::-webkit-scrollbar {
   display: none;
 }
 body #online-site #user-bag {
-  transform: scale(45%);
+  filter: invert(100%);
+  width: 40px;
+  margin: 28px 40px;
   position: fixed;
   right: 0;
-  margin: 5px;
-  padding-top: 35px;
+  padding-top: 0;
   cursor: pointer;
   z-index: 105;
   transition: 0.6s;
 }
 body #online-site #user-bag:hover {
-  transform: scale(50%);
+  transform: scale(105%);
 }
 body #online-site #user-bag-qty {
   position: fixed;
   right: 0;
-  margin: 60px 60px;
+  margin: 70px 70px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 12px;
   text-align: center;
@@ -431,13 +432,13 @@ body #online-site #user-bag-qty {
   z-index: 105;
   width: 16px;
   padding: 3px;
-  margin-top: 85px;
+  margin-top: 60px;
 }
 body #online-site #user-bag-qty-animation {
   opacity: 0%;
   position: fixed;
   right: 0;
-  margin: 0 58px;
+  margin: 70px 68px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 12px;
   text-align: center;
@@ -449,15 +450,15 @@ body #online-site #user-bag-qty-animation {
   height: 16px;
   width: 16px;
   padding: 3px;
-  margin-top: 82px;
+  margin-top: 57px;
   transition: 0.5s;
 }
 body #online-site #home {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 100%;
+  height: 100vh;
   z-index: 1;
   transition: 0.6s;
 }
@@ -466,17 +467,30 @@ body #online-site #home #home-hider {
   height: 63px;
   background: none;
   z-index: 103;
-  transform: translateY(-40px);
+  transform: translateY(-30px);
+}
+body #online-site #home .flex-break {
+  flex-basis: 100%;
+  height: 0;
 }
 body #online-site #home #thl-logo {
+  opacity: 100%;
+  width: 1200px !important;
+  transform: scale(0.25);
+  filter: invert(100%);
+  margin: 0;
+  padding: 0;
   position: fixed;
-  top: 45%;
+  top: 40%;
   z-index: 103;
   cursor: pointer;
   transition: 0.6s;
 }
 body #online-site #home #shop-btn {
   padding: 18px 40px;
+  margin: 0;
+  width: 200px;
+  top: 0;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 16px;
   letter-spacing: 0.1rem;
@@ -840,7 +854,7 @@ body #online-site #about-container, body #online-site #contact-container {
 body #online-site #about-container #about, body #online-site #about-container #contact, body #online-site #contact-container #about, body #online-site #contact-container #contact {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   opacity: 0;
-  width: 50%;
+  width: 30%;
   font-size: 16px;
   letter-spacing: 0.1rem;
   color: white;
