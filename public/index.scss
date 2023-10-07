@@ -280,7 +280,7 @@ body{
         }
     }
 
-    #online-site{
+    #online-site {
         display: none;
         width: 100%;
         height: 100%;
@@ -294,7 +294,7 @@ body{
             position: relative;
         }
 
-        #checkout-bg{
+        #checkout-bg {
             position: fixed;
 
             width: 100%;
@@ -307,7 +307,7 @@ body{
             z-index: 100;
         }
 
-        #bag-flyout{
+        #bag-flyout {
             position: fixed;
             right: 0;
 
@@ -329,7 +329,7 @@ body{
 
             transition: 0.6s;
 
-            #empty-bag-msg{
+            #empty-bag-msg {
                 position: fixed;
                 margin-left: 26%;
                 margin-top: 35vh;
@@ -577,7 +577,7 @@ body{
             filter: invert(100%);
 
             width: 40px;
-            margin: 28px 40px;
+            margin: 65px 40px;
             position: fixed;
             right: 0;
             padding-top: 0;
@@ -594,7 +594,7 @@ body{
         #user-bag-qty{
             position: fixed;
             right: 0;
-            margin: 70px 70px;
+            margin: 0 70px;
             font-family: $secondary-font;
 
             font-size: 12px;
@@ -610,7 +610,7 @@ body{
 
             width: 16px;
             padding: 3px;
-            margin-top: 60px;
+            margin-top: 100px;
         }
 
         #user-bag-qty-animation{
@@ -637,7 +637,7 @@ body{
             width: 16px;
             
             padding: 3px;
-            margin-top: 57px;
+            margin-top: 97px;
 
             transition: 0.5s;
         }

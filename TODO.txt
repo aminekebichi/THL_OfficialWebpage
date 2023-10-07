@@ -15,6 +15,11 @@ GENERAL
      > La Chemise (t-shirt, djellaba inspired)
      > Some kind of pants?  Linen? Carpenter? Courdoroy?
 
+10.05
+---------------------------------------------------------
+- Add 'see translation' button to ABOUT section & french/english
+version that can be accessed onclick
+
 07.11
 ---------------------------------------------------------
 - Need to add SUCCESS page for positive server response     !!IMPORTANT

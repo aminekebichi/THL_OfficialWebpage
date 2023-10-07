@@ -765,10 +765,13 @@ function previewItem6(){
 
         document.getElementById("item-6-preview").style.display = "block";
 
+        document.getElementById("shop").style.paddingTop = "240px";
         document.getElementById("shop").style.columnGap = "50px";
         document.getElementById("shop").style.rowGap = "50px";
-        document.getElementById("shop").style.opacity = "1";
     }, 600);
+    setTimeout(() => {
+        document.getElementById("shop").style.opacity = "1";
+    }, 900);
 
 }
 
@@ -888,6 +891,7 @@ function returnFromPreview(){
     document.getElementById("shop").style.opacity = "0";
 
     setTimeout(() => {
+        document.getElementById("shop").style.paddingTop = "140px";
         document.getElementById("shop").style.rowGap = "100px";
         document.getElementById("shop").style.columnGap = "200px";
 

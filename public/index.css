@@ -407,7 +407,7 @@ body #online-site #bag-flyout::-webkit-scrollbar {
 body #online-site #user-bag {
   filter: invert(100%);
   width: 40px;
-  margin: 28px 40px;
+  margin: 65px 40px;
   position: fixed;
   right: 0;
   padding-top: 0;
@@ -421,7 +421,7 @@ body #online-site #user-bag:hover {
 body #online-site #user-bag-qty {
   position: fixed;
   right: 0;
-  margin: 70px 70px;
+  margin: 0 70px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 12px;
   text-align: center;
@@ -432,7 +432,7 @@ body #online-site #user-bag-qty {
   z-index: 105;
   width: 16px;
   padding: 3px;
-  margin-top: 60px;
+  margin-top: 100px;
 }
 body #online-site #user-bag-qty-animation {
   opacity: 0%;
@@ -450,7 +450,7 @@ body #online-site #user-bag-qty-animation {
   height: 16px;
   width: 16px;
   padding: 3px;
-  margin-top: 57px;
+  margin-top: 97px;
   transition: 0.5s;
 }
 body #online-site #home {
